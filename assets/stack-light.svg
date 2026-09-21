@@ -41,14 +41,14 @@
     <!-- layer 4 -->
     <rect x="40" y="376" width="820" height="66" rx="10" fill="#F6F8FA" stroke="#D0D7DE"/>
     <text x="64" y="404" class="t lb">Python backend</text>
-    <text x="64" y="426" class="t sb">collectors, health watchdogs, report builders, mail delivery, rollback logic</text>
+    <text x="64" y="426" class="t sb">collectors, health watchdogs, report builders, mail delivery, panel rendering</text>
     <rect x="700" y="394" width="136" height="28" rx="6" fill="#FFFFFF" stroke="#C2410C" stroke-opacity="0.45"/>
     <text x="768" y="412" class="m cp" text-anchor="middle">Python 3</text>
 
     <!-- layer 5 -->
     <rect x="40" y="468" width="820" height="66" rx="10" fill="#F6F8FA" stroke="#D0D7DE"/>
     <text x="64" y="496" class="t lb">FreeBSD</text>
-    <text x="64" y="518" class="t sb">ifconfig · SFF/DOM transceiver registers · LCDproc · SMTP · boot-time recovery</text>
+    <text x="64" y="518" class="t sb">ifconfig · SFF/DOM transceiver registers · LCDproc · SMTP</text>
     <rect x="700" y="486" width="136" height="28" rx="6" fill="#FFFFFF" stroke="#C2410C" stroke-opacity="0.45"/>
     <text x="768" y="504" class="m cp" text-anchor="middle">system layer</text>
   </g>
