@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Abdelmonem Awad">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F6F8FA"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.1" fill="#0D1117" opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" rx="14" fill="url(#bg)"/>
+  <rect width="1200" height="300" rx="14" fill="url(#dots)"/>
+
+  <g fill="none" stroke="#C2410C" stroke-width="1.5">
+    <path d="M962 66 L1082 108 L962 150 L842 108 Z" opacity="0.95"/>
+    <path d="M962 112 L1082 154 L962 196 L842 154 Z" opacity="0.55"/>
+    <path d="M962 158 L1082 200 L962 242 L842 200 Z" opacity="0.3"/>
+  </g>
+  <path d="M962 66 L1082 108 L962 150 L842 108 Z" fill="#C2410C" opacity="0.07"/>
+
+  <rect x="80" y="96" width="4" height="108" rx="2" fill="#C2410C"/>
+  <text x="108" y="140" font-family="ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif" font-size="54" font-weight="700" fill="#0D1117" letter-spacing="-1">Abdelmonem Awad</text>
+  <text x="110" y="182" font-family="ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif" font-size="22" font-weight="500" fill="#57606A">Self-hosted tools for machines that run unattended</text>
+  <text x="110" y="216" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="15" fill="#6E7781">FilaMind &#183; OPNsense &#183; Odoo &#183; iOS &amp; Android &#183; Arabic &amp; RTL</text>
+</svg>
