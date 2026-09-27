@@ -4,7 +4,7 @@
   <img src="assets/banner-light.svg" alt="Abdelmonem Awad — self-hosted tools for machines that run unattended" width="100%">
 </picture>
 
-Hi, I'm Abdelmonem. I build self-hosted software for hardware that is supposed to look after itself: a control suite for Klipper 3D printers, plugins for OPNsense firewalls, local LLM serving on Synology hardware, Odoo modules, and iOS and Android apps.
+Hi, I'm Abdelmonem. I build self-hosted software for hardware that is supposed to look after itself: a control suite for Klipper 3D printers, plugins and experimental drivers for OPNsense firewalls, local LLM serving on Synology hardware, Odoo modules, and iOS and Android apps.
 
 Most of it is Python and TypeScript. Almost all of it ships in Arabic as well as English, because the people running this hardware do not all read English.
 
@@ -32,11 +32,12 @@ Most of it is Python and TypeScript. Almost all of it ships in Arabic as well as
 
 ## OPNsense plugins
 
-Three plugins, BSD-2 licensed like the platform itself and packaged as FreeBSD ports.
+Four plugins, BSD-2 licensed like the platform itself and packaged as FreeBSD ports.
 
 - **[os-linkhealth](https://github.com/AbdelmonemAwad/os-linkhealth)** — watches every physical port and names the cable or transceiver that is going bad, by the label printed on the chassis rather than the interface name. It reads the DOM registers on the transceivers, so the warning arrives before the link actually drops.
 - **[os-netreport](https://github.com/AbdelmonemAwad/os-netreport)** — scheduled network reports by email, and an alert the first time an unknown device shows up. Each report is written in whichever language the GUI is set to.
 - **[os-frontpanel](https://github.com/AbdelmonemAwad/os-frontpanel)** — drives the LCD and buttons built into an appliance's front panel through LCDproc, with the screens and their timing set from the GUI instead of a config file on disk.
+- **[os-fanctl](https://github.com/AbdelmonemAwad/os-fanctl)** — fan control and every readable temperature sensor, for repurposed appliances whose fan curve left with the vendor firmware. Talks to the Super I/O chip directly.
 
 They share one shape:
 
@@ -47,6 +48,12 @@ They share one shape:
 </picture>
 
 Volt templates and PHP for the interface, the model in XML, configd actions in the middle, and Python doing the real work against FreeBSD. Following that layout instead of inventing my own is what lets the plugins get backed up, upgraded and translated like every other part of the system.
+
+## FreeBSD drivers
+
+**[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** drives the network coprocessors that own the front ports on Sophos XGS appliances, from a FreeBSD kernel module written against registers no vendor documents. On an XGS 136 (Marvell CN9131) all fourteen front ports come up; on an XGS 3300 (Cavium OCTEON TX) the host-to-coprocessor management link does. Two appliances on the bench, four more families documented but not supported.
+
+It is experimental and the repository says so loudly: writing to an undocumented PCIe coprocessor from a kernel module of my own making has wedged the bench hardware hard enough to need a power cycle by hand, more than once. Run it on nothing you depend on.
 
 ## Odoo
 
@@ -73,7 +80,7 @@ A fair amount of my work stays in private repositories: the Odoo projects built 
 
 ## What I use
 
-Python for backends, plugins and media pipelines. TypeScript and Vue 3 for every FilaMind front end, React on cadenza. PHP and Volt because that is what an OPNsense interface is written in. Rust where a Tauri shell needs it, and C only where a local inference build does.
+Python for backends, plugins and media pipelines. TypeScript and Vue 3 for every FilaMind front end, React on cadenza. PHP and Volt because that is what an OPNsense interface is written in. Rust where a Tauri shell needs it, and C for the kernel-side work: the XGS driver, the Super I/O access in the fan controller, and the local inference build in filamind-ai.
 
 Underneath: FreeBSD and its ports tree, Synology DSM 7, Docker, FastAPI, Vite, Tailwind, gettext, and GitHub Actions for CI and releases. At the hardware end: SFP/SFF DOM registers, HD44780 panels through LCDproc, TMC stepper drivers, and CUDA when there is a GPU worth using.
 

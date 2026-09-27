@@ -14,6 +14,8 @@ from datetime import datetime
 
 REPOS = [
     "AbdelmonemAwad/cadenza",
+    "AbdelmonemAwad/os-xgs-npu",
+    "AbdelmonemAwad/os-fanctl",
     "AbdelmonemAwad/os-linkhealth",
     "AbdelmonemAwad/os-netreport",
     "AbdelmonemAwad/os-frontpanel",

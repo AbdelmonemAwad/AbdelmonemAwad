@@ -5,3 +5,4 @@ build_preview.py
 gen_banner.py
 README.toolbox-table.bak
 .claude/
+__pycache__/

@@ -48,7 +48,7 @@
     <!-- layer 5 -->
     <rect x="40" y="468" width="820" height="66" rx="10" fill="#F6F8FA" stroke="#D0D7DE"/>
     <text x="64" y="496" class="t lb">FreeBSD</text>
-    <text x="64" y="518" class="t sb">ifconfig · SFF/DOM transceiver registers · LCDproc · SMTP</text>
+    <text x="64" y="518" class="t sb">ifconfig · SFF/DOM and Super I/O registers · LCDproc · SMTP</text>
     <rect x="700" y="486" width="136" height="28" rx="6" fill="#FFFFFF" stroke="#C2410C" stroke-opacity="0.45"/>
     <text x="768" y="504" class="m cp" text-anchor="middle">system layer</text>
   </g>

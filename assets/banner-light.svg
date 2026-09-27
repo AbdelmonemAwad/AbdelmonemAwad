@@ -22,5 +22,5 @@
   <rect x="80" y="96" width="4" height="108" rx="2" fill="#C2410C"/>
   <text x="108" y="140" font-family="ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif" font-size="54" font-weight="700" fill="#0D1117" letter-spacing="-1">Abdelmonem Awad</text>
   <text x="110" y="182" font-family="ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif" font-size="22" font-weight="500" fill="#57606A">Self-hosted tools for machines that run unattended</text>
-  <text x="110" y="216" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="15" fill="#6E7781">FilaMind &#183; OPNsense &#183; Odoo &#183; iOS &amp; Android &#183; Arabic &amp; RTL</text>
+  <text x="110" y="216" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="15" fill="#6E7781">FilaMind &#183; OPNsense &#183; FreeBSD drivers &#183; Odoo &#183; iOS &amp; Android &#183; Arabic &amp; RTL</text>
 </svg>
