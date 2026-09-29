@@ -6,3 +6,4 @@ gen_banner.py
 README.toolbox-table.bak
 .claude/
 __pycache__/
+gen_npu.py

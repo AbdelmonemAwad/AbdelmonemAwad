@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 662" width="900" height="662" role="img" aria-label="How the Sophos XGS driver reaches the front ports">
+  <defs><style>
+    .t  { font-family: ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif; }
+    .m  { font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    .hd { font-size: 20px; font-weight: 700; fill: #E6EDF3; }
+    .lb { font-size: 19px; font-weight: 650; fill: #E6EDF3; }
+    .sb { font-size: 13px; fill: #8B949E; }
+    .cp { font-size: 11.5px; fill: #F97316; }
+    .kk { font-size: 12px; fill: #6E7681; letter-spacing: 1.6px; }
+  </style></defs>
+  <rect width="900" height="662" rx="14" fill="#0D1117"/>
+  <rect x="40" y="34" width="3" height="20" rx="1.5" fill="#F97316"/>
+  <text x="56" y="51" class="t hd">One box, two computers</text>
+  <text x="56" y="74" class="m kk">SOPHOS XGS 136 &#183; WHAT THE DRIVER TALKS TO</text>
+  <rect x="40" y="100" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="128" class="t lb">OPNsense host</text>
+  <text x="64" y="150" class="t sb">x86 side of the appliance: pf sees every frame, on fourteen ordinary interfaces</text>
+  <rect x="700" y="118" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="136" class="m cp" text-anchor="middle">FreeBSD 15.1</text>
+  <path d="M442 172 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="192" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="220" class="t lb">npuep</text>
+  <text x="64" y="242" class="t sb">kernel module: creates the interfaces, programs the coprocessor, reads the programming back</text>
+  <rect x="700" y="210" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="228" class="m cp" text-anchor="middle">C</text>
+  <path d="M442 264 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="284" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="312" class="t lb">PCIe BAR</text>
+  <text x="64" y="334" class="t sb">five facilities: ctrl handshake, mvmgmt NIC, giu datapath, nwa port state, rpc tables</text>
+  <rect x="700" y="302" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="320" class="m cp" text-anchor="middle">undocumented</text>
+  <path d="M442 356 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="376" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="404" class="t lb">One queue pair</text>
+  <text x="64" y="426" class="t sb">a two-byte tag per frame picks the port: switch ports 0x8000+n, SoC ports 0x0001-0x0004</text>
+  <rect x="700" y="394" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="412" class="m cp" text-anchor="middle">256 descriptors</text>
+  <path d="M442 448 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="468" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="496" class="t lb">Marvell CN9131</text>
+  <text x="64" y="518" class="t sb">a whole computer, boots its own Linux from its own eMMC, owns all fourteen front ports</text>
+  <rect x="700" y="486" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="504" class="m cp" text-anchor="middle">ARMADA</text>
+  <path d="M442 540 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="560" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="588" class="t lb">14 front ports</text>
+  <text x="64" y="610" class="t sb">twelve verified port by port with loopback cables, two SFP cages untested</text>
+  <rect x="700" y="578" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="596" class="m cp" text-anchor="middle">14 / 14 up</text>
+</svg>

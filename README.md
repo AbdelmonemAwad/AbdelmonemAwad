@@ -4,20 +4,29 @@
   <img src="assets/banner-light.svg" alt="Abdelmonem Awad — self-hosted tools for machines that run unattended" width="100%">
 </picture>
 
-Hi, I'm Abdelmonem. I build self-hosted software for hardware that is supposed to look after itself: a control suite for Klipper 3D printers, plugins and experimental drivers for OPNsense firewalls, local LLM serving on Synology hardware, Odoo modules, and iOS and Android apps.
+Hi, I'm Abdelmonem. I build self-hosted software for hardware that is supposed to look after itself — and, lately, drivers for hardware that refuses to be driven at all. Alongside that: a control suite for Klipper 3D printers, plugins for OPNsense firewalls, local LLM serving on Synology hardware, Odoo modules, and iOS and Android apps.
 
 Most of it is Python and TypeScript. Almost all of it ships in Arabic as well as English, because the people running this hardware do not all read English.
 
-## Recently shipped
+## os-xgs-npu — Sophos XGS on FreeBSD
 
-<!-- releases starts -->
-- [**cadenza** v2.11.4-0036](https://github.com/AbdelmonemAwad/cadenza/releases/tag/v2.11.4-0036) — 15 Sep 2026
-- [**filamind-3d** v0.2.1](https://github.com/filamind-app/filamind-3d/releases/tag/v0.2.1) — 23 Jul 2026
-- [**filamind-screen** v0.18.1](https://github.com/filamind-app/filamind-screen/releases/tag/v0.18.1) — 23 Jul 2026
-- [**filamind-core** v0.1.6](https://github.com/filamind-app/filamind-core/releases/tag/v0.1.6) — 23 Jul 2026
-- [**filamind-flow** v1.25.2](https://github.com/filamind-app/filamind-flow/releases/tag/v1.25.2) — 23 Jul 2026
-- [**filamind-ai** v1.4.1](https://github.com/filamind-app/filamind-ai/releases/tag/v1.4.1) — 30 May 2026
-<!-- releases ends -->
+Install OPNsense on a Sophos XGS 136 and it boots to a working firewall with **no network interfaces at all**. The appliance looks like one computer and is two: an x86 host, and a Marvell CN9131 coprocessor behind a PCIe endpoint that owns every front port. Sophos ships Linux drivers only, so the usual verdict on this hardware is e-waste.
+
+It isn't. The coprocessor is a whole computer, booting its own Linux from its own eMMC, waiting to be told a host is present. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel module that tells it — written against registers no vendor documents.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/npu-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/npu-light.svg">
+  <img src="assets/npu-light.svg" alt="How the driver reaches the front ports: OPNsense host, npuep module, PCIe BAR, one queue pair, the CN9131 coprocessor, fourteen front ports" width="100%">
+</picture>
+
+All fourteen front ports carry traffic in both directions, as ordinary FreeBSD interfaces created at boot with nothing typed. Twelve are verified port by port with loopback cables rather than a single ARP exchange; the two SFP cages need fibre I don't have. The port order came out of a disassembly, and the loopback run confirmed it — a frame leaving `npup10` arrived on `npup9`, exactly where the disassembled table said it would.
+
+The result that matters for a firewall: while transmitting out of each port in turn, the sending port's own counter never moved. The coprocessor's internal switch does not forward between front ports behind the host's back, so `pf` is the only forwarder. If it did, traffic would pass between two ports without the firewall ever seeing it.
+
+On an XGS 3300 — Cavium OCTEON TX, different silicon entirely — the host-to-coprocessor management link is up and carries IP; its twelve front ports are untouched. Four further families are described from vendor tables with no hardware here at all, and every row says which is which.
+
+It is experimental, and the repository says so loudly: writing to an undocumented PCIe coprocessor from a kernel module of my own making has wedged the bench hard enough to need a power cycle by hand, more than once. Run it on nothing you depend on.
 
 ## FilaMind — Klipper and Moonraker
 
@@ -49,12 +58,6 @@ They share one shape:
 
 Volt templates and PHP for the interface, the model in XML, configd actions in the middle, and Python doing the real work against FreeBSD. Following that layout instead of inventing my own is what lets the plugins get backed up, upgraded and translated like every other part of the system.
 
-## FreeBSD drivers
-
-**[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** drives the network coprocessors that own the front ports on Sophos XGS appliances, from a FreeBSD kernel module written against registers no vendor documents. On an XGS 136 (Marvell CN9131) all fourteen front ports come up; on an XGS 3300 (Cavium OCTEON TX) the host-to-coprocessor management link does. Two appliances on the bench, four more families documented but not supported.
-
-It is experimental and the repository says so loudly: writing to an undocumented PCIe coprocessor from a kernel module of my own making has wedged the bench hardware hard enough to need a power cycle by hand, more than once. Run it on nothing you depend on.
-
 ## Odoo
 
 Most of my Odoo work is client projects in private repositories: custom modules and business integrations. The public part is the device side, where Odoo has to talk to real hardware.
@@ -85,6 +88,17 @@ Python for backends, plugins and media pipelines. TypeScript and Vue 3 for every
 Underneath: FreeBSD and its ports tree, Synology DSM 7, Docker, FastAPI, Vite, Tailwind, gettext, and GitHub Actions for CI and releases. At the hardware end: SFP/SFF DOM registers, HD44780 panels through LCDproc, TMC stepper drivers, and CUDA when there is a GPU worth using.
 
 Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM serving, or Arabic localization of infrastructure software.
+
+## Recently shipped
+
+<!-- releases starts -->
+- [**cadenza** v2.11.4-0036](https://github.com/AbdelmonemAwad/cadenza/releases/tag/v2.11.4-0036) — 15 Sep 2026
+- [**filamind-3d** v0.2.1](https://github.com/filamind-app/filamind-3d/releases/tag/v0.2.1) — 23 Jul 2026
+- [**filamind-screen** v0.18.1](https://github.com/filamind-app/filamind-screen/releases/tag/v0.18.1) — 23 Jul 2026
+- [**filamind-core** v0.1.6](https://github.com/filamind-app/filamind-core/releases/tag/v0.1.6) — 23 Jul 2026
+- [**filamind-flow** v1.25.2](https://github.com/filamind-app/filamind-flow/releases/tag/v1.25.2) — 23 Jul 2026
+- [**filamind-ai** v1.4.1](https://github.com/filamind-app/filamind-ai/releases/tag/v1.4.1) — 30 May 2026
+<!-- releases ends -->
 
 <!-- Fill this in and remove the comment markers to show it on the profile:
 [![Email](https://img.shields.io/badge/Email-0D1117?style=flat-square&logo=gmail&logoColor=F97316)](mailto:YOUR_EMAIL)
