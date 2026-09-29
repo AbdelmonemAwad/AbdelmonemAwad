@@ -8,11 +8,21 @@ Hi, I'm Abdelmonem. I build self-hosted software for hardware that is supposed t
 
 Most of it is Python and TypeScript. Almost all of it ships in Arabic as well as English, because the people running this hardware do not all read English.
 
-## os-xgs-npu — Sophos XGS on FreeBSD
+## os-xgs-npu — reclaiming a family of firewalls
 
-Install OPNsense on a Sophos XGS 136 and it boots to a working firewall with **no network interfaces at all**. The appliance looks like one computer and is two: an x86 host, and a Marvell CN9131 coprocessor behind a PCIe endpoint that owns every front port. Sophos ships Linux drivers only, so the usual verdict on this hardware is e-waste.
+Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance looks like one computer and is two: an x86 host, and a coprocessor behind a PCIe endpoint that owns every front port. Sophos ships drivers for Linux and for its own OS only, so when support lapses the usual verdict on the hardware is e-waste.
 
-It isn't. The coprocessor is a whole computer, booting its own Linux from its own eMMC, waiting to be told a host is present. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel module that tells it — written against registers no vendor documents.
+The point is not one rescued box. The XGS line spans six coprocessor families, which the vendor's own `xgs-host-startup.sh` tells apart by a single PCI id each — or, for the two families that carry no coprocessor at all, by a string in `/proc/cpuinfo`. Get the protocol right for one family and every assembly in it becomes a general-purpose FreeBSD router. That is a generation of appliances, not a machine.
+
+| Family | Assemblies | Coprocessor | State |
+| :--- | :--- | :--- | :--- |
+| **ARMADA** | AMDA0201 (XGS 126, 136), 0200, 0208, 0224 | Marvell CN9131 | **Working** — fourteen of fourteen front ports on the XGS 136 |
+| **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **In progress** — link and control plane up, the last hop to the host still open |
+| **OCTEON TX2** | AMDA0203, 0204, 0225, 0228 | Cavium OCTEON TX2 | Described from the vendor's binaries; no hardware here |
+| **OCTEON TX2 98XX** | AMDA0205, 0226 | Cavium OCTEON TX2 98XX | Described from the vendor's binaries; no hardware here |
+| **TOPAZ**, **GR** | Atom boards | none | No coprocessor exists — nothing to drive |
+
+**[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel module that talks to them, written against registers no vendor documents.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/npu-dark.svg">
@@ -20,13 +30,30 @@ It isn't. The coprocessor is a whole computer, booting its own Linux from its ow
   <img src="assets/npu-light.svg" alt="How the driver reaches the front ports: OPNsense host, npuep module, PCIe BAR, one queue pair, the CN9131 coprocessor, fourteen front ports" width="100%">
 </picture>
 
-All fourteen front ports carry traffic in both directions, as ordinary FreeBSD interfaces created at boot with nothing typed. Twelve are verified port by port with loopback cables rather than a single ARP exchange; the two SFP cages need fibre I don't have. The port order came out of a disassembly, and the loopback run confirmed it — a frame leaving `npup10` arrived on `npup9`, exactly where the disassembled table said it would.
+### Finished
 
-The result that matters for a firewall: while transmitting out of each port in turn, the sending port's own counter never moved. The coprocessor's internal switch does not forward between front ports behind the host's back, so `pf` is the only forwarder. If it did, traffic would pass between two ports without the firewall ever seeing it.
+On the XGS 136 all fourteen front ports carry traffic in both directions, as ordinary FreeBSD interfaces created at boot with nothing typed. The module programs the coprocessor and reads the programming back before it trusts it.
 
-On an XGS 3300 — Cavium OCTEON TX, different silicon entirely — the host-to-coprocessor management link is up and carries IP; its twelve front ports are untouched. Four further families are described from vendor tables with no hardware here at all, and every row says which is which.
+Twelve of the fourteen are verified port by port with loopback cables rather than a single ARP exchange — an exchange with an outside device proves one path and says nothing about the other eleven. The two SFP cages need fibre I don't have. The port order came out of a disassembly and the loopback run confirmed it: a frame leaving `npup10` arrived on `npup9`, exactly where the disassembled table said it would, and the four SoC ports really are tagged out of connector order.
+
+The result that matters for a firewall: while transmitting out of each port in turn, the sending port's own counter never moved. The coprocessor's internal switch does not forward between front ports behind the host's back, so `pf` is the only forwarder. Had it forwarded, traffic would pass between two ports without the firewall ever seeing it.
+
+### In progress
+
+The XGS 3300 is different silicon end to end. Its ports raise and link, the control plane answers in both facilities, and frames leave PortF1 and arrive on PortF2 — confirmed on the fast path's own per-port counters. Nothing reaches the host yet.
+
+What remains is the last hop: getting received frames out of the coprocessor and into host memory over the SDP/DPI-DMA path. Recent work sits exactly there — arming receive-only sibling rings so the host can publish all eight, spacing receive buffers so every published address is 64-byte aligned, writing the output control attributes explicitly instead of inheriting them, and correcting the LIF update mask to the eight bits it actually is.
+
+The two OCTEON TX2 families are read from the vendor's own fast-path binaries, which ship with symbols and DWARF, and from the BSP rootfs. They are documented, not supported, and every row that describes an untested assembly says so where it appears.
+
+### Reading hardware nobody documents
+
+Identity on these boards is decided twice over, and independently: the assembly part number selects the U-Boot image, while an MD5 hash of two DMI strings selects the model, the install target and the coprocessor firmware. The installer never reads a model name at all. If a board ever reports the wrong model, suspect DMI before suspecting hardware.
+
+The vendor's own map has a defect worth knowing before trusting it: two AMDA0228 assemblies appear in two `case` arms, and a shell `case` takes the first match, so those two can never reach the image the second arm would give them. That script decides whether to reflash a coprocessor bootloader and with which image. It is a starting point, not an authority.
 
 It is experimental, and the repository says so loudly: writing to an undocumented PCIe coprocessor from a kernel module of my own making has wedged the bench hard enough to need a power cycle by hand, more than once. Run it on nothing you depend on.
+
 
 ## FilaMind — Klipper and Moonraker
 
