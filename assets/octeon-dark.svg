@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 662" width="900" height="662" role="img" aria-label="{title}">
+  <defs><style>
+    .t  { font-family: ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif; }
+    .m  { font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    .hd { font-size: 20px; font-weight: 700; fill: #E6EDF3; }
+    .lb { font-size: 19px; font-weight: 650; fill: #E6EDF3; }
+    .sb { font-size: 13px; fill: #8B949E; }
+    .cp { font-size: 11.5px; fill: #F97316; }
+    .kk { font-size: 12px; fill: #6E7681; letter-spacing: 1.6px; }
+  </style></defs>
+  <rect width="900" height="662" rx="14" fill="#0D1117"/>
+  <rect x="40" y="34" width="3" height="20" rx="1.5" fill="#F97316"/>
+  <text x="56" y="51" class="t hd">A different protocol entirely</text>
+  <text x="56" y="74" class="m kk">SOPHOS XGS 3300 &#183; CAVIUM OCTEON TX</text>
+  <rect x="40" y="100" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="128" class="t lb">OPNsense host</text>
+  <text x="64" y="150" class="t sb">x86 side: twelve front ports, each an ordinary FreeBSD interface with its own address</text>
+  <rect x="700" y="118" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="136" class="m cp" text-anchor="middle">FreeBSD 15.1</text>
+  <path d="M442 172 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="192" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="220" class="t lb">Eight virtual functions</text>
+  <text x="64" y="242" class="t sb">the driver creates and enables them in config space, and the coprocessor publishes the split</text>
+  <rect x="700" y="210" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="228" class="m cp" text-anchor="middle">177d:a303</text>
+  <path d="M442 264 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="284" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="312" class="t lb">Handshake and facilities</text>
+  <text x="64" y="334" class="t sb">one scratch register carries the table offset; npu_bar_map v0.2 and its doorbells sit in a 64 MB window</text>
+  <rect x="700" y="302" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="320" class="m cp" text-anchor="middle">BAR0 + BAR2</text>
+  <path d="M442 356 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="376" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="404" class="t lb">Eight SDP rings</text>
+  <text x="64" y="426" class="t sb">an MSI-X vector each, buffers published 64-byte aligned, credits returned in the block's own unit</text>
+  <rect x="700" y="394" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="412" class="m cp" text-anchor="middle">80 messages</text>
+  <path d="M442 448 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="468" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="496" class="t lb">CN83XX fast path</text>
+  <text x="64" y="518" class="t sb">seventeen worker cores; six counters, four hundred frames each way, every drop counter zero</text>
+  <rect x="700" y="486" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="504" class="m cp" text-anchor="middle">OCTEON TX</text>
+  <path d="M442 540 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
+  <rect x="40" y="560" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
+  <text x="64" y="588" class="t lb">12 front ports</text>
+  <text x="64" y="610" class="t sb">behind an 88E6193X reached over MDIO, with the SFP cages' lasers enabled through the CPLD</text>
+  <rect x="700" y="578" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
+  <text x="768" y="596" class="m cp" text-anchor="middle">12 / 12 up</text>
+</svg>
