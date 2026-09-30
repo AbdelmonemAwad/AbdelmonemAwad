@@ -12,12 +12,12 @@ Most of it is Python and TypeScript. Almost all of it ships in Arabic as well as
 
 Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance looks like one computer and is two: an x86 host, and a coprocessor behind a PCIe endpoint that owns every front port. Sophos ships drivers for Linux and for its own OS only, so when support lapses the usual verdict on the hardware is e-waste.
 
-The point is not one rescued box. The XGS line spans six coprocessor families, which the vendor's own `xgs-host-startup.sh` tells apart by a single PCI id each — or, for the two families that carry no coprocessor at all, by a string in `/proc/cpuinfo`. Get the protocol right for one family and every assembly in it becomes a general-purpose FreeBSD router. That is a generation of appliances, not a machine.
+The point is not one rescued box. The XGS line spans six coprocessor families, which the vendor's own `xgs-host-startup.sh` tells apart by a single PCI id each — or, for the two families that carry no coprocessor at all, by a string in `/proc/cpuinfo`. Get the protocol right for one family and every assembly in it becomes a general-purpose FreeBSD router. Two of the six answer now, on silicon that shares nothing. That is a generation of appliances, not a machine.
 
 | Family | Assemblies | Coprocessor | State |
 | :--- | :--- | :--- | :--- |
 | **ARMADA** | AMDA0201 (XGS 126, 136), 0200, 0208, 0224 | Marvell CN9131 | **Working** — fourteen of fourteen front ports on the XGS 136 |
-| **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **In progress** — link and control plane up, the last hop to the host still open |
+| **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **Working** — every copper panel port is a FreeBSD interface, traffic both ways |
 | **OCTEON TX2** | AMDA0203, 0204, 0225, 0228 | Cavium OCTEON TX2 | Described from the vendor's binaries; no hardware here |
 | **OCTEON TX2 98XX** | AMDA0205, 0226 | Cavium OCTEON TX2 98XX | Described from the vendor's binaries; no hardware here |
 | **TOPAZ**, **GR** | Atom boards | none | No coprocessor exists — nothing to drive |
@@ -30,21 +30,26 @@ The point is not one rescued box. The XGS line spans six coprocessor families, w
   <img src="assets/npu-light.svg" alt="How the driver reaches the front ports: OPNsense host, npuep module, PCIe BAR, one queue pair, the CN9131 coprocessor, fourteen front ports" width="100%">
 </picture>
 
-### Finished
+### What works
 
-On the XGS 136 all fourteen front ports carry traffic in both directions, as ordinary FreeBSD interfaces created at boot with nothing typed. The module programs the coprocessor and reads the programming back before it trusts it.
+Two families, on silicon with nothing in common.
+
+**On the XGS 136** (Marvell CN9131) all fourteen front ports carry traffic in both directions, as ordinary FreeBSD interfaces created at boot with nothing typed. The module programs the coprocessor and reads the programming back before it trusts it.
 
 Twelve of the fourteen are verified port by port with loopback cables rather than a single ARP exchange — an exchange with an outside device proves one path and says nothing about the other eleven. The two SFP cages need fibre I don't have. The port order came out of a disassembly and the loopback run confirmed it: a frame leaving `npup10` arrived on `npup9`, exactly where the disassembled table said it would, and the four SoC ports really are tagged out of connector order.
 
 The result that matters for a firewall: while transmitting out of each port in turn, the sending port's own counter never moved. The coprocessor's internal switch does not forward between front ports behind the host's back, so `pf` is the only forwarder. Had it forwarded, traffic would pass between two ports without the firewall ever seeing it.
 
-### In progress
+**On the XGS 3300** (Cavium OCTEON TX) every copper panel port is now a FreeBSD interface carrying its own address, and traffic crosses both ways — frames leave a front port for a machine off the appliance, and frames entering a copper port arrive on the interface that owns it. The 88E6193X switch sitting behind the panel is reached over MDIO and programmed, all eight copper ports run at a gigabit, and the SFP cages' lasers are enabled through the CPLD; one cage links.
 
-The XGS 3300 is different silicon end to end. Its ports raise and link, the control plane answers in both facilities, and frames leave PortF1 and arrive on PortF2 — confirmed on the fast path's own per-port counters. Nothing reaches the host yet.
+Reaching that meant opening the last hop into host memory, which took a while to find: output rings granted in the block's own unit, a real MSI-X vector on every ring, credits returned in the unit the block actually takes, and the LIF entry decoded from the coprocessor's own DWARF rather than guessed at.
 
-What remains is the last hop: getting received frames out of the coprocessor and into host memory over the SDP/DPI-DMA path. Recent work sits exactly there — arming receive-only sibling rings so the host can publish all eight, spacing receive buffers so every published address is 64-byte aligned, writing the output control attributes explicitly instead of inheriting them, and correcting the LIF update mask to the eight bits it actually is.
+### Still open
 
-The two OCTEON TX2 families are read from the vendor's own fast-path binaries, which ship with symbols and DWARF, and from the BSP rootfs. They are documented, not supported, and every row that describes an untested assembly says so where it appears.
+The XGS 136 is powered off while the Cavium side moves. The remaining SFP cages on the 3300 are next.
+
+The two OCTEON TX2 families are read from the vendor's own fast-path binaries — which ship with symbols and DWARF — and from the BSP rootfs. They are described, not supported, and every row covering an assembly nobody here owns says so where it appears.
+
 
 ### Reading hardware nobody documents
 
