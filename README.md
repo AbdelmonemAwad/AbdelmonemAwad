@@ -22,7 +22,7 @@ The point is not one rescued box. The XGS line spans six coprocessor families, w
 | **OCTEON TX2 98XX** | AMDA0205, 0226 | Cavium OCTEON TX2 98XX | Described from the vendor's binaries; no hardware here |
 | **TOPAZ**, **GR** | Atom boards | none | No coprocessor exists — nothing to drive |
 
-**[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel module that talks to them, written against registers no vendor documents.
+**[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** holds the FreeBSD kernel modules that talk to them — `npuep` for Marvell, `octep` for Cavium — written against registers no vendor documents, and built on the appliance against its own kernel's headers.
 
 ### What works
 
@@ -36,9 +36,14 @@ Two families, on silicon that shares nothing — not the endpoint, not the datap
   <img src="assets/octeon-light.svg" alt="The Cavium path: OPNsense host, eight virtual functions, handshake and facilities, eight SDP rings, the CN83XX fast path, twelve front ports" width="100%">
 </picture>
 
-Little of that is shared with the Marvell side. The endpoint announces itself through a single scratch register whose high half says where the facility table lives; the host creates eight virtual functions and programs eight SDP rings, one MSI-X vector each, publishing receive buffers 64-byte aligned and returning credits in the unit the block actually takes. The coprocessor's own counters then account for every frame by name — taken from the host, forwarded to the wire, transmitted, received back, matched against a LIF, handed toward the host. Six counters, four hundred frames, four hundred on each, and every drop counter at zero.
+Little of that is shared with the Marvell side. The endpoint announces itself through a single scratch register whose high half says where the facility table lives; the host creates eight virtual functions and programs eight SDP rings, one MSI-X vector each, publishing receive buffers 64-byte aligned and returning credits in the unit the block actually takes. Behind the panel sits an 88E6193X switch that has to be reached over MDIO and programmed before a copper port will pass anything, and a port is bound by the tag the switch actually sends, which is not the number the coprocessor's agent calls it.
 
-Behind the panel sits an 88E6193X switch that has to be reached over MDIO and programmed before a copper port will pass anything, and the SFP cages stay dark until their TX_DISABLE is cleared on the CPLD. A port is bound by the tag the switch actually sends, which is not the number the coprocessor's agent calls it.
+The whole loop closes, and it closes on the coprocessor's own evidence. With a fibre between the two SFP+ cages, six hundred frames posted on the host's ring come back through six of the fast path's named counters — taken off the ring, routed to the wire, transmitted, received on the other cage, forced to the host because no offloaded connection matched it, handed over — six hundred on every one, nothing dropped anywhere, and the driver's own test frame read back out of memory this host owns.
+
+The two 1G cages had been dark the whole time for one bit each in CPLD register `0x25`. Their 10G neighbours' equivalents read clear, which is exactly why those two had always worked.
+
+**The first numbers off it.** A UDP sender that never waits puts 525,722 packets a second into the driver, aimed at a panel port with no cable in it so nothing anyone else uses is touched. The coprocessor takes every one, chooses the wire for every one, and refuses 84% at its own egress queue — which is the correct thing for it to do. What leaves is 83,365 packets a second, **1,023 Mbit/s: line rate for a gigabit port** once the preamble and the interframe gap are counted. Nothing in the account is unexplained. Separately, thirty thousand full-size frames round-trip with no loss at all, averaging 0.193 ms — a latency figure, not a throughput one, and the repository says so rather than letting it be read as both.
+
 
 **The XGS 136** (Marvell CN9131) came first, and all fourteen of its front ports carry traffic in both directions as interfaces created at boot with nothing typed. The module programs the coprocessor and reads the programming back before it trusts it.
 
@@ -54,7 +59,7 @@ The result that matters for a firewall: while transmitting out of each port in t
 
 ### Still open
 
-The SFP cages on the 3300 are next: their lasers are on and one links, but they are not yet carrying traffic like the copper ports.
+The XGS 136's own SFP cage still waits on fibre. Beyond the network path, the appliance's peripherals are the open ground: its sensors sit on the second SMBus controller of the AMD FCH, which FreeBSD does not attach at all, and the front panel's protocol has been read out of the vendor's own daemon but not yet driven.
 
 The two OCTEON TX2 families are read from the vendor's own fast-path binaries — which ship with symbols and DWARF — and from the BSP rootfs. They are described, not supported, and every row covering an assembly nobody here owns says so where it appears.
 

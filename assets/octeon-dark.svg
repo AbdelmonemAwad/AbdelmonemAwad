@@ -38,13 +38,13 @@
   <path d="M442 448 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
   <rect x="40" y="468" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
   <text x="64" y="496" class="t lb">CN83XX fast path</text>
-  <text x="64" y="518" class="t sb">seventeen worker cores; six counters, four hundred frames each way, every drop counter zero</text>
+  <text x="64" y="518" class="t sb">seventeen worker cores; six named counters, six hundred frames on each, every drop counter zero</text>
   <rect x="700" y="486" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
   <text x="768" y="504" class="m cp" text-anchor="middle">OCTEON TX</text>
   <path d="M442 540 h16 l-8 13 z" fill="#F97316" opacity="0.85"/>
   <rect x="40" y="560" width="820" height="66" rx="10" fill="#161B22" stroke="#30363D"/>
   <text x="64" y="588" class="t lb">12 front ports</text>
-  <text x="64" y="610" class="t sb">behind an 88E6193X reached over MDIO, with the SFP cages' lasers enabled through the CPLD</text>
+  <text x="64" y="610" class="t sb">behind an 88E6193X over MDIO; the SFP cages woke when one CPLD bit each was cleared</text>
   <rect x="700" y="578" width="136" height="28" rx="6" fill="#0D1117" stroke="#F97316" stroke-opacity="0.45"/>
   <text x="768" y="596" class="m cp" text-anchor="middle">12 / 12 up</text>
 </svg>
