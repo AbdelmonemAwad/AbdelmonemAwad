@@ -24,11 +24,9 @@ The point is not one rescued box. The XGS line spans six coprocessor families, w
 
 **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** holds the FreeBSD kernel modules that talk to them — `npuep` for Marvell, `octep` for Cavium — written against registers no vendor documents, and built on the appliance against its own kernel's headers.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/scale-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/scale-light.svg">
-  <img src="assets/scale-light.svg" alt="The repository is much younger than the work in it: months of reverse engineering, measurement and dead ends on real appliances came before any of it went public, and one of the faults it closes had been open for eighteen of them." width="100%">
-</picture>
+> **The repository is much younger than the work in it.** Months of reverse engineering, measurement
+> and dead ends on real appliances came before any of it went public, and one of the faults it closes
+> had been open for eighteen of them.
 
 ### What works
 
