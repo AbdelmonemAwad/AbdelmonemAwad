@@ -61,9 +61,17 @@ Twelve of the fourteen are verified port by port with loopback cables rather tha
 
 The result that matters for a firewall: while transmitting out of each port in turn, the sending port's own counter never moved. The coprocessor's internal switch does not forward between front ports behind the host's back, so `pf` is the only forwarder. Had it forwarded, traffic would pass between two ports without the firewall ever seeing it.
 
+### Getting it onto an appliance
+
+None of this is only kernel modules any more. The driver installs as an OPNsense plugin with its own status page and its own settings beside the stock ones, so a port that comes up and a setting that changes it both live where an administrator would look for them.
+
+**[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** goes a step further and builds a bootable OPNsense image with the driver and the plugin already in it. The [build page](https://abdelmonemawad.github.io/xgs-image-builder/) runs on GitHub Pages, files the request against your own fork, and follows the workflow to the finished image — no account credentials and nothing to install locally. The upstream image is fetched at build time and never stored in the repository. Nothing built that way has been booted on an appliance yet, and the page says so before anything else.
+
 ### Still open
 
 The XGS 136's own SFP cage still waits on fibre. Beyond the network path, the appliance's peripherals are the open ground: its sensors sit on the second SMBus controller of the AMD FCH, which FreeBSD does not attach at all, and the front panel's protocol has been read out of the vendor's own daemon but not yet driven.
+
+Two frontiers are open on the coprocessor itself. Its crypto units are the reason the chip exists, and the driver can now install and delete a security association on them behind a deliberate write gate — but a named counter still stops the step after that, so nothing is claimed for encryption. Flow offload is the other: programming the forwarding tables so a connection can be carried without the host seeing every frame. Both are moving, and neither is claimed until the measurements say so.
 
 The two OCTEON TX2 families are read from the vendor's own fast-path binaries — which ship with symbols and DWARF — and from the BSP rootfs. They are described, not supported, and every row covering an assembly nobody here owns says so where it appears.
 
@@ -72,6 +80,8 @@ The two OCTEON TX2 families are read from the vendor's own fast-path binaries �
 Identity on these boards is decided twice over, and independently: the assembly part number selects the U-Boot image, while an MD5 hash of two DMI strings selects the model, the install target and the coprocessor firmware. The installer never reads a model name at all. If a board ever reports the wrong model, suspect DMI before suspecting hardware.
 
 The vendor's own map has a defect worth knowing before trusting it: two AMDA0228 assemblies appear in two `case` arms, and a shell `case` takes the first match, so those two can never reach the image the second arm would give them. That script decides whether to reflash a coprocessor bootloader and with which image. It is a starting point, not an authority.
+
+Ten claims published in this project have since been withdrawn — eight of them on the OCTEON TX page alone — and the count is kept on a page of its own rather than left to be noticed. The rule is to withdraw a claim in the same place it was made, struck through where it stood, so nobody reads the wrong version twice.
 
 It is experimental, and the repository says so loudly: writing to an undocumented PCIe coprocessor from a kernel module of my own making has wedged the bench hard enough to need a power cycle by hand, more than once. Run it on nothing you depend on.
 
