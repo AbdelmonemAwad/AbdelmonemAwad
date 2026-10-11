@@ -48,6 +48,12 @@ The two 1G cages had been dark the whole time for one bit each in CPLD register 
 
 **The first numbers off it.** A UDP sender that never waits puts 525,722 packets a second into the driver, aimed at a panel port with no cable in it so nothing anyone else uses is touched. The coprocessor takes every one, chooses the wire for every one, and refuses 84% at its own egress queue — which is the correct thing for it to do. What leaves is 83,365 packets a second, **1,023 Mbit/s: line rate for a gigabit port** once the preamble and the interframe gap are counted. Nothing in the account is unexplained. Separately, thirty thousand full-size frames round-trip with no loss at all, averaging 0.193 ms — a latency figure, not a throughput one, and the repository says so rather than letting it be read as both.
 
+**And the coprocessor now carries the work, not only the frames.** The kernel's own offload contract is answered on every front port, so an association that strongSwan installs through OPNsense reaches the crypto engine with nothing typed, and both directions of a tunnel run on it — the driver stands where the kernel's cipher would otherwise be called, which leaves the coprocessor the only encryptor on the outbound side. A connection running inside that tunnel can then be put in the coprocessor's flow table together with its association, so the host leaves the data path as well.
+
+Measured on a real tunnel between two OPNsense appliances: 951 Mbit/s down and 912 up through the coprocessor's cipher, and a rekey under load without a lost sequence number. The kernel's own cipher reaches much the same rate once a defect in this driver's receive path is out of the way, and the repository says so rather than keeping the flattering comparison. **The rate is not the point. What the offload buys is the host's processor** — most of a core at a gigabit against a few hundredths of one. With connections in the flow table, four streams through the tunnel went from roughly a quarter of their frames forwarded by the coprocessor to ninety-five per cent and above, and the host from half a core to under a tenth.
+
+All of it is off by default, behind two sysctls and a loader tunable. By the repository's own weighted table, the OCTEON TX side stands at about 85 per cent.
+
 
 **The XGS 136** (Marvell CN9131) came first, and all fourteen of its front ports carry traffic in both directions as interfaces created at boot with nothing typed. The module programs the coprocessor and reads the programming back before it trusts it.
 
@@ -71,7 +77,7 @@ None of this is only kernel modules any more. The driver installs as an OPNsense
 
 The XGS 136's own SFP cage still waits on fibre. Beyond the network path, the appliance's peripherals are the open ground: its sensors sit on the second SMBus controller of the AMD FCH, which FreeBSD does not attach at all, and the front panel's protocol has been read out of the vendor's own daemon but not yet driven.
 
-Two frontiers are open on the coprocessor itself. Its crypto units are the reason the chip exists, and the driver can now install and delete a security association on them behind a deliberate write gate — but a named counter still stops the step after that, so nothing is claimed for encryption. Flow offload is the other: programming the forwarding tables so a connection can be carried without the host seeing every frame. Both are moving, and neither is claimed until the measurements say so.
+The tunnel path carries its limits in the open: IPv4 only, AES-GCM-16 only, no extended sequence numbers and no NAT traversal, and once an association has been mirrored onto the engine the module cannot be unloaded again without a reboot.
 
 The two OCTEON TX2 families are read from the vendor's own fast-path binaries — which ship with symbols and DWARF — and from the BSP rootfs. They are described, not supported, and every row covering an assembly nobody here owns says so where it appears.
 
