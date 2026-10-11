@@ -6,33 +6,25 @@
 
 Hi, I'm Abdelmonem. I build self-hosted software for hardware that is supposed to look after itself — and, lately, drivers for hardware that refuses to be driven at all. Alongside that: a control suite for Klipper 3D printers, plugins for OPNsense firewalls, local LLM serving on Synology hardware, Odoo modules, and iOS and Android apps.
 
-Most of it is Python and TypeScript. Almost all of it ships in Arabic as well as English, because the people running this hardware do not all read English.
+Most of it is Python, TypeScript and C. Almost all of it ships in Arabic as well as English, because the people running this hardware do not all read English.
 
 ## os-xgs-npu — reclaiming a family of firewalls
 
 Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance looks like one computer and is two: an x86 host, and a coprocessor behind a PCIe endpoint that owns every front port. Sophos ships drivers for Linux and for its own OS only, so when support lapses the usual verdict on the hardware is e-waste.
 
-The point is not one rescued box. The XGS line spans six coprocessor families, which the vendor's own `xgs-host-startup.sh` tells apart by a single PCI id each — or, for the two families that carry no coprocessor at all, by a string in `/proc/cpuinfo`. Get the protocol right for one family and every assembly in it becomes a general-purpose FreeBSD router. Two of the six answer now, on silicon that shares nothing. That is a generation of appliances, not a machine.
+**[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is a pair of FreeBSD kernel modules, written against registers no vendor documents, that hand those ports back. The XGS line spans six coprocessor families; get the protocol right for one and every assembly in it becomes a general-purpose FreeBSD router. Two answer now, on silicon that shares nothing.
 
 | Family | Assemblies | Coprocessor | State |
 | :--- | :--- | :--- | :--- |
-| **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **Working** — twelve of twelve front ports, one of them carrying the appliance's WAN |
+| **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **Working** — twelve of twelve front ports, with IPsec and flow offload on the coprocessor |
 | **ARMADA** | AMDA0201 (XGS 126, 136), 0200, 0208, 0224 | Marvell CN9131 | **Working** — fourteen of fourteen front ports on the XGS 136 |
 | **OCTEON TX2** | AMDA0203, 0204, 0225, 0228 | Cavium OCTEON TX2 | Described from the vendor's binaries; no hardware here |
 | **OCTEON TX2 98XX** | AMDA0205, 0226 | Cavium OCTEON TX2 98XX | Described from the vendor's binaries; no hardware here |
 | **TOPAZ**, **GR** | Atom boards | none | No coprocessor exists — nothing to drive |
 
-**[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** holds the FreeBSD kernel modules that talk to them — `npuep` for Marvell, `octep` for Cavium — written against registers no vendor documents, and built on the appliance against its own kernel's headers.
-
 > **The repository is much younger than the work in it.** Months of reverse engineering, measurement
 > and dead ends on real appliances came before any of it went public, and one of the faults it closes
 > had been open for eighteen of them.
-
-### What works
-
-Two families, on silicon that shares nothing — not the endpoint, not the datapath, not the way a port is named. The second is the larger piece of work.
-
-**The XGS 3300** (Cavium OCTEON TX CN83XX) has all twelve front ports up as ordinary FreeBSD interfaces, each carrying its own address, and one of them is serving as the appliance's WAN. Frames entering a copper panel port arrive on the interface that owns it, and frames leave for machines off the appliance.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/octeon-dark.svg">
@@ -40,22 +32,18 @@ Two families, on silicon that shares nothing — not the endpoint, not the datap
   <img src="assets/octeon-light.svg" alt="The Cavium path: OPNsense host, eight virtual functions, handshake and facilities, eight SDP rings, the CN83XX fast path, twelve front ports" width="100%">
 </picture>
 
-Little of that is shared with the Marvell side. The endpoint announces itself through a single scratch register whose high half says where the facility table lives; the host creates eight virtual functions and programs eight SDP rings, one MSI-X vector each, publishing receive buffers 64-byte aligned and returning credits in the unit the block actually takes. Behind the panel sits an 88E6193X switch that has to be reached over MDIO and programmed before a copper port will pass anything, and a port is bound by the tag the switch actually sends, which is not the number the coprocessor's agent calls it.
+**The ports.** On the XGS 3300 all twelve are ordinary FreeBSD interfaces, one of them carrying the appliance's WAN, and a gigabit port measures at line rate: 1,023 Mbit/s, with everything the driver offered beyond that refused at the coprocessor's own egress queue and counted there. On the XGS 136 all fourteen are, and the coprocessor's internal switch was shown not to forward between front ports behind the host's back — so `pf` stays the only forwarder, which is what a firewall needs.
 
-The whole loop closes, and it closes on the coprocessor's own evidence. With a fibre between the two SFP+ cages, six hundred frames posted on the host's ring come back through six of the fast path's named counters — taken off the ring, routed to the wire, transmitted, received on the other cage, forced to the host because no offloaded connection matched it, handed over — six hundred on every one, nothing dropped anywhere, and the driver's own test frame read back out of memory this host owns.
+**The offload.** An IPsec association that strongSwan installs through OPNsense lands on the coprocessor's crypto engine with nothing typed, and a connection inside the tunnel can join the flow table with it, so the host leaves the data path. On a real tunnel between two appliances that is 951 Mbit/s down and 912 up — but the kernel's own cipher reaches much the same rate, and the repository says so. **What the offload buys is the host's processor**: most of a core at a gigabit against a few hundredths of one. It is off by default, and limited for now to IPv4 and AES-GCM-16 without NAT traversal.
 
-The two 1G cages had been dark the whole time for one bit each in CPLD register `0x25`. Their 10G neighbours' equivalents read clear, which is exactly why those two had always worked.
+**Getting it onto an appliance.** It installs as an OPNsense plugin with its own status and settings pages, and **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds a bootable image with the driver already in it from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) — though nothing built that way has been booted on an appliance yet.
 
-**The first numbers off it.** A UDP sender that never waits puts 525,722 packets a second into the driver, aimed at a panel port with no cable in it so nothing anyone else uses is touched. The coprocessor takes every one, chooses the wire for every one, and refuses 84% at its own egress queue — which is the correct thing for it to do. What leaves is 83,365 packets a second, **1,023 Mbit/s: line rate for a gigabit port** once the preamble and the interframe gap are counted. Nothing in the account is unexplained. Separately, thirty thousand full-size frames round-trip with no loss at all, averaging 0.193 ms — a latency figure, not a throughput one, and the repository says so rather than letting it be read as both.
+**How it is kept honest.** On the way to the last hop alone, ten published claims were withdrawn and nineteen attempts recorded as not working, each in the place it was made and counted on [a page of its own](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md). Every number comes with how it was taken in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), and the rest is in [the documentation](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs). It is experimental: it has wedged the bench hard enough to need a power cycle by hand, more than once.
 
-**And the coprocessor now carries the work, not only the frames.** The kernel's own offload contract is answered on every front port, so an association that strongSwan installs through OPNsense reaches the crypto engine with nothing typed, and both directions of a tunnel run on it — the driver stands where the kernel's cipher would otherwise be called, which leaves the coprocessor the only encryptor on the outbound side. A connection running inside that tunnel can then be put in the coprocessor's flow table together with its association, so the host leaves the data path as well.
+<details>
+<summary>The Marvell path, drawn the same way</summary>
 
-Measured on a real tunnel between two OPNsense appliances: 951 Mbit/s down and 912 up through the coprocessor's cipher, and a rekey under load without a lost sequence number. The kernel's own cipher reaches much the same rate once a defect in this driver's receive path is out of the way, and the repository says so rather than keeping the flattering comparison. **The rate is not the point. What the offload buys is the host's processor** — most of a core at a gigabit against a few hundredths of one. With connections in the flow table, four streams through the tunnel went from roughly a quarter of their frames forwarded by the coprocessor to ninety-five per cent and above, and the host from half a core to under a tenth.
-
-All of it is off by default, behind two sysctls and a loader tunable. By the repository's own weighted table, the OCTEON TX side stands at about 85 per cent.
-
-
-**The XGS 136** (Marvell CN9131) came first, and all fourteen of its front ports carry traffic in both directions as interfaces created at boot with nothing typed. The module programs the coprocessor and reads the programming back before it trusts it.
+<br>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/npu-dark.svg">
@@ -63,33 +51,7 @@ All of it is off by default, behind two sysctls and a loader tunable. By the rep
   <img src="assets/npu-light.svg" alt="The Marvell path: OPNsense host, npuep module, PCIe BAR, one queue pair, the CN9131 coprocessor, fourteen front ports" width="100%">
 </picture>
 
-Twelve of the fourteen are verified port by port with loopback cables rather than a single ARP exchange — an exchange with an outside device proves one path and says nothing about the other eleven. The port order came out of a disassembly and the loopback run confirmed it: a frame leaving `npup10` arrived on `npup9`, exactly where the disassembled table said it would, and the four SoC ports really are tagged out of connector order.
-
-The result that matters for a firewall: while transmitting out of each port in turn, the sending port's own counter never moved. The coprocessor's internal switch does not forward between front ports behind the host's back, so `pf` is the only forwarder. Had it forwarded, traffic would pass between two ports without the firewall ever seeing it.
-
-### Getting it onto an appliance
-
-None of this is only kernel modules any more. The driver installs as an OPNsense plugin with its own status page and its own settings beside the stock ones, so a port that comes up and a setting that changes it both live where an administrator would look for them.
-
-**[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** goes a step further and builds a bootable OPNsense image with the driver and the plugin already in it. The [build page](https://abdelmonemawad.github.io/xgs-image-builder/) runs on GitHub Pages, files the request against your own fork, and follows the workflow to the finished image — no account credentials and nothing to install locally. The upstream image is fetched at build time and never stored in the repository. Nothing built that way has been booted on an appliance yet, and the page says so before anything else.
-
-### Still open
-
-The XGS 136's own SFP cage still waits on fibre. Beyond the network path, the appliance's peripherals are the open ground: its sensors sit on the second SMBus controller of the AMD FCH, which FreeBSD does not attach at all, and the front panel's protocol has been read out of the vendor's own daemon but not yet driven.
-
-The tunnel path carries its limits in the open: IPv4 only, AES-GCM-16 only, no extended sequence numbers and no NAT traversal, and once an association has been mirrored onto the engine the module cannot be unloaded again without a reboot.
-
-The two OCTEON TX2 families are read from the vendor's own fast-path binaries — which ship with symbols and DWARF — and from the BSP rootfs. They are described, not supported, and every row covering an assembly nobody here owns says so where it appears.
-
-### Reading hardware nobody documents
-
-Identity on these boards is decided twice over, and independently: the assembly part number selects the U-Boot image, while an MD5 hash of two DMI strings selects the model, the install target and the coprocessor firmware. The installer never reads a model name at all. If a board ever reports the wrong model, suspect DMI before suspecting hardware.
-
-The vendor's own map has a defect worth knowing before trusting it: two AMDA0228 assemblies appear in two `case` arms, and a shell `case` takes the first match, so those two can never reach the image the second arm would give them. That script decides whether to reflash a coprocessor bootloader and with which image. It is a starting point, not an authority.
-
-Ten claims published in this project have since been withdrawn — eight of them on the OCTEON TX page alone — and the count is kept on a page of its own rather than left to be noticed. The rule is to withdraw a claim in the same place it was made, struck through where it stood, so nobody reads the wrong version twice.
-
-It is experimental, and the repository says so loudly: writing to an undocumented PCIe coprocessor from a kernel module of my own making has wedged the bench hard enough to need a power cycle by hand, more than once. Run it on nothing you depend on.
+</details>
 
 ## FilaMind — Klipper and Moonraker
 
@@ -146,23 +108,19 @@ A fair amount of my work stays in private repositories: the Odoo projects built 
 
 ## What I use
 
-Python for backends, plugins and media pipelines. TypeScript and Vue 3 for every FilaMind front end, React on cadenza. PHP and Volt because that is what an OPNsense interface is written in. Rust where a Tauri shell needs it, and C for the kernel-side work: the XGS driver, the Super I/O access in the fan controller, and the local inference build in filamind-ai.
+Python for backends, plugins and media pipelines. C for the kernel side — the XGS drivers above all, then the Super I/O access in the fan controller and the local inference build in filamind-ai. TypeScript and Vue 3 for every FilaMind front end, React on cadenza. PHP and Volt because that is what an OPNsense interface is written in. Rust where a Tauri shell needs it.
 
-Underneath: FreeBSD and its ports tree, Synology DSM 7, Docker, FastAPI, Vite, Tailwind, gettext, and GitHub Actions for CI and releases. At the hardware end: SFP/SFF DOM registers, HD44780 panels through LCDproc, TMC stepper drivers, and CUDA when there is a GPU worth using.
+Underneath: FreeBSD and its ports tree, Synology DSM 7, Docker, FastAPI, Vite, Tailwind, gettext, and GitHub Actions for CI and releases. At the hardware end: PCIe network coprocessors, SFP/SFF DOM registers, HD44780 panels through LCDproc, TMC stepper drivers, and CUDA when there is a GPU worth using.
 
 Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM serving, or Arabic localization of infrastructure software.
 
-## Recently shipped
+## Recently merged
 
-<!-- releases starts -->
-- [**cadenza** v2.11.4-0036](https://github.com/AbdelmonemAwad/cadenza/releases/tag/v2.11.4-0036) — 15 Sep 2026
-- [**filamind-3d** v0.2.1](https://github.com/filamind-app/filamind-3d/releases/tag/v0.2.1) — 23 Jul 2026
-- [**filamind-screen** v0.18.1](https://github.com/filamind-app/filamind-screen/releases/tag/v0.18.1) — 23 Jul 2026
-- [**filamind-core** v0.1.6](https://github.com/filamind-app/filamind-core/releases/tag/v0.1.6) — 23 Jul 2026
-- [**filamind-flow** v1.25.2](https://github.com/filamind-app/filamind-flow/releases/tag/v1.25.2) — 23 Jul 2026
-- [**filamind-ai** v1.4.1](https://github.com/filamind-app/filamind-ai/releases/tag/v1.4.1) — 30 May 2026
-<!-- releases ends -->
-
-<!-- Fill this in and remove the comment markers to show it on the profile:
-[![Email](https://img.shields.io/badge/Email-0D1117?style=flat-square&logo=gmail&logoColor=F97316)](mailto:YOUR_EMAIL)
--->
+<!-- merged starts -->
+- [README: the scope's "no offload, nothing survives a reboot" struck, with what is true now](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/339) — **os-xgs-npu**, 11 Oct
+- [Photograph the XGS 136's board, and name what is on it](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/333) — **os-xgs-npu**, 11 Oct
+- [The way back keeps up, the stalls are named, and the instrument can lose in bursts](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/332) — **os-xgs-npu**, 11 Oct
+- [A slot of the candidate table holds four tuples: the side entry is gone, and an echo's reply is read as its frames are](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/331) — **os-xgs-npu**, 11 Oct
+- [Every source file names its copyright holder, and a contribution says whose the copyright stays](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/330) — **os-xgs-npu**, 11 Oct
+- [What was measured and left out is written down, and a rule that nothing is left out again](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/329) — **os-xgs-npu**, 09 Oct
+<!-- merged ends -->
