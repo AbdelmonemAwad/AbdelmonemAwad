@@ -117,10 +117,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
-- [README: the scope's "no offload, nothing survives a reboot" struck, with what is true now](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/339) — **os-xgs-npu**, 11 Oct
-- [Photograph the XGS 136's board, and name what is on it](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/333) — **os-xgs-npu**, 11 Oct
-- [The way back keeps up, the stalls are named, and the instrument can lose in bursts](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/332) — **os-xgs-npu**, 11 Oct
-- [A slot of the candidate table holds four tuples: the side entry is gone, and an echo's reply is read as its frames are](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/331) — **os-xgs-npu**, 11 Oct
-- [Every source file names its copyright holder, and a contribution says whose the copyright stays](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/330) — **os-xgs-npu**, 11 Oct
-- [What was measured and left out is written down, and a rule that nothing is left out again](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/329) — **os-xgs-npu**, 09 Oct
+- [octep: a port's MTU is any value to 9,000, told to its LIF, and a frame of more than one buffer is gathered](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/358) — **os-xgs-npu**, 12 Oct
+- [octep: an IPv6 packet inside the tunnel is encrypted on the way out and delivered to IPv6 input on the way in](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/352) — **os-xgs-npu**, 12 Oct
+- [octep: an association whose outer header is IPv6 is taken, with its next hop resolved through nd6](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/351) — **os-xgs-npu**, 12 Oct
+- [octep: an association with AES-CBC and an HMAC is taken, and GCM-12 and transport mode are run to see who refuses](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/350) — **os-xgs-npu**, 12 Oct
+- [octep: a replay window above the coprocessor's 4,096 stays with the kernel, and the windows from 64 to 4,096 are measured](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/349) — **os-xgs-npu**, 12 Oct
+- [octep: an association with extended sequence numbers leaves through the coprocessor and arrives through the kernel](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/348) — **os-xgs-npu**, 11 Oct
 <!-- merged ends -->
