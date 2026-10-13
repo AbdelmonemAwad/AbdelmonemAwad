@@ -117,10 +117,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
+- [README: the badges in two sections, general and measured, with row labels and a colour legend](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/364) — **os-xgs-npu**, 13 Oct
+- [README: three rows of badges for the XGS 3300 as measured, each linking to its numbers](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/363) — **os-xgs-npu**, 13 Oct
 - [octep: a port's MTU is any value to 9,000, told to its LIF, and a frame of more than one buffer is gathered](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/358) — **os-xgs-npu**, 12 Oct
 - [octep: an IPv6 packet inside the tunnel is encrypted on the way out and delivered to IPv6 input on the way in](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/352) — **os-xgs-npu**, 12 Oct
 - [octep: an association whose outer header is IPv6 is taken, with its next hop resolved through nd6](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/351) — **os-xgs-npu**, 12 Oct
 - [octep: an association with AES-CBC and an HMAC is taken, and GCM-12 and transport mode are run to see who refuses](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/350) — **os-xgs-npu**, 12 Oct
-- [octep: a replay window above the coprocessor's 4,096 stays with the kernel, and the windows from 64 to 4,096 are measured](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/349) — **os-xgs-npu**, 12 Oct
-- [octep: an association with extended sequence numbers leaves through the coprocessor and arrives through the kernel](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/348) — **os-xgs-npu**, 11 Oct
 <!-- merged ends -->
