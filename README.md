@@ -119,10 +119,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
-- [README: the badges in two sections, general and measured, with row labels and a colour legend](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/364) — **os-xgs-npu**, 13 Oct
-- [README: three rows of badges for the XGS 3300 as measured, each linking to its numbers](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/363) — **os-xgs-npu**, 13 Oct
-- [octep: a port's MTU is any value to 9,000, told to its LIF, and a frame of more than one buffer is gathered](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/358) — **os-xgs-npu**, 12 Oct
-- [octep: an IPv6 packet inside the tunnel is encrypted on the way out and delivered to IPv6 input on the way in](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/352) — **os-xgs-npu**, 12 Oct
-- [octep: an association whose outer header is IPv6 is taken, with its next hop resolved through nd6](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/351) — **os-xgs-npu**, 12 Oct
-- [octep: an association with AES-CBC and an HMAC is taken, and GCM-12 and transport mode are run to see who refuses](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/350) — **os-xgs-npu**, 12 Oct
+- [xgs/status: report the ARMADA coprocessor too, not only OCTEON TX](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/397) — **os-xgs-npu**, 14 Oct
+- [npuep: accept a decrypt association, the engine decrypts inbound ESP (step 5, slice 3)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/396) — **os-xgs-npu**, 14 Oct
+- [npuep: SA_ADD - the crypto engine accepts an association (step 5, slice 2)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/395) — **os-xgs-npu**, 14 Oct
+- [npuep: advertise the kernel's IPsec offload contract (step 5, slice 1)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/394) — **os-xgs-npu**, 14 Oct
+- [npuflow: share one next-hop entry between flows that leave the same way](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/393) — **os-xgs-npu**, 14 Oct
+- [npuflow: the firewall-revision barrier (step 4, slice 4)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/392) — **os-xgs-npu**, 14 Oct
 <!-- merged ends -->
