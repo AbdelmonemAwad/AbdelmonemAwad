@@ -17,7 +17,7 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 | Family | Assemblies | Coprocessor | State |
 | :--- | :--- | :--- | :--- |
 | **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **Working** — twelve of twelve front ports, with IPsec and flow offload on the coprocessor |
-| **ARMADA** | AMDA0201 (XGS 126, 136), 0200, 0208, 0224 | Marvell CN9131 | **Working** — fourteen of fourteen front ports on the XGS 136 |
+| **ARMADA** | AMDA0201 (XGS 126, 136), 0200, 0208, 0224 | Marvell CN9131 | **Working** — fourteen of fourteen front ports on the XGS 136, with flow and IPsec offload proven frame by frame |
 | **OCTEON TX2** | AMDA0203, 0204, 0225, 0228 | Cavium OCTEON TX2 | Described from the vendor's binaries; no hardware here |
 | **OCTEON TX2 98XX** | AMDA0205, 0226 | Cavium OCTEON TX2 98XX | Described from the vendor's binaries; no hardware here |
 | **TOPAZ**, **GR** | Atom boards | none | No coprocessor exists — nothing to drive |
@@ -35,6 +35,8 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 **The ports.** On the XGS 3300 all twelve are ordinary FreeBSD interfaces, one of them carrying the appliance's WAN, and a gigabit port measures at line rate: 1,023 Mbit/s, with everything the driver offered beyond that refused at the coprocessor's own egress queue and counted there. On the XGS 136 all fourteen are, and the coprocessor's internal switch was shown not to forward between front ports behind the host's back — so `pf` stays the only forwarder, which is what a firewall needs.
 
 **The offload.** An IPsec association that strongSwan installs through OPNsense lands on the coprocessor's crypto engine with nothing typed, and a connection inside the tunnel can join the flow table with it, so the host leaves the data path. On a real tunnel between two appliances that is 951 Mbit/s down and 946 up — but the kernel's own cipher reaches much the same rate, and the repository says so. **What the offload buys is the host's processor**: most of a core at a gigabit against a few hundredths of one, with the flow table taking the host out of 99.6 per cent of a connection's frames. AES-GCM and AES-CBC with an HMAC, IPv4 and IPv6 inside and out, NAT traversal and replay windows up to 4,096 are all taken; GCM-8 and GCM-12, transport mode and inbound extended sequence numbers stay with the kernel. It is off by default.
+
+The same two offloads now run on the Marvell family too, so two coprocessors with nothing in common answer the same kernel contract behind the same OPNsense pages. On the XGS 136 the driver's sweep puts settled connections in hardware on its own, and AES-GCM runs both ways on the engine — twenty of twenty frames decrypted, ten of ten encrypted. Its rates are still to be measured.
 
 **Getting it onto an appliance.** It installs as an OPNsense plugin with its own status and settings pages, and **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds a bootable image with the driver already in it from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) — though nothing built that way has been booted on an appliance yet.
 
