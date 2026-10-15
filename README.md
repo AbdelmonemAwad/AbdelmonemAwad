@@ -121,10 +121,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
-- [xgs/status: report the ARMADA coprocessor too, not only OCTEON TX](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/397) — **os-xgs-npu**, 14 Oct
-- [npuep: accept a decrypt association, the engine decrypts inbound ESP (step 5, slice 3)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/396) — **os-xgs-npu**, 14 Oct
-- [npuep: SA_ADD - the crypto engine accepts an association (step 5, slice 2)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/395) — **os-xgs-npu**, 14 Oct
-- [npuep: advertise the kernel's IPsec offload contract (step 5, slice 1)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/394) — **os-xgs-npu**, 14 Oct
-- [npuflow: share one next-hop entry between flows that leave the same way](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/393) — **os-xgs-npu**, 14 Oct
-- [npuflow: the firewall-revision barrier (step 4, slice 4)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/392) — **os-xgs-npu**, 14 Oct
+- [npuep: the replay window on the ARMADA, and the Offloading page reads the gate it wrote (step 5 slice 9)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/407) — **os-xgs-npu**, 14 Oct
+- [npuep: NAT-T and AES-CBC with an HMAC on the ARMADA, both ways in hardware (step 5 slices 7-8)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/404) — **os-xgs-npu**, 14 Oct
+- [npuep: fragmentation before the envelope, the regime measured, the resolver kept off lo0 (step 5 slice 6, #402)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/403) — **os-xgs-npu**, 14 Oct
+- [xgs/offload: the Offloading page supports the ARMADA (npuep), and writes the gate at boot](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/401) — **os-xgs-npu**, 14 Oct
+- [npuep: IPsec in hardware both ways on the ARMADA (step 5 slices 4-5)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/400) — **os-xgs-npu**, 14 Oct
+- [npugiu: a port-filtered metadata instrument for pinning the IPsec RX marker](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/398) — **os-xgs-npu**, 14 Oct
 <!-- merged ends -->
