@@ -16,8 +16,8 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 
 | Family | Assemblies | Coprocessor | State |
 | :--- | :--- | :--- | :--- |
-| **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **Working** — twelve of twelve front ports, with IPsec and flow offload on the coprocessor |
-| **ARMADA** | AMDA0201 (XGS 126, 136), 0200, 0208, 0224 | Marvell CN9131 | **Working** — fourteen of fourteen front ports on the XGS 136, with flow and IPsec offload proven frame by frame |
+| **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **Working** — twelve of twelve front ports and the expansion module's, with flow and IPsec offload |
+| **ARMADA** | AMDA0201 (XGS 126, 136), 0200, 0208, 0224 | Marvell CN9131 | **Working** — fourteen of fourteen front ports on the XGS 136, with flow and IPsec offload |
 | **OCTEON TX2** | AMDA0203, 0204, 0225, 0228 | Cavium OCTEON TX2 | Described from the vendor's binaries; no hardware here |
 | **OCTEON TX2 98XX** | AMDA0205, 0226 | Cavium OCTEON TX2 98XX | Described from the vendor's binaries; no hardware here |
 | **TOPAZ**, **GR** | Atom boards | none | No coprocessor exists — nothing to drive |
@@ -36,9 +36,11 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 
 **The offload.** An IPsec association that strongSwan installs through OPNsense lands on the coprocessor's crypto engine with nothing typed, and a connection inside the tunnel can join the flow table with it, so the host leaves the data path. On a real tunnel between two appliances that is 951 Mbit/s down and 946 up — but the kernel's own cipher reaches much the same rate, and the repository says so. **What the offload buys is the host's processor**: most of a core at a gigabit against a few hundredths of one, with the flow table taking the host out of 99.6 per cent of a connection's frames. AES-GCM and AES-CBC with an HMAC, IPv4 and IPv6 inside and out, NAT traversal and replay windows up to 4,096 are all taken; GCM-8 and GCM-12, transport mode and inbound extended sequence numbers stay with the kernel. It is off by default.
 
-The same two offloads now run on the Marvell family too, so two coprocessors with nothing in common answer the same kernel contract behind the same OPNsense pages. On the XGS 136 the driver's sweep puts settled connections in hardware on its own, and AES-GCM runs both ways on the engine — twenty of twenty frames decrypted, ten of ten encrypted. Its rates are still to be measured.
+The same two offloads now run on the Marvell family too, so two coprocessors with nothing in common answer the same kernel contract behind the same OPNsense pages.
 
-**Getting it onto an appliance.** It installs as an OPNsense plugin with its own status and settings pages, and **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds a bootable image with the driver already in it from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) — though nothing built that way has been booted on an appliance yet.
+**Three appliances on one bench.** The latest measurements put a hardware peer at both ends of every tunnel for the first time — two XGS 3300s and the XGS 136, with a PC at 10 Gbit/s. Into a 3300 an AES-GCM-256 stream runs at 1.85 Gbit/s, the same as in clear text, where software at the far end managed 1.25: the tunnel in hardware costs nothing. Into the XGS 136 it runs at 902 Mbit/s, faster than the 773 of clear text, because a decrypted frame reaches the host by a different receive path. The way out of a 3300 is slower in hardware than in software, and [the bench page](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/measurements/bench-2026-10-17.md) lists that, with the 136's oddity, as not yet explained.
+
+**Getting it onto an appliance.** It installs as an OPNsense plugin with status and offloading pages, and a firmware page that takes updates from the repository and loads them at the next boot. On a first boot it assigns the front ports by the names printed on the chassis — the LAN bridge on 192.168.1.1, the management port as MGMT — which has now been run on both appliances. **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds a bootable image from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) with the driver, the plugins, the Arabic translation and the right-to-left layout already in it — though no image built that way has been booted on an appliance yet.
 
 **How it is kept honest.** On the way to the last hop alone, ten published claims were withdrawn and nineteen attempts recorded as not working, each in the place it was made and counted on [a page of its own](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md). Every number comes with how it was taken in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), and the rest is in [the documentation](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs). The integrity soaks stand at 2,391 GiB carried over TLS with not a byte changed. It is still experimental — it has wedged the bench hard enough to need a power cycle by hand, more than once — so read the notice at the top of the repository before running any of it: at times it says not to.
 
@@ -75,7 +77,7 @@ Four plugins, BSD-2 licensed like the platform itself and packaged as FreeBSD po
 - **[os-frontpanel](https://github.com/AbdelmonemAwad/os-frontpanel)** — drives the LCD and buttons built into an appliance's front panel through LCDproc, with the screens and their timing set from the GUI instead of a config file on disk.
 - **[os-fanctl](https://github.com/AbdelmonemAwad/os-fanctl)** — fan control and every readable temperature sensor, for repurposed appliances whose fan curve left with the vendor firmware. Talks to the Super I/O chip directly.
 
-Three of them now know the Sophos XGS appliances above — port labels and port identification through the coprocessor, temperature and fan readings from the board and from the coprocessor, the 3300's two-line front panel — so a reclaimed box gets more back than its ports.
+Three of them now know the Sophos XGS appliances above — port labels for every XGS board and FleXi module, generated from the vendor's own board files, port identification through the coprocessor, temperature and fan readings from the board and from the coprocessor, the 3300's two-line front panel — so a reclaimed box gets more back than its ports. All six packages, these four and the Arabic and right-to-left ones, now follow their latest release by themselves once a day, and survive an OPNsense update that replaces their strings or templates.
 
 They share one shape:
 
