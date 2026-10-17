@@ -4,7 +4,6 @@ banner-options.html
 build_preview.py
 gen_banner.py
 README.toolbox-table.bak
-.claude/
 __pycache__/
 gen_npu.py
 gen_callout.py
