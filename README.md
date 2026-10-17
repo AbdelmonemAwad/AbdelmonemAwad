@@ -123,10 +123,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
-- [npuep: the replay window on the ARMADA, and the Offloading page reads the gate it wrote (step 5 slice 9)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/407) — **os-xgs-npu**, 14 Oct
-- [npuep: NAT-T and AES-CBC with an HMAC on the ARMADA, both ways in hardware (step 5 slices 7-8)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/404) — **os-xgs-npu**, 14 Oct
-- [npuep: fragmentation before the envelope, the regime measured, the resolver kept off lo0 (step 5 slice 6, #402)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/403) — **os-xgs-npu**, 14 Oct
-- [xgs/offload: the Offloading page supports the ARMADA (npuep), and writes the gate at boot](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/401) — **os-xgs-npu**, 14 Oct
-- [npuep: IPsec in hardware both ways on the ARMADA (step 5 slices 4-5)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/400) — **os-xgs-npu**, 14 Oct
-- [npugiu: a port-filtered metadata instrument for pinning the IPsec RX marker](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/398) — **os-xgs-npu**, 14 Oct
+- [Problem reports: the board revision on its own line, and what told two boards apart](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/439) — **os-xgs-npu**, 17 Oct
+- [Relay: set it up in one run](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/437) — **os-xgs-npu**, 17 Oct
+- [Problem reports: what goes wrong, filed as GitHub issues through a relay](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/436) — **os-xgs-npu**, 17 Oct
+- [Readings: the temperatures as cards](https://github.com/AbdelmonemAwad/os-fanctl/pull/14) — **os-fanctl**, 17 Oct
+- [Settings and Hardware laid out like OPNsense's own forms](https://github.com/AbdelmonemAwad/os-fanctl/pull/13) — **os-fanctl**, 17 Oct
+- [The page laid out like OPNsense's own forms](https://github.com/AbdelmonemAwad/os-frontpanel/pull/17) — **os-frontpanel**, 17 Oct
 <!-- merged ends -->
