@@ -102,7 +102,7 @@ Most of my Odoo work is client projects in private repositories: custom modules 
 - **[opnsense-arabic](https://github.com/AbdelmonemAwad/opnsense-arabic)** — the Arabic translation of the OPNsense 26.7 web interface, tracked against upstream so the strings don't drift between releases.
 - **[opnsense-rtl](https://github.com/AbdelmonemAwad/opnsense-rtl)** — right-to-left layout for Arabic and Persian. Flipping the text direction is the easy half; tables, form flow, icon direction, menu alignment and a long tail of Bootstrap overrides are what decide whether an RTL interface is genuinely usable or merely mirrored.
 
-The same concern runs through everything else: 19 locales in filamind-core, Arabic and English throughout filamind-ai, and every OPNsense report rendered in the language of whoever has to read it.
+The same concern runs through everything else: 19 locales in filamind-core, Arabic and English throughout filamind-ai, every OPNsense report rendered in the language of whoever has to read it, and every page the XGS driver and the plugins add to OPNsense translated into Arabic with the rest.
 
 ## cadenza
 
