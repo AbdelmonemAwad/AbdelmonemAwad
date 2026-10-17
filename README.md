@@ -67,7 +67,7 @@ Four plugins, BSD-2 licensed like the platform itself and packaged as FreeBSD po
 - **[os-frontpanel](https://github.com/AbdelmonemAwad/os-frontpanel)** — drives the LCD and buttons built into an appliance's front panel through LCDproc, with the screens and their timing set from the GUI instead of a config file on disk.
 - **[os-fanctl](https://github.com/AbdelmonemAwad/os-fanctl)** — fan control and every readable temperature sensor, for repurposed appliances whose fan curve left with the vendor firmware. Talks to the Super I/O chip directly.
 
-Three of them now know the Sophos XGS appliances above — port labels for every XGS board and FleXi module, generated from the vendor's own board files, port identification through the coprocessor, temperature and fan readings from the board and from the coprocessor, the 3300's two-line front panel — so a reclaimed box gets more back than its ports. All six packages, these four and the Arabic and right-to-left ones, now follow their latest release by themselves once a day, and survive an OPNsense update that replaces their strings or templates.
+Three of them now know the Sophos XGS appliances above — port labels for every XGS board and FleXi module, generated from the vendor's own board files, port identification through the coprocessor, temperature and fan readings from the board and from the coprocessor, the 3300's front panel with its buttons and a menu — so a reclaimed box gets more back than its ports. All six packages, these four and the Arabic and right-to-left ones, now follow their latest release by themselves once a day, and survive an OPNsense update that replaces their strings or templates.
 
 They share one shape:
 

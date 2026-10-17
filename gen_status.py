@@ -28,14 +28,14 @@ CARDS = [
             ("ok", "Front ports", "12 of 12, and the module&#8217;s"),
             ("ok", "Flow offload", "pf&#8217;s flows, both directions"),
             ("ok", "IPsec offload", "GCM &#183; CBC &#183; NAT-T &#183; IPv6"),
-            ("ok", "Appliance", "sensors &#183; panel &#183; first boot"),
+            ("ok", "Appliance", "sensors &#183; panel &#183; identify light"),
             ("ok", "Built image", "installed, booted from disk"),
             ("section", "MEASURED"),
             ("m", "IPsec, MTU 1500", "1.85 Gbit/s, as clear text"),
             ("m", "IPsec, MTU 9000", "7.41 Gbit/s, one stream"),
             ("m", "Flow table", "99.6 % of frames in hardware"),
         ],
-        "done": 92,  # octeon-tx-reference.md, re-weighed 2026-10-12
+        "done": 95,  # octeon-tx-reference.md, 2026-10-17: after the identify light and four pages
     },
     {
         "name": "XGS 136",
@@ -53,7 +53,7 @@ CARDS = [
             ("m", "IPsec, MTU 1500", "902 Mbit/s, one stream"),
             ("m", "IPsec, MTU 9000", "982 Mbit/s, link-bound"),
         ],
-        "done": None,  # no weighted table published for the ARMADA yet
+        "done": 91,  # armada.md, first weighed 2026-10-17
     },
 ]
 
@@ -192,10 +192,10 @@ def build(theme):
            "in progress; the repository notice not yet lifted. XGS 3300, Cavium OCTEON TX: 12 of 12 front "
            "ports and the module's, flow offload with 99.6 per cent of frames in hardware, IPsec offload "
            "with GCM, CBC, NAT-T and IPv6, sensors, front panel and "
-           "first boot, a built image booted from disk; measured: IPsec at 1.85 Gbit/s at MTU 1500, the same as clear text, 7.41 Gbit/s on one stream at MTU 9000, and 99.6 per cent of frames in hardware; weighted completion 92 per cent. XGS 136, Marvell "
+           "first boot, a built image booted from disk; measured: IPsec at 1.85 Gbit/s at MTU 1500, the same as clear text, 7.41 Gbit/s on one stream at MTU 9000, and 99.6 per cent of frames in hardware; weighted completion 95 per cent. XGS 136, Marvell "
            "CN9131: 14 of 14 front ports, flow offload by the sweep, IPsec offload with GCM, CBC and NAT-T, "
-           "first boot by the chassis names, integration in progress; measured: clear text 773 Mbit/s in and 934 out, IPsec 902 Mbit/s at MTU 1500 and 982 at MTU 9000 over a gigabit link; not "
-           "weighed yet. OCTEON TX2 and TX2 98XX described only; TOPAZ and GR have no coprocessor. "
+           "first boot by the chassis names, integration in progress; measured: clear text 773 Mbit/s in and 934 out, IPsec 902 Mbit/s at MTU 1500 and 982 at MTU 9000 over a gigabit link; weighted completion 91 per cent. "
+           "OCTEON TX2 and TX2 98XX described only; TOPAZ and GR have no coprocessor. "
            "2,391 GiB over TLS with no byte changed; 6,100 give-backs revived, none refused; ten claims "
            "withdrawn and nineteen dead ends recorded. Figures were measured with iperf3 into the appliance host through a hardware IPsec peer.")
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
