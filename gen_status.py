@@ -66,10 +66,10 @@ STATS = [
 # --------------------------------------------------------------- theme ----
 THEMES = {
     "dark": dict(bg="#0D1117", card="#161B22", line="#30363D", fg="#E6EDF3", sub="#8B949E",
-                 kk="#6E7681", acc="#F97316", ok="#3FB950", wip="#D29922", no="#6E7681",
+                 kk="#6E7681", acc="#E3B341", ok="#3FB950", wip="#58A6FF", no="#6E7681",
                  track="#21262D"),
     "light": dict(bg="#FFFFFF", card="#F6F8FA", line="#D0D7DE", fg="#1F2328", sub="#59636E",
-                  kk="#6E7781", acc="#C2410C", ok="#1A7F37", wip="#9A6700", no="#8C959F",
+                  kk="#6E7781", acc="#9A6700", ok="#1A7F37", wip="#0969DA", no="#8C959F",
                   track="#EAEEF2"),
 }
 SANS = "ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif"
