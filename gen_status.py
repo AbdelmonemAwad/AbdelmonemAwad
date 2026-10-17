@@ -103,26 +103,29 @@ def state_icon(cx, cy, state, t):
     return f'<circle cx="{cx}" cy="{cy}" r="7.2" fill="none" stroke="{t["no"]}" stroke-width="1.6"/>'
 
 
-def appliance(x, y, ports, t):
-    """A 1U front: a chassis outline, its row of ports, a power LED."""
-    w, h = 100, 32
-    out = [f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="4" fill="{t["bg"]}" stroke="{t["line"]}" stroke-width="1.4"/>',
-           f'<circle cx="{x+9}" cy="{y+h/2}" r="2.4" fill="{t["acc"]}"/>']
-    size, gap = (5, 1.8) if ports > 12 else (5.4, 2.2)
-    total = ports * size + (ports - 1) * gap
-    px = x + 18 + (w - 26 - total) / 2
-    for i in range(ports):
-        out.append(f'<rect x="{px + i*(size+gap):.1f}" y="{y+h/2-size/2:.1f}" width="{size}" height="{size}" '
-                   f'rx="1" fill="none" stroke="{t["sub"]}" stroke-width="1"/>')
+def chip_tile(x, y, t):
+    """A coprocessor glyph in a rounded tile: the package, its die, three
+    pins a side and a pin-one mark."""
+    size, body, die = 56, 28, 12
+    cx, cy = x + size / 2, y + size / 2
+    bx, by = cx - body / 2, cy - body / 2
+    out = [f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="12" fill="{t["bg"]}" stroke="{t["line"]}"/>']
+    for k in (-8, 0, 8):
+        out.append(f'<path d="M{cx+k} {by-2} v-5 M{cx+k} {by+body+2} v5 M{bx-2} {cy+k} h-5 M{bx+body+2} {cy+k} h5" '
+                   f'stroke="{t["sub"]}" stroke-width="1.6" stroke-linecap="round" fill="none"/>')
+    out.append(f'<rect x="{bx}" y="{by}" width="{body}" height="{body}" rx="5" fill="{t["acc"]}" fill-opacity="0.10" '
+               f'stroke="{t["acc"]}" stroke-width="1.8"/>')
+    out.append(f'<rect x="{cx-die/2}" y="{cy-die/2}" width="{die}" height="{die}" rx="2.5" fill="{t["acc"]}"/>')
+    out.append(f'<circle cx="{bx+5}" cy="{by+5}" r="1.6" fill="{t["acc"]}"/>')
     return "".join(out)
 
 
 def card(x, c, t):
     y = CARD_Y
     out = [f'<rect x="{x}" y="{y}" width="{CARD_W}" height="{CARD_H}" rx="12" fill="{t["card"]}" stroke="{t["line"]}"/>',
-           appliance(x + 22, y + 24, c["ports"], t),
-           text(x + 140, y + 40, c["name"], 20, t["fg"], 700),
-           text(x + 140, y + 60, c["chip"], 12.5, t["sub"]),
+           chip_tile(x + 22, y + 14, t),
+           text(x + 92, y + 39, c["name"], 20, t["fg"], 700),
+           text(x + 92, y + 59, c["chip"], 12.5, t["sub"]),
            f'<line x1="{x+22}" y1="{y+80}" x2="{x+CARD_W-22}" y2="{y+80}" stroke="{t["line"]}"/>']
     for i, (state, label, value) in enumerate(c["rows"]):
         ry = y + 108 + i * 30
