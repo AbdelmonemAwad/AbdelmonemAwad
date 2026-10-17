@@ -23,14 +23,17 @@ CARDS = [
         "name": "XGS 3300",
         "chip": "Cavium OCTEON TX &#183; CN83XX",
         "ports": 12,
-        "rows": [  # (state, label, value)  state: ok | wip | no
+        "rows": [  # ("section", title) or (state, label, value); state: ok | wip | no | m
+            ("section", "TESTED"),
             ("ok", "Front ports", "12 of 12, and the module&#8217;s"),
-            ("ok", "Flow offload", "99.6 % of frames in hardware"),
+            ("ok", "Flow offload", "pf&#8217;s flows, both directions"),
             ("ok", "IPsec offload", "GCM &#183; CBC &#183; NAT-T &#183; IPv6"),
-            ("ok", "Best IPsec here", "7.41 Gbit/s, one stream"),
-            ("ref", "Vendor rates it", "31.1 Gbit/s, many tunnels"),
             ("ok", "Appliance", "sensors &#183; panel &#183; first boot"),
             ("ok", "Built image", "installed, booted from disk"),
+            ("section", "MEASURED"),
+            ("m", "IPsec, MTU 1500", "1.85 Gbit/s, as clear text"),
+            ("m", "IPsec, MTU 9000", "7.41 Gbit/s, one stream"),
+            ("m", "Flow table", "99.6 % of frames in hardware"),
         ],
         "done": 92,  # octeon-tx-reference.md, re-weighed 2026-10-12
     },
@@ -39,13 +42,16 @@ CARDS = [
         "chip": "Marvell CN9131 &#183; ARMADA",
         "ports": 14,
         "rows": [
+            ("section", "TESTED"),
             ("ok", "Front ports", "14 of 14"),
             ("ok", "Flow offload", "in hardware, by the sweep"),
             ("ok", "IPsec offload", "GCM &#183; CBC &#183; NAT-T"),
-            ("ok", "Best IPsec here", "982 Mbit/s, one 1G link"),
-            ("ref", "Vendor rates it", "4.8 Gbit/s, many tunnels"),
             ("ok", "First boot", "ports by the chassis names"),
             ("wip", "Integration", "into the tree and plugins"),
+            ("section", "MEASURED"),
+            ("m", "Clear text", "773 in &#183; 934 out Mbit/s"),
+            ("m", "IPsec, MTU 1500", "902 Mbit/s, one stream"),
+            ("m", "IPsec, MTU 9000", "982 Mbit/s, link-bound"),
         ],
         "done": None,  # no weighted table published for the ARMADA yet
     },
@@ -76,7 +82,9 @@ SANS = "ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif"
 MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
 
 W = 900
-CARD_Y, CARD_H, CARD_W = 214, 390, 400
+ROW, SECTION = 28, 36
+CARD_Y, CARD_W = 214, 400
+CARD_H = 92 + max(sum(SECTION if r[0] == "section" else ROW for r in c["rows"]) for c in CARDS) + 100
 NOTE_Y = CARD_Y + CARD_H + 26
 FAM_Y = NOTE_Y + 20
 STAT_Y = FAM_Y + 74
@@ -97,6 +105,9 @@ def state_icon(cx, cy, state, t):
     if state == "wip":
         return (f'<circle cx="{cx}" cy="{cy}" r="7.2" fill="none" stroke="{t["wip"]}" stroke-width="1.6"/>'
                 f'<path d="M{cx} {cy-7.2} A7.2 7.2 0 0 1 {cx} {cy+7.2} Z" fill="{t["wip"]}"/>')
+    if state == "m":
+        return "".join(f'<rect x="{cx-6+i*4.6:.1f}" y="{cy+6-h}" width="3" height="{h}" rx="1" fill="{t["acc"]}"/>'
+                       for i, h in enumerate((5, 8.5, 12)))
     if state == "ref":
         return (f'<path d="M{cx} {cy-7} L{cx+7} {cy} L{cx} {cy+7} L{cx-7} {cy} Z" fill="none" '
                 f'stroke="{t["sub"]}" stroke-width="1.4"/>')
@@ -127,10 +138,16 @@ def card(x, c, t):
            text(x + 92, y + 39, c["name"], 20, t["fg"], 700),
            text(x + 92, y + 59, c["chip"], 12.5, t["sub"]),
            f'<line x1="{x+22}" y1="{y+80}" x2="{x+CARD_W-22}" y2="{y+80}" stroke="{t["line"]}"/>']
-    for i, (state, label, value) in enumerate(c["rows"]):
-        ry = y + 108 + i * 30
+    ry = y + 92
+    for row in c["rows"]:
+        if row[0] == "section":
+            ry += SECTION
+            out.append(text(x + 22, ry - 9, row[1], 10.5, t["kk"], 700, mono=True, extra=' letter-spacing="1.6"'))
+            continue
+        state, label, value = row
+        ry += ROW
         out.append(state_icon(x + 30, ry - 4, state, t))
-        out.append(text(x + 48, ry, label, 13.5, t["sub"] if state == "ref" else t["fg"], 600))
+        out.append(text(x + 48, ry, label, 13.5, t["fg"], 600))
         out.append(text(x + CARD_W - 22, ry, value, 12.5, t["sub"], anchor="end", mono=True))
     by = y + CARD_H - 52
     out.append(f'<line x1="{x+22}" y1="{by-18}" x2="{x+CARD_W-22}" y2="{by-18}" stroke="{t["line"]}"/>')
@@ -174,13 +191,13 @@ def build(theme):
     alt = ("os-xgs-npu status. Stage: discovery, front ports and offload done; integration and testing "
            "in progress; the repository notice not yet lifted. XGS 3300, Cavium OCTEON TX: 12 of 12 front "
            "ports and the module's, flow offload with 99.6 per cent of frames in hardware, IPsec offload "
-           "with GCM, CBC, NAT-T and IPv6, best IPsec measured here 7.41 Gbit/s on one stream while the vendor rates the appliance at 31.1 Gbit/s across many tunnels, sensors, front panel and "
-           "first boot, a built image booted from disk, weighted completion 92 per cent. XGS 136, Marvell "
+           "with GCM, CBC, NAT-T and IPv6, sensors, front panel and "
+           "first boot, a built image booted from disk; measured: IPsec at 1.85 Gbit/s at MTU 1500, the same as clear text, 7.41 Gbit/s on one stream at MTU 9000, and 99.6 per cent of frames in hardware; weighted completion 92 per cent. XGS 136, Marvell "
            "CN9131: 14 of 14 front ports, flow offload by the sweep, IPsec offload with GCM, CBC and NAT-T, "
-           "best IPsec measured here 982 Mbit/s over one gigabit link while the vendor rates it at 4.8 Gbit/s across many tunnels, first boot by the chassis names, integration in progress, not "
+           "first boot by the chassis names, integration in progress; measured: clear text 773 Mbit/s in and 934 out, IPsec 902 Mbit/s at MTU 1500 and 982 at MTU 9000 over a gigabit link; not "
            "weighed yet. OCTEON TX2 and TX2 98XX described only; TOPAZ and GR have no coprocessor. "
            "2,391 GiB over TLS with no byte changed; 6,100 give-backs revived, none refused; ten claims "
-           "withdrawn and nineteen dead ends recorded. Vendor figures come from its datasheets under lab load across many tunnels; the figures measured here are one TCP stream ending on the appliance host.")
+           "withdrawn and nineteen dead ends recorded. Figures were measured with iperf3 into the appliance host through a hardware IPsec peer.")
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
            f'role="img" aria-label="{alt}">',
            f'<rect width="{W}" height="{H}" rx="14" fill="{t["bg"]}"/>',
@@ -193,8 +210,8 @@ def build(theme):
            stage_track(t),
            card(40, CARDS[0], t),
            card(460, CARDS[1], t)]
-    out.append(text(40, NOTE_Y, "&#9671; Vendor figures are from its datasheets: Ixia lab load, many tunnels across all ports, its own firmware. "
-                    "Figures here are one TCP stream ending on the appliance&#8217;s host.", 11.5, t["sub"]))
+    out.append(text(40, NOTE_Y, "Measured with iperf3 into the appliance&#8217;s own host, through a hardware IPsec peer &#8212; "
+                    "every method is on the measurement pages.", 11.5, t["sub"]))
     for i, (name, desc) in enumerate(FAMILIES):
         fx = 40 + i * 280
         out.append(f'<rect x="{fx}" y="{FAM_Y}" width="260" height="52" rx="10" fill="none" stroke="{t["line"]}" stroke-dasharray="4 4"/>')

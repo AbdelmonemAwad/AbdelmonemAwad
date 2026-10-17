@@ -19,7 +19,7 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/status-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/status-light.svg">
-  <img src="assets/status-light.svg" alt="os-xgs-npu status: stage, one card per appliance with what runs on it, the vendor's rated figures beside the ones measured here, the families without hardware, and the figures that keep it honest" width="100%">
+  <img src="assets/status-light.svg" alt="os-xgs-npu status: stage, one card per appliance with what has been tested on it and what has been measured, the families without hardware, and the figures that keep it honest" width="100%">
 </picture>
 
 - **Two unrelated coprocessors, one contract.** Marvell and Cavium silicon answer the same kernel offload interface, behind the same OPNsense pages.
