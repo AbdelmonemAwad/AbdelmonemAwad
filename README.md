@@ -10,44 +10,34 @@ Most of it is Python, TypeScript and C. Almost all of it ships in Arabic as well
 
 ## os-xgs-npu — reclaiming a family of firewalls
 
-Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance looks like one computer and is two: an x86 host, and a coprocessor behind a PCIe endpoint that owns every front port. Sophos ships drivers for Linux and for its own OS only, so when support lapses the usual verdict on the hardware is e-waste.
-
-**[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is a pair of FreeBSD kernel modules, written against registers no vendor documents, that hand those ports back. The XGS line spans six coprocessor families; get the protocol right for one and every assembly in it becomes a general-purpose FreeBSD router. Two answer now, on silicon that shares nothing.
-
-| Family | Assemblies | Coprocessor | State |
-| :--- | :--- | :--- | :--- |
-| **OCTEON TX** | AMDA0202 (XGS 3300) | Cavium CN83XX | **Working** — twelve of twelve front ports and the expansion module's, with flow and IPsec offload |
-| **ARMADA** | AMDA0201 (XGS 126, 136), 0200, 0208, 0224 | Marvell CN9131 | **Working** — fourteen of fourteen front ports on the XGS 136, with flow and IPsec offload |
-| **OCTEON TX2** | AMDA0203, 0204, 0225, 0228 | Cavium OCTEON TX2 | Described from the vendor's binaries; no hardware here |
-| **OCTEON TX2 98XX** | AMDA0205, 0226 | Cavium OCTEON TX2 98XX | Described from the vendor's binaries; no hardware here |
-| **TOPAZ**, **GR** | Atom boards | none | No coprocessor exists — nothing to drive |
+Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance is two computers, and the second — a coprocessor behind PCIe, with drivers for Linux and the vendor's own OS only — owns every front port, so when support lapses the usual verdict is e-waste. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel modules that hand those ports back, written against registers no vendor documents, across a family of six coprocessor generations.
 
 > **The repository is much younger than the work in it.** Months of reverse engineering, measurement
 > and dead ends on real appliances came before any of it went public, and one of the faults it closes
 > had been open for eighteen of them.
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/status-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/status-light.svg">
+  <img src="assets/status-light.svg" alt="os-xgs-npu status: stage, one card per appliance with what runs on it, the vendor's rated figures beside the ones measured here, the families without hardware, and the figures that keep it honest" width="100%">
+</picture>
+
+- **Two unrelated coprocessors, one contract.** Marvell and Cavium silicon answer the same kernel offload interface, behind the same OPNsense pages.
+- **The tunnel costs nothing.** With hardware at both ends, IPsec runs at the rate of clear text — 1.85 Gbit/s on one stream at the standard MTU, 7.41 Gbit/s with jumbo frames.
+- **What the offload buys is the processor.** Most of a core at a gigabit, against a few hundredths of one, with 99.6 per cent of a connection's frames in hardware.
+- **It installs like part of OPNsense.** Status, offloading and firmware pages in Arabic and English, first-boot port assignment by the names on the chassis, and **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** for a bootable image with all of it inside.
+- **It keeps its own score.** Every figure with its method in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), the dead ends on [the road](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md), and a notice at the top of [the repository](https://github.com/AbdelmonemAwad/os-xgs-npu) that says when not to run it.
+
+<details>
+<summary>How each family is driven</summary>
+
+<br>
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/octeon-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/octeon-light.svg">
   <img src="assets/octeon-light.svg" alt="The Cavium path: OPNsense host, eight virtual functions, handshake and facilities, eight SDP rings, the CN83XX fast path, twelve front ports" width="100%">
 </picture>
-
-**The ports.** On the XGS 3300 all twelve are ordinary FreeBSD interfaces, one of them carrying the appliance's WAN, and a gigabit port measures at line rate: 1,023 Mbit/s, with everything the driver offered beyond that refused at the coprocessor's own egress queue and counted there. On the XGS 136 all fourteen are, and the coprocessor's internal switch was shown not to forward between front ports behind the host's back — so `pf` stays the only forwarder, which is what a firewall needs.
-
-**The offload.** An IPsec association that strongSwan installs through OPNsense lands on the coprocessor's crypto engine with nothing typed, and a connection inside the tunnel can join the flow table with it, so the host leaves the data path. On a real tunnel between two appliances that is 951 Mbit/s down and 946 up — but the kernel's own cipher reaches much the same rate, and the repository says so. **What the offload buys is the host's processor**: most of a core at a gigabit against a few hundredths of one, with the flow table taking the host out of 99.6 per cent of a connection's frames. AES-GCM and AES-CBC with an HMAC, IPv4 and IPv6 inside and out, NAT traversal and replay windows up to 4,096 are all taken; GCM-8 and GCM-12, transport mode and inbound extended sequence numbers stay with the kernel. It is off by default.
-
-The same two offloads now run on the Marvell family too, so two coprocessors with nothing in common answer the same kernel contract behind the same OPNsense pages.
-
-**Three appliances on one bench.** The latest measurements put a hardware peer at both ends of every tunnel for the first time — two XGS 3300s and the XGS 136, with a PC at 10 Gbit/s. At the standard MTU an AES-GCM-256 stream into a 3300 runs at 1.85 Gbit/s, the same as in clear text, where software at the far end managed 1.25: the tunnel in hardware costs nothing. With jumbo frames it carries **7.41 Gbit/s on a single stream**, more than the 7.11 of clear text, and the XGS 136's gigabit link is full from an MTU of 1000, the tunnel within a few per cent of it. The way out of a 3300 is slower in hardware than in software, and [the bench page](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/measurements/bench-2026-10-17.md) lists that as not yet explained; [the MTU page](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/measurements/mtu-2026-10-17.md) has every size from 576 to 9000.
-
-**Getting it onto an appliance.** It installs as an OPNsense plugin with status and offloading pages, and a firmware page that takes updates from the repository and loads them at the next boot. On a first boot it assigns the front ports by the names printed on the chassis — the LAN bridge on 192.168.1.1, the management port as MGMT — which has now been run on both appliances. **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds a bootable image from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) with the driver, the plugins, the Arabic translation and the right-to-left layout already in it — and one image built that way has been installed on an XGS 3300 and assigned its own front ports at its first boot from disk. No other combination has been booted yet.
-
-**How it is kept honest.** On the way to the last hop alone, ten published claims were withdrawn and nineteen attempts recorded as not working, each in the place it was made and counted on [a page of its own](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md). Every number comes with how it was taken in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), and the rest is in [the documentation](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs). The integrity soaks stand at 2,391 GiB carried over TLS with not a byte changed. It is still experimental — it has wedged the bench hard enough to need a power cycle by hand, more than once — so read the notice at the top of the repository before running any of it: at times it says not to.
-
-<details>
-<summary>The Marvell path, drawn the same way</summary>
-
-<br>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/npu-dark.svg">
