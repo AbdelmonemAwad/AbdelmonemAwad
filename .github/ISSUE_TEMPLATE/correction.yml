@@ -1,0 +1,13 @@
+#-
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (c) 2026 Abdelmonem Awad <eg2@live.com>
+#
+name: A correction to the profile page
+description: Something on the page that is wrong or out of date.
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong, and what it should say
+    validations:
+      required: true
