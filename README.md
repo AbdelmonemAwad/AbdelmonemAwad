@@ -24,9 +24,9 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
   <img src="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-light.svg" alt="os-xgs-npu status, drawn by the project itself: the stage it is at, the same features on both appliances side by side — run, partial or not built yet — what has been measured on each, and how far along each one is" width="100%">
 </picture>
 
-- **Two unrelated coprocessors, one contract.** Marvell and Cavium silicon answer the same kernel offload interface, behind the same OPNsense pages.
+- **Two unrelated coprocessors, one contract.** Marvell and Cavium silicon answer the same kernel offload interface, behind the same OPNsense pages, and both drivers take the same orders: hand one connection back to the host, never offload these addresses or ports.
 - **The tunnel costs nothing.** With hardware at both ends, IPsec runs at the rate of clear text — 1.85 Gbit/s on one stream at the standard MTU, 7.41 Gbit/s with jumbo frames.
-- **Forwarded at the link's rate.** IPv6 connections handed to the coprocessor carry 9.27 Gbit/s through an XGS 3300 on eight streams, every one of them in hardware — the 10G link is the limit, not the chip.
+- **Forwarded at the link's rate.** IPv6 connections handed to the coprocessor carry 9.27 Gbit/s through an XGS 3300 on eight streams, every one of them in hardware — the 10G link is the limit, not the chip. The XGS 136 does the same at its gigabit with the address translation in the coprocessor too: 941 Mbit/s from LAN to WAN with its processors 0.4 % busy, against 19.6 % through the host.
 - **What the offload buys is the processor.** Most of a core at a gigabit, against a few hundredths of one, with 99.6 per cent of a connection's frames in hardware.
 - **Two roads onto an appliance.** Most people start from a bootable image: **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds one from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) with the newest release, the plugins, Arabic and right-to-left already inside, and one built that way has been installed on an XGS 3300 and booted. Experts can load the drivers by hand. Either way it lives in OPNsense as if it belonged there — a menu section of its own, from the overview and the ports to updates and problem reports, in Arabic and English; ports assigned by the names on the chassis at the first boot; and updates from tagged releases since **[0.1.0-alpha.1](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.1)**. The next, [0.1.0-alpha.1.1](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.1.1), followed the same day, and appliances of both families run it.
 - **It keeps its own score.** The main part is done and the rest arrives as updates, but it is an alpha and says so: every figure with its method in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), the dead ends on [the road](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md), and plain advice to try a release first on an appliance you can reach.
@@ -117,10 +117,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
+- [npuep: a connection the fast path gave back is revived in place, at once from the receive path](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/492) — **os-xgs-npu**, 18 Oct
+- [npuep: a connection the fast path let go is made again; install keeps a working module when a build fails (#490)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/491) — **os-xgs-npu**, 18 Oct
+- [npuep: the flow maker opens the front ports' interface entries itself](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/487) — **os-xgs-npu**, 18 Oct
+- [npuep: every next hop named an empty cage - a whole link header read into a MAC's six bytes (#483)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/486) — **os-xgs-npu**, 18 Oct
+- [Flows: return a connection to the host, and a never-offloaded list](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/484) — **os-xgs-npu**, 18 Oct
 - [The theme's colours as custom properties, for pages that draw with them](https://github.com/AbdelmonemAwad/os-theme-xgs/pull/4) — **os-theme-xgs**, 18 Oct
-- [Overview: the front panel drawn, the last restart, and how full the tables are; Updates: a test channel; the dashboard: offloaded flows](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/482) — **os-xgs-npu**, 18 Oct
-- [The XGS Silicon theme in the image, installed after the right-to-left layout and made the GUI's theme (xgs-auto)](https://github.com/AbdelmonemAwad/xgs-image-builder/pull/33) — **xgs-image-builder**, 18 Oct
-- [Four faults found on real pages fixed, the install scripts set the right theme element, and the README shows the theme on real pages](https://github.com/AbdelmonemAwad/os-theme-xgs/pull/3) — **os-theme-xgs**, 18 Oct
-- [The menu section is XGS: the long name broke over two lines in the collapsed menu](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/480) — **os-xgs-npu**, 18 Oct
-- [XGS Silicon: xgs, xgs-dark and xgs-auto, built on OPNsense's own themes](https://github.com/AbdelmonemAwad/os-theme-xgs/pull/1) — **os-theme-xgs**, 18 Oct
 <!-- merged ends -->
