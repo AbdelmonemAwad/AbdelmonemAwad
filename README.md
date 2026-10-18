@@ -116,10 +116,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
-- [Problem reports: the board revision on its own line, and what told two boards apart](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/439) — **os-xgs-npu**, 17 Oct
-- [Relay: set it up in one run](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/437) — **os-xgs-npu**, 17 Oct
-- [Problem reports: what goes wrong, filed as GitHub issues through a relay](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/436) — **os-xgs-npu**, 17 Oct
-- [Readings: the temperatures as cards](https://github.com/AbdelmonemAwad/os-fanctl/pull/14) — **os-fanctl**, 17 Oct
-- [Settings and Hardware laid out like OPNsense's own forms](https://github.com/AbdelmonemAwad/os-fanctl/pull/13) — **os-fanctl**, 17 Oct
-- [The page laid out like OPNsense's own forms](https://github.com/AbdelmonemAwad/os-frontpanel/pull/17) — **os-frontpanel**, 17 Oct
+- [Reporter: crashes told apart by where they happened, info.last not counted, the npuep module's frames recognised](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/470) — **os-xgs-npu**, 18 Oct
+- [Updates: a progress bar from the update's own traces, the newest release's notes when nothing is newer, smaller release steps](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/466) — **os-xgs-npu**, 18 Oct
+- [The status board: integration done, the notice lifted, the rest completed as updates](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/463) — **os-xgs-npu**, 18 Oct
+- [README: two roads onto an appliance - the image for most people, the files for experts](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/462) — **os-xgs-npu**, 18 Oct
+- [The work-in-progress notice lifted, as in the driver project](https://github.com/AbdelmonemAwad/xgs-image-builder/pull/29) — **xgs-image-builder**, 18 Oct
+- [The work-in-progress notice lifted: the main part is done, and what is left arrives as updates](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/461) — **os-xgs-npu**, 18 Oct
 <!-- merged ends -->
