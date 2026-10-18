@@ -1,0 +1,13 @@
+#-
+# SPDX-License-Identifier: BSD-2-Clause
+# Copyright (c) 2026 Abdelmonem Awad <eg2@live.com>
+#
+# The choices offered by New issue. A blank issue stays possible.
+blank_issues_enabled: true
+contact_links:
+  - name: A question
+    url: https://github.com/AbdelmonemAwad/os-xgs-npu/discussions
+    about: How to do something, whether an appliance could work - ask in the project's Discussions.
+  - name: The story, the photographs and the measurements
+    url: https://github.com/AbdelmonemAwad/os-xgs-npu/wiki
+    about: How the project came to be, in its wiki.
