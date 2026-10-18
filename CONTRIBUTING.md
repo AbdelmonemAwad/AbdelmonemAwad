@@ -1,6 +1,6 @@
 # Working on this
 
-This repository is the profile page: its README is drawn by `build_readme.py` from the projects' own data, so a change to what it says usually belongs in the project it describes. A correction to the page itself is welcome as a pull request.
+This repository is the profile page. Its README is written by hand, except the "Recently merged" list, which `build_readme.py` fills in from merged pull requests, so a change to what it says about a project usually belongs in that project first. A correction to the page itself is welcome as a pull request.
 
 ## Copyright, and what a contribution agrees to
 

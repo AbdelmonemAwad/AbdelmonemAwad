@@ -17,6 +17,8 @@ AUTHOR = "AbdelmonemAwad"
 COUNT = 6
 # titles that describe upkeep rather than a finding
 SKIP = ("docs:", "doc:", "chore:", "ci:", "build:", "style:", "test:", "bump ", "merge ")
+# a pull request that changes only these is the repository's upkeep, whatever its title
+UPKEEP = re.compile(r"\.github/|(SECURITY|CODE_OF_CONDUCT|CONTRIBUTING)\.md$|LICENSE|\.gitignore$")
 
 README = pathlib.Path(__file__).parent / "README.md"
 START, END = "<!-- merged starts -->", "<!-- merged ends -->"
@@ -34,6 +36,11 @@ def get(url):
         return json.load(response)
 
 
+def upkeep_only(row):
+    files = get(f"{row['api']}/files?per_page=100")
+    return bool(files) and all(UPKEEP.match(f["filename"]) for f in files)
+
+
 def merged():
     query = urllib.parse.quote(f"is:pr is:merged is:public author:{AUTHOR}")
     found = get("https://api.github.com/search/issues"
@@ -48,10 +55,17 @@ def merged():
             "url": item["html_url"],
             "repo": item["repository_url"].rsplit("/", 1)[-1],
             "merged": item["pull_request"]["merged_at"],
+            "api": item["pull_request"]["url"],
         })
     # the search orders by last update, which is not always the merge
     rows.sort(key=lambda row: row["merged"], reverse=True)
-    return rows[:COUNT]
+    picked = []
+    for row in rows:
+        if len(picked) == COUNT:
+            break
+        if not upkeep_only(row):
+            picked.append(row)
+    return picked
 
 
 def escape(text):

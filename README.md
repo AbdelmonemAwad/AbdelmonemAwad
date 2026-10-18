@@ -116,10 +116,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
-- [Community files: a security policy and the code of conduct](https://github.com/AbdelmonemAwad/cadenza/pull/86) — **cadenza**, 18 Oct
-- [Community files: a licence, a security note, the code of conduct, an issue form and a pull request template](https://github.com/AbdelmonemAwad/AbdelmonemAwad/pull/2) — **AbdelmonemAwad**, 18 Oct
-- [Community files: a security policy, the code of conduct, issue forms, a pull request template, and Dependabot for the workflows' Actions](https://github.com/AbdelmonemAwad/xgs-image-builder/pull/30) — **xgs-image-builder**, 18 Oct
-- [Community files: a security policy, the code of conduct, issue forms, a pull request template, and Dependabot for the workflows' Actions](https://github.com/AbdelmonemAwad/opnsense-rtl/pull/7) — **opnsense-rtl**, 18 Oct
-- [Community files: a security policy, the code of conduct, issue forms, a pull request template, and Dependabot for the workflows' Actions](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/7) — **opnsense-arabic**, 18 Oct
-- [Community files: a security policy, the code of conduct, issue forms, a pull request template, and Dependabot for the workflows' Actions](https://github.com/AbdelmonemAwad/os-netreport/pull/11) — **os-netreport**, 18 Oct
+- [Release 0.1.0-alpha.1.1](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/477) — **os-xgs-npu**, 18 Oct
+- [Reset reason: what the host's chipset recorded as the cause of the last reset, kept at every boot and named in the report of a restart without a shutdown](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/471) — **os-xgs-npu**, 18 Oct
+- [Reporter: crashes told apart by where they happened, info.last not counted, the npuep module's frames recognised](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/470) — **os-xgs-npu**, 18 Oct
+- [Updates: a progress bar from the update's own traces, the newest release's notes when nothing is newer, smaller release steps](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/466) — **os-xgs-npu**, 18 Oct
+- [The status board: integration done, the notice lifted, the rest completed as updates](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/463) — **os-xgs-npu**, 18 Oct
+- [README: two roads onto an appliance - the image for most people, the files for experts](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/462) — **os-xgs-npu**, 18 Oct
 <!-- merged ends -->
