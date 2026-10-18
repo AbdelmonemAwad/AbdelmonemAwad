@@ -12,9 +12,11 @@ Most of it is Python, TypeScript and C. Almost all of it ships in Arabic as well
 
 Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance is two computers, and the second — a coprocessor behind PCIe, with drivers for Linux and the vendor's own OS only — owns every front port, so when support lapses the usual verdict is e-waste. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel modules that hand those ports back, written against registers no vendor documents, across a family of six coprocessor generations.
 
-> **The repository is much younger than the work in it.** Months of reverse engineering, measurement
-> and dead ends on real appliances came before any of it went public, and one of the faults it closes
-> had been open for eighteen of them.
+> **The repository is much younger than the work in it.** It went public on 25 September 2026; the work
+> behind it took close to two years — eight months of surveying other vendors' appliances, adapters that
+> failed, a firmware of my own that ran into a board of many chips, and then the turn every driver here
+> stands on: the host learning to speak the coprocessor's own language.
+> **[The whole story is in the wiki.](https://github.com/AbdelmonemAwad/os-xgs-npu/wiki)**
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-dark.svg">
