@@ -28,7 +28,7 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 - **The tunnel costs nothing.** With hardware at both ends, IPsec runs at the rate of clear text — 1.85 Gbit/s on one stream at the standard MTU, 7.41 Gbit/s with jumbo frames.
 - **Forwarded at the link's rate.** IPv6 connections handed to the coprocessor carry 9.27 Gbit/s through an XGS 3300 on eight streams, every one of them in hardware — the 10G link is the limit, not the chip.
 - **What the offload buys is the processor.** Most of a core at a gigabit, against a few hundredths of one, with 99.6 per cent of a connection's frames in hardware.
-- **Two roads onto an appliance.** Most people start from a bootable image: **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds one from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) with the newest release, the plugins, Arabic and right-to-left already inside, and one built that way has been installed on an XGS 3300 and booted. Experts can load the drivers by hand. Either way it lives in OPNsense as if it belonged there — status, offloading and firmware pages in Arabic and English, ports assigned by the names on the chassis at the first boot, and updates from tagged releases since **[0.1.0-alpha.1](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.1)**.
+- **Two roads onto an appliance.** Most people start from a bootable image: **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds one from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) with the newest release, the plugins, Arabic and right-to-left already inside, and one built that way has been installed on an XGS 3300 and booted. Experts can load the drivers by hand. Either way it lives in OPNsense as if it belonged there — a menu section of its own, from the overview and the ports to updates and problem reports, in Arabic and English; ports assigned by the names on the chassis at the first boot; and updates from tagged releases since **[0.1.0-alpha.1](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.1)**. The next, [0.1.0-alpha.1.1](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.1.1), followed the same day, and appliances of both families run it.
 - **It keeps its own score.** The main part is done and the rest arrives as updates, but it is an alpha and says so: every figure with its method in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), the dead ends on [the road](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md), and plain advice to try a release first on an appliance you can reach.
 
 <details>
@@ -63,7 +63,7 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 
 ## OPNsense plugins
 
-Four plugins, BSD-2 licensed like the platform itself and packaged as FreeBSD ports.
+Five plugins, BSD-2 licensed like the platform itself and packaged as FreeBSD ports.
 
 - **[os-linkhealth](https://github.com/AbdelmonemAwad/os-linkhealth)** — watches every physical port and names the cable or transceiver that is going bad, by the label printed on the chassis rather than the interface name. It reads the DOM registers on the transceivers, so the warning arrives before the link actually drops.
 - **[os-netreport](https://github.com/AbdelmonemAwad/os-netreport)** — scheduled network reports by email, and an alert the first time an unknown device shows up. Each report is written in whichever language the GUI is set to.
@@ -71,7 +71,7 @@ Four plugins, BSD-2 licensed like the platform itself and packaged as FreeBSD po
 - **[os-fanctl](https://github.com/AbdelmonemAwad/os-fanctl)** — fan control and every readable temperature sensor, for repurposed appliances whose fan curve left with the vendor firmware. Talks to the Super I/O chip directly.
 - **[os-theme-xgs](https://github.com/AbdelmonemAwad/os-theme-xgs)** — XGS Silicon, a light, a dark and an automatic theme for the OPNsense GUI on the XGS appliances: carbon and copper like the hardware, IBM Plex with its own Arabic, and not one page's layout changed. An image built for the XGS starts with it.
 
-Three of them now know the Sophos XGS appliances above — port labels for every XGS board and FleXi module, generated from the vendor's own board files, port identification through the coprocessor, temperature and fan readings from the board and from the coprocessor, the 3300's front panel with its buttons and a menu — so a reclaimed box gets more back than its ports. All six packages, these four and the Arabic and right-to-left ones, now follow their latest release by themselves once a day, and survive an OPNsense update that replaces their strings or templates.
+Three of them now know the Sophos XGS appliances above — port labels for every XGS board and FleXi module, generated from the vendor's own board files, port identification through the coprocessor, temperature and fan readings from the board and from the coprocessor, the 3300's front panel with its buttons and a menu — so a reclaimed box gets more back than its ports. Six packages — the first four here, and the Arabic and right-to-left ones — now follow their latest release by themselves once a day, and survive an OPNsense update that replaces their strings or templates.
 
 They share one shape:
 
@@ -108,7 +108,7 @@ A fair amount of my work stays in private repositories: the Odoo projects built 
 
 ## What I use
 
-Python for backends, plugins and media pipelines. C for the kernel side — the XGS drivers above all, then the Super I/O access in the fan controller and the local inference build in filamind-ai. TypeScript and Vue 3 for every FilaMind front end, React on cadenza. PHP and Volt because that is what an OPNsense interface is written in. Rust where a Tauri shell needs it.
+Python for backends, plugins and media pipelines. C for the kernel side — the XGS drivers above all, then the Super I/O access in the fan controller and the local inference build in filamind-ai. TypeScript and Vue 3 for every FilaMind front end, React on cadenza. PHP and Volt because that is what an OPNsense interface is written in, and SCSS for its theme. Rust where a Tauri shell needs it.
 
 Underneath: FreeBSD and its ports tree, Synology DSM 7, Docker, FastAPI, Vite, Tailwind, gettext, and GitHub Actions for CI and releases. At the hardware end: PCIe network coprocessors, SFP/SFF DOM registers, HD44780 panels through LCDproc, TMC stepper drivers, and CUDA when there is a GPU worth using.
 
@@ -117,10 +117,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
-- [Release 0.1.0-alpha.1.1](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/477) — **os-xgs-npu**, 18 Oct
-- [Reset reason: what the host's chipset recorded as the cause of the last reset, kept at every boot and named in the report of a restart without a shutdown](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/471) — **os-xgs-npu**, 18 Oct
-- [Reporter: crashes told apart by where they happened, info.last not counted, the npuep module's frames recognised](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/470) — **os-xgs-npu**, 18 Oct
-- [Updates: a progress bar from the update's own traces, the newest release's notes when nothing is newer, smaller release steps](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/466) — **os-xgs-npu**, 18 Oct
-- [The status board: integration done, the notice lifted, the rest completed as updates](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/463) — **os-xgs-npu**, 18 Oct
-- [README: two roads onto an appliance - the image for most people, the files for experts](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/462) — **os-xgs-npu**, 18 Oct
+- [The theme's colours as custom properties, for pages that draw with them](https://github.com/AbdelmonemAwad/os-theme-xgs/pull/4) — **os-theme-xgs**, 18 Oct
+- [Overview: the front panel drawn, the last restart, and how full the tables are; Updates: a test channel; the dashboard: offloaded flows](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/482) — **os-xgs-npu**, 18 Oct
+- [The XGS Silicon theme in the image, installed after the right-to-left layout and made the GUI's theme (xgs-auto)](https://github.com/AbdelmonemAwad/xgs-image-builder/pull/33) — **xgs-image-builder**, 18 Oct
+- [Four faults found on real pages fixed, the install scripts set the right theme element, and the README shows the theme on real pages](https://github.com/AbdelmonemAwad/os-theme-xgs/pull/3) — **os-theme-xgs**, 18 Oct
+- [The menu section is XGS: the long name broke over two lines in the collapsed menu](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/480) — **os-xgs-npu**, 18 Oct
+- [XGS Silicon: xgs, xgs-dark and xgs-auto, built on OPNsense's own themes](https://github.com/AbdelmonemAwad/os-theme-xgs/pull/1) — **os-theme-xgs**, 18 Oct
 <!-- merged ends -->

@@ -42,7 +42,8 @@ def upkeep_only(row):
 
 
 def merged():
-    query = urllib.parse.quote(f"is:pr is:merged is:public author:{AUTHOR}")
+    # this repository's own pull requests are the page, not the work on it
+    query = urllib.parse.quote(f"is:pr is:merged is:public author:{AUTHOR} -repo:{AUTHOR}/{AUTHOR}")
     found = get("https://api.github.com/search/issues"
                 f"?q={query}&sort=updated&order=desc&per_page=50")
     rows = []
