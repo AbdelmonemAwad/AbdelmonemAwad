@@ -17,16 +17,16 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 > had been open for eighteen of them.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/status-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/status-light.svg">
-  <img src="assets/status-light.svg" alt="os-xgs-npu status: stage, one card per appliance with what has been tested on it and what has been measured, the families without hardware, and the figures that keep it honest" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-light.svg">
+  <img src="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-light.svg" alt="os-xgs-npu status, drawn by the project itself: the stage it is at, the same features on both appliances side by side — run, partial or not built yet — what has been measured on each, and how far along each one is" width="100%">
 </picture>
 
 - **Two unrelated coprocessors, one contract.** Marvell and Cavium silicon answer the same kernel offload interface, behind the same OPNsense pages.
 - **The tunnel costs nothing.** With hardware at both ends, IPsec runs at the rate of clear text — 1.85 Gbit/s on one stream at the standard MTU, 7.41 Gbit/s with jumbo frames.
 - **Forwarded at the link's rate.** IPv6 connections handed to the coprocessor carry 9.27 Gbit/s through an XGS 3300 on eight streams, every one of them in hardware — the 10G link is the limit, not the chip.
 - **What the offload buys is the processor.** Most of a core at a gigabit, against a few hundredths of one, with 99.6 per cent of a connection's frames in hardware.
-- **It installs like part of OPNsense.** Status, offloading and firmware pages in Arabic and English, first-boot port assignment by the names on the chassis, and **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** for a bootable image with all of it inside.
+- **It installs like part of OPNsense.** Status, offloading and firmware pages in Arabic and English, first-boot port assignment by the names on the chassis, updates from tagged releases since **[0.1.0-alpha.1](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.1)**, and **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** for a bootable image with all of it inside.
 - **It keeps its own score.** Every figure with its method in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), the dead ends on [the road](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md), and a notice at the top of [the repository](https://github.com/AbdelmonemAwad/os-xgs-npu) that says when not to run it.
 
 <details>
