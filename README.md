@@ -24,6 +24,7 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 
 - **Two unrelated coprocessors, one contract.** Marvell and Cavium silicon answer the same kernel offload interface, behind the same OPNsense pages.
 - **The tunnel costs nothing.** With hardware at both ends, IPsec runs at the rate of clear text — 1.85 Gbit/s on one stream at the standard MTU, 7.41 Gbit/s with jumbo frames.
+- **Forwarded at the link's rate.** IPv6 connections handed to the coprocessor carry 9.27 Gbit/s through an XGS 3300 on eight streams, every one of them in hardware — the 10G link is the limit, not the chip.
 - **What the offload buys is the processor.** Most of a core at a gigabit, against a few hundredths of one, with 99.6 per cent of a connection's frames in hardware.
 - **It installs like part of OPNsense.** Status, offloading and firmware pages in Arabic and English, first-boot port assignment by the names on the chassis, and **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** for a bootable image with all of it inside.
 - **It keeps its own score.** Every figure with its method in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), the dead ends on [the road](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md), and a notice at the top of [the repository](https://github.com/AbdelmonemAwad/os-xgs-npu) that says when not to run it.
