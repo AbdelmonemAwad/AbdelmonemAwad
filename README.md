@@ -12,7 +12,7 @@ Most of it is Python, TypeScript and C. Almost all of it ships in Arabic as well
 
 Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance is two computers, and the second — a coprocessor behind PCIe, with drivers for Linux and the vendor's own OS only — owns every front port, so when support lapses the usual verdict is e-waste. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel modules that hand those ports back, written against registers no vendor documents, across a family of six coprocessor generations.
 
-Its home is **[npuforge.org](https://npuforge.org)**: the guide, every measurement with its method, a compatibility list that owners add to, news of each release and the story, in English and [in Arabic](https://npuforge.org/ar/).
+I gave it a home of its own, **[npuforge.org](https://npuforge.org)**: the guide, every measurement with its method, a compatibility list that owners add to, news of each release and the story, in English and [in Arabic](https://npuforge.org/ar/).
 
 > **The repository is much younger than the work in it.** It went public on 25 September 2026; the work
 > behind it took close to two years — eight months of surveying other vendors' appliances, adapters that
@@ -99,7 +99,7 @@ Most of my Odoo work is client projects in private repositories: custom modules 
 - **[opnsense-arabic](https://github.com/AbdelmonemAwad/opnsense-arabic)** — the Arabic translation of the OPNsense 26.7 web interface, tracked against upstream so the strings don't drift between releases.
 - **[opnsense-rtl](https://github.com/AbdelmonemAwad/opnsense-rtl)** — right-to-left layout for Arabic and Persian. Flipping the text direction is the easy half; tables, form flow, icon direction, menu alignment and a long tail of Bootstrap overrides are what decide whether an RTL interface is genuinely usable or merely mirrored.
 
-The same concern runs through everything else: 19 locales in filamind-core, Arabic and English throughout filamind-ai, every OPNsense report rendered in the language of whoever has to read it, and every page the XGS driver and the plugins add to OPNsense translated into Arabic with the rest — [each one photographed in both languages](https://npuforge.org/docs/guide/the-pages/). The XGS project's site has [an Arabic edition](https://npuforge.org/ar/) of its own, right to left, with Arabic menus and search.
+The same concern runs through everything else: 19 locales in filamind-core, Arabic and English throughout filamind-ai, every OPNsense report rendered in the language of whoever has to read it, and every page the XGS driver and the plugins add to OPNsense translated into Arabic with the rest — [each one photographed in both languages](https://npuforge.org/docs/guide/the-pages/). And I built the XGS project's site [an Arabic edition](https://npuforge.org/ar/) of its own, right to left, with Arabic menus and search.
 
 ## cadenza
 
