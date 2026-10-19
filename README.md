@@ -118,10 +118,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
-- [Settings: count hardware traffic in pf and on the interfaces (XGS 3300)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/517) — **os-xgs-npu**, 19 Oct
-- [octep: a reused slot's counts, counts given to pf, the port counts; the pages with traffic](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/516) — **os-xgs-npu**, 19 Oct
-- [octep: read the coprocessor's connection counts, and show them on the flows page](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/514) — **os-xgs-npu**, 19 Oct
-- [Cut connections by their TLS fingerprint (JA4)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/511) — **os-xgs-npu**, 19 Oct
-- [Problem reporter: one event logged over several lines is one report](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/510) — **os-xgs-npu**, 19 Oct
-- [Cut the connections already open when a block list gains their address](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/508) — **os-xgs-npu**, 19 Oct
+- [XGS 136: read the coprocessor's counts, into pf and onto the interfaces](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/528) — **os-xgs-npu**, 19 Oct
+- [npuep, octep: nothing posted on the high ring is written past its slot](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/526) — **os-xgs-npu**, 19 Oct
+- [XGS 136: keep the last unknown-tag frame, and what its coprocessor sends, read](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/525) — **os-xgs-npu**, 19 Oct
+- [Every source file carries the copyright line, and the checks keep it so](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/11) — **opnsense-arabic** and 6 more, 19 Oct
+- [Updates: download the commit the check found, and show the log and a failure as text](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/521) — **os-xgs-npu**, 19 Oct
+- [Relay: no allowance spent on a refused report, ten notes a day per issue, no fingerprint in the issue](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/520) — **os-xgs-npu**, 19 Oct
 <!-- merged ends -->
