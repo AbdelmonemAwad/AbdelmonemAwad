@@ -12,11 +12,13 @@ Most of it is Python, TypeScript and C. Almost all of it ships in Arabic as well
 
 Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance is two computers, and the second — a coprocessor behind PCIe, with drivers for Linux and the vendor's own OS only — owns every front port, so when support lapses the usual verdict is e-waste. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel modules that hand those ports back, written against registers no vendor documents, across a family of six coprocessor generations.
 
+Its home is **[npuforge.org](https://npuforge.org)**: the guide, every measurement with its method, a compatibility list that owners add to, news of each release and the story, in English and [in Arabic](https://npuforge.org/ar/).
+
 > **The repository is much younger than the work in it.** It went public on 25 September 2026; the work
 > behind it took close to two years — eight months of surveying other vendors' appliances, adapters that
 > failed, a firmware of my own that ran into a board of many chips, and then the turn every driver here
 > stands on: the host learning to speak the coprocessor's own language.
-> **[The whole story is in the wiki.](https://github.com/AbdelmonemAwad/os-xgs-npu/wiki)**
+> **[The whole story is on the site.](https://npuforge.org/story/)**
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-dark.svg">
@@ -29,7 +31,7 @@ Install OPNsense on a Sophos XGS and it boots to a working firewall with **no ne
 - **Forwarded at the link's rate.** IPv6 connections handed to the coprocessor carry 9.27 Gbit/s through an XGS 3300 on eight streams, every one of them in hardware — the 10G link is the limit, not the chip. A thousand connections at once fill it too: 9,837 Mbit/s with the host's processors 7.8 % busy. The XGS 136 does the same at its gigabit, for IPv6 and for IPv4 translated from LAN to WAN in the coprocessor: 941 Mbit/s with its processors 0.4 % busy, against 19.6 % through the host.
 - **What the offload buys is the processor.** Most of a core at a gigabit, against a few hundredths of one, with 99.6 per cent of a connection's frames in hardware.
 - **Fast, and still a firewall.** A connection the coprocessor forwards can still be cut: when a block list gains its address, or when OPNsense's intrusion detection sees its TLS fingerprint (JA4) on a list. It is still counted: the coprocessor's own figures reach pf's states and rules and the interfaces' traffic graphs, which would otherwise never see it. And a port scan, a sweep, or a host far beyond its own normal is reported, never blocked. Each of these is measured on both appliances.
-- **Two roads onto an appliance.** Most people start from a bootable image: **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds one from [a page in the browser](https://abdelmonemawad.github.io/xgs-image-builder/) with the newest release, the plugins, Arabic and right-to-left already inside, and one built that way has been installed on an XGS 3300 and booted. Experts can load the drivers by hand. Both are [in the wiki, step by step](https://github.com/AbdelmonemAwad/os-xgs-npu/wiki/Installing). Either way it lives in OPNsense as if it belonged there — a menu section of its own, from the overview and the ports to updates and problem reports, in Arabic and English; ports assigned by the names on the chassis at the first boot; and updates from tagged releases since **[0.1.0-alpha.1](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.1)**, installed from its own page: the three appliances here took [0.1.0-alpha.2](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.2) that way.
+- **Two roads onto an appliance.** Most people start from a bootable image: **[xgs-image-builder](https://github.com/AbdelmonemAwad/xgs-image-builder)** builds one from [a page in the browser](https://build.npuforge.org) with the newest release, the plugins, Arabic and right-to-left already inside, and one built that way has been installed on an XGS 3300 and booted. Experts can load the drivers by hand. Both are [in the wiki, step by step](https://github.com/AbdelmonemAwad/os-xgs-npu/wiki/Installing). Either way it lives in OPNsense as if it belonged there — a menu section of its own, from the overview and the ports to updates and problem reports, in Arabic and English; ports assigned by the names on the chassis at the first boot; and updates from tagged releases since **[0.1.0-alpha.1](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.1)**, installed from its own page: the three appliances here took [0.1.0-alpha.2](https://github.com/AbdelmonemAwad/os-xgs-npu/releases/tag/v0.1.0-alpha.2) that way.
 - **It keeps its own score.** The main part is done and the rest arrives as updates, but it is an alpha and says so: every figure with its method in [the measurements](https://github.com/AbdelmonemAwad/os-xgs-npu/tree/main/docs/measurements), the dead ends on [the road](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/the-road.md), and plain advice to try a release first on an appliance you can reach.
 
 <details>
@@ -97,7 +99,7 @@ Most of my Odoo work is client projects in private repositories: custom modules 
 - **[opnsense-arabic](https://github.com/AbdelmonemAwad/opnsense-arabic)** — the Arabic translation of the OPNsense 26.7 web interface, tracked against upstream so the strings don't drift between releases.
 - **[opnsense-rtl](https://github.com/AbdelmonemAwad/opnsense-rtl)** — right-to-left layout for Arabic and Persian. Flipping the text direction is the easy half; tables, form flow, icon direction, menu alignment and a long tail of Bootstrap overrides are what decide whether an RTL interface is genuinely usable or merely mirrored.
 
-The same concern runs through everything else: 19 locales in filamind-core, Arabic and English throughout filamind-ai, every OPNsense report rendered in the language of whoever has to read it, and every page the XGS driver and the plugins add to OPNsense translated into Arabic with the rest — [each one photographed in both languages](https://github.com/AbdelmonemAwad/os-xgs-npu/wiki/The-pages).
+The same concern runs through everything else: 19 locales in filamind-core, Arabic and English throughout filamind-ai, every OPNsense report rendered in the language of whoever has to read it, and every page the XGS driver and the plugins add to OPNsense translated into Arabic with the rest — [each one photographed in both languages](https://npuforge.org/docs/guide/the-pages/). The XGS project's site has [an Arabic edition](https://npuforge.org/ar/) of its own, right to left, with Arabic menus and search.
 
 ## cadenza
 
@@ -118,10 +120,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
+- [website: npuforge.org, the project's site](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/552) — **os-xgs-npu**, 19 Oct
+- [Release 0.1.0-alpha.2.2](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/551) — **os-xgs-npu**, 19 Oct
+- [relay: reports go to reports.npuforge.org, the project's own domain](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/548) — **os-xgs-npu**, 19 Oct
 - [Release 0.1.0-alpha.2.1](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/542) — **os-xgs-npu**, 19 Oct
 - [updates: a branch build is offered the release, a reboot only when the driver changed](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/541) — **os-xgs-npu**, 19 Oct
 - [Release 0.1.0-alpha.2](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/539) — **os-xgs-npu**, 19 Oct
-- [Release 1.1](https://github.com/AbdelmonemAwad/os-fanctl/pull/27) — **os-fanctl**, 19 Oct
-- [Sensors are named, not keyed, and numerous kinds fold; a watch-only controller restarts on install](https://github.com/AbdelmonemAwad/os-fanctl/pull/25) — **os-fanctl**, 19 Oct
-- [reporter: the first notice is closable and opens its page, in the header instead of a banner](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/538) — **os-xgs-npu**, 19 Oct
 <!-- merged ends -->
