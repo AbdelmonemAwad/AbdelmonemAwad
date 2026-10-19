@@ -21,9 +21,9 @@ Its home is **[npuforge.org](https://npuforge.org)**: the guide, every measureme
 > **[The whole story is on the site.](https://npuforge.org/story/)**
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-light.svg">
-  <img src="https://github.com/AbdelmonemAwad/os-xgs-npu/raw/main/docs/images/readme/status-light.svg" alt="os-xgs-npu status, drawn by the project itself: the stage it is at, the same features on both appliances side by side — run, partial or not built yet — what has been measured on each, and how far along each one is" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://npuforge.org/readme/status-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://npuforge.org/readme/status-light.svg">
+  <img src="https://npuforge.org/readme/status-light.svg" alt="os-xgs-npu status, drawn by the project itself: the stage it is at, the same features on both appliances side by side — run, partial or not built yet — what has been measured on each, and how far along each one is" width="100%">
 </picture>
 
 - **Two unrelated coprocessors, one contract.** Marvell and Cavium silicon answer the same kernel offload interface, behind the same OPNsense pages, and both drivers take the same orders: hand one connection back to the host, never offload these addresses or ports.
