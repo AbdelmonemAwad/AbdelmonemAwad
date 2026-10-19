@@ -19,6 +19,8 @@ COUNT = 6
 SKIP = ("docs:", "doc:", "chore:", "ci:", "build:", "style:", "test:", "bump ", "merge ")
 # a pull request that changes only these is the repository's upkeep, whatever its title
 UPKEEP = re.compile(r"\.github/|(SECURITY|CODE_OF_CONDUCT|CONTRIBUTING)\.md$|LICENSE|\.gitignore$")
+# pages and pictures only: the work they describe is merged on its own, as "docs:" titles are skipped
+DOCS = re.compile(r"\.md$|^docs/|\.(png|jpe?g|gif|svg)$")
 
 README = pathlib.Path(__file__).parent / "README.md"
 START, END = "<!-- merged starts -->", "<!-- merged ends -->"
@@ -36,9 +38,14 @@ def get(url):
         return json.load(response)
 
 
-def upkeep_only(row):
-    files = get(f"{row['api']}/files?per_page=100")
-    return bool(files) and all(UPKEEP.match(f["filename"]) for f in files)
+def housekeeping(row):
+    files = [f["filename"] for f in get(f"{row['api']}/files?per_page=100")]
+    if not files:
+        return False
+    if all(UPKEEP.match(name) for name in files):
+        return True
+    release = row["title"].lower().startswith("release")
+    return not release and all(DOCS.search(name) for name in files)
 
 
 def merged():
@@ -60,12 +67,19 @@ def merged():
         })
     # the search orders by last update, which is not always the merge
     rows.sort(key=lambda row: row["merged"], reverse=True)
-    picked = []
+    # one change made in several repositories under one title is one line
+    picked, seen, dropped = [], {}, set()
     for row in rows:
-        if len(picked) == COUNT:
-            break
-        if not upkeep_only(row):
-            picked.append(row)
+        key = row["title"].lower()
+        if key in seen:
+            seen[key]["more"] += 1
+        elif key not in dropped and len(picked) < COUNT:
+            if housekeeping(row):
+                dropped.add(key)
+            else:
+                row["more"] = 0
+                seen[key] = row
+                picked.append(row)
     return picked
 
 
@@ -90,7 +104,8 @@ def main():
     lines = []
     for row in rows:
         day = datetime.strptime(row["merged"][:10], "%Y-%m-%d").strftime("%d %b")
-        lines.append(f"- [{escape(row['title'])}]({row['url']}) — **{row['repo']}**, {day}")
+        where = f"**{row['repo']}**" + (f" and {row['more']} more" if row["more"] else "")
+        lines.append(f"- [{escape(row['title'])}]({row['url']}) — {where}, {day}")
 
     block = f"{START}\n" + "\n".join(lines) + f"\n{END}"
     text = README.read_text(encoding="utf-8")
