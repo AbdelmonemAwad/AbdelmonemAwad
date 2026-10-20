@@ -117,6 +117,8 @@ Underneath: FreeBSD and its ports tree, Synology DSM 7, Docker, FastAPI, Vite, T
 
 Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM serving, or Arabic localization of infrastructure software. Questions about the XGS drivers are best asked in [the project's Discussions](https://github.com/AbdelmonemAwad/os-xgs-npu/discussions), where the answer stays for the next person.
 
+If the XGS work is useful to you, **[sponsoring it](https://github.com/sponsors/AbdelmonemAwad)** pays for the appliances, modules and test gear the next families need. So far all of it has come out of my own pocket.
+
 ## Recently merged
 
 <!-- merged starts -->
