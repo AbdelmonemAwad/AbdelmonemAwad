@@ -27,7 +27,7 @@ I gave it a home of its own, **[npuforge.org](https://npuforge.org)**: the guide
 </picture>
 
 - **Two unrelated coprocessors, one contract.** Marvell and Cavium silicon answer the same kernel offload interface, behind the same OPNsense pages, and both drivers take the same orders: hand one connection back to the host, never offload these addresses or ports.
-- **The tunnel costs nothing.** With hardware at both ends, IPsec runs at the rate of clear text — 1.85 Gbit/s on one stream at the standard MTU, 7.41 Gbit/s with jumbo frames.
+- **The tunnel costs nothing.** With hardware at both ends, IPsec runs at the rate of clear text — 1.85 Gbit/s on one stream at the standard MTU, 7.41 Gbit/s with jumbo frames. The XGS 136's engine keeps its gigabit's rate with IPv6 outside the tunnel and inside it, and with extended sequence numbers, both ways.
 - **Forwarded at the link's rate.** IPv6 connections handed to the coprocessor carry 9.27 Gbit/s through an XGS 3300 on eight streams, every one of them in hardware — the 10G link is the limit, not the chip. A thousand connections at once fill it too: 9,837 Mbit/s with the host's processors 7.8 % busy. The XGS 136 does the same at its gigabit, for IPv6 and for IPv4 translated from LAN to WAN in the coprocessor: 941 Mbit/s with its processors 0.4 % busy, against 19.6 % through the host.
 - **What the offload buys is the processor.** Most of a core at a gigabit, against a few hundredths of one, with 99.6 per cent of a connection's frames in hardware.
 - **Fast, and still a firewall.** A connection the coprocessor forwards can still be cut: when a block list gains its address, or when OPNsense's intrusion detection sees its TLS fingerprint (JA4) on a list. It is still counted: the coprocessor's own figures reach pf's states and rules and the interfaces' traffic graphs, which would otherwise never see it. And a port scan, a sweep, or a host far beyond its own normal is reported, never blocked. Each of these is measured on both appliances.
@@ -120,10 +120,10 @@ Happy to talk about Klipper tooling, OPNsense plugins, FreeBSD, local LLM servin
 ## Recently merged
 
 <!-- merged starts -->
+- [Release 0.1.0-alpha.2.3](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/574) — **os-xgs-npu**, 20 Oct
+- [website: a welcome when an address confirms the release notices, with the latest release](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/573) — **os-xgs-npu**, 20 Oct
+- [npuep: IPsec over IPv6 on the XGS 136's engine, outside and inside, both ways - measured](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/572) — **os-xgs-npu**, 20 Oct
+- [npuep: extended sequence numbers on the XGS 136's engine, both ways - SA_ADD's ext_seq bit, measured](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/571) — **os-xgs-npu**, 20 Oct
 - [website: the API's answers kept at the edge, and never for hours in a browser](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/568) — **os-xgs-npu**, 20 Oct
 - [website: /api/builds - the image builder's last builds and the steps of the ones still going, for its page](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/567) — **os-xgs-npu**, 20 Oct
-- [website: a sitemap for each language, so the theme opens the other language with a full load](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/566) — **os-xgs-npu**, 20 Oct
-- [website: the language switch leads page to page, and the head names no alternate the theme would fetch a sitemap beside](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/565) — **os-xgs-npu**, 20 Oct
-- [website: for search engines - a description, a date and a picture per page, hreflang page to page, schema.org data, one sitemap, robots.txt, IndexNow](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/563) — **os-xgs-npu**, 20 Oct
-- [website: the home page counts the appliances, the images built, the clones and the visits](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/562) — **os-xgs-npu**, 20 Oct
 <!-- merged ends -->
