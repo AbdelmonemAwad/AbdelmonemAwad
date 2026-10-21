@@ -122,10 +122,10 @@ If the XGS work is useful to you, **[sponsoring it](https://github.com/sponsors/
 ## Recently merged
 
 <!-- merged starts -->
+- [xgs, npuep: each port's path from the vendor's device trees, the 138's tags by its coprocessor's order, a port check reported from untested models, tables marked added untested](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/655) — **os-xgs-npu**, 21 Oct
+- [xgs, npuctl: every model installs, and every model not run here is marked research and development; every model as a table](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/654) — **os-xgs-npu**, 21 Oct
+- [xgs, npuep, octep: every model's front ports from one table, by the assembly number on its board](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/652) — **os-xgs-npu**, 21 Oct
+- [octep: a ring left with a burst - the interrupt raised and never handled; the look each tick, two faults fixed (#361)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/651) — **os-xgs-npu**, 21 Oct
+- [npuep, octep: the appliance's own packet too big for the tunnel's path is fragmented, not answered EMSGSIZE - which looped its TCP in the kernel (#644)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/647) — **os-xgs-npu**, 20 Oct
 - [octep: an arriving ESN association on the XGS 3300's engine, by default - measured to hold](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/645) — **os-xgs-npu**, 20 Oct
-- [xgs: an update asks for a reboot only when the driver the boot loaded changed - not when its file is merely newer](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/642) — **os-xgs-npu**, 20 Oct
-- [Release 0.1.0-alpha.4.3](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/641) — **os-xgs-npu**, 20 Oct
-- [xgs: the XGS 136's switch counters not read - the reads made the network agent report ports down](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/640) — **os-xgs-npu**, 20 Oct
-- [website: the release notice's notes formatted, each pull request's number its link](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/638) — **os-xgs-npu**, 20 Oct
-- [xgs: the XGS 3300's own MACs counted on XGS: Ports - F1, F2 and the module's ports](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/637) — **os-xgs-npu**, 20 Oct
 <!-- merged ends -->
