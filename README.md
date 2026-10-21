@@ -12,7 +12,7 @@ Most of it is Python, TypeScript and C. Almost all of it ships in Arabic as well
 
 Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance is two computers, and the second — a coprocessor behind PCIe, with drivers for Linux and the vendor's own OS only — owns every front port, so when support lapses the usual verdict is e-waste. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel modules that hand those ports back, written against registers no vendor documents, across a family of six coprocessor generations.
 
-I gave it a home of its own, **[npuforge.org](https://npuforge.org)**: the guide, every measurement with its method, a compatibility list that owners add to, news of each release and the story, in English and [in Arabic](https://npuforge.org/ar/).
+I gave it a home of its own, **[npuforge.org](https://npuforge.org)**: the guide, every measurement with its method, a compatibility list that owners add to, a page for every model and expansion module, news of each release and the story, in English and [in Arabic](https://npuforge.org/ar/), with its main pages in six more languages.
 
 > **The repository is much younger than the work in it.** It went public on 25 September 2026; the work
 > behind it took close to two years — eight months of surveying other vendors' appliances, adapters that
@@ -122,10 +122,10 @@ If the XGS work is useful to you, **[sponsoring it](https://github.com/sponsors/
 ## Recently merged
 
 <!-- merged starts -->
+- [site: German, Spanish, French, Turkish, Russian and Japanese - the home page, the models, the modules, the status, the releases and how the measurements are taken](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/660) — **os-xgs-npu**, 21 Oct
+- [site: a page for every model and every expansion module, drawn; the menus, the footer and the home page; where the project stands and its releases; what search engines read](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/659) — **os-xgs-npu**, 21 Oct
 - [Release 0.1.0-alpha.5](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/656) — **os-xgs-npu**, 21 Oct
 - [xgs, npuep: each port's path from the vendor's device trees, the 138's tags by its coprocessor's order, a port check reported from untested models, tables marked added untested](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/655) — **os-xgs-npu**, 21 Oct
 - [xgs, npuctl: every model installs, and every model not run here is marked research and development; every model as a table](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/654) — **os-xgs-npu**, 21 Oct
 - [xgs, npuep, octep: every model's front ports from one table, by the assembly number on its board](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/652) — **os-xgs-npu**, 21 Oct
-- [octep: a ring left with a burst - the interrupt raised and never handled; the look each tick, two faults fixed (#361)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/651) — **os-xgs-npu**, 21 Oct
-- [npuep, octep: the appliance's own packet too big for the tunnel's path is fragmented, not answered EMSGSIZE - which looped its TCP in the kernel (#644)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/647) — **os-xgs-npu**, 20 Oct
 <!-- merged ends -->
