@@ -122,10 +122,10 @@ If the XGS work is useful to you, **[sponsoring it](https://github.com/sponsors/
 ## Recently merged
 
 <!-- merged starts -->
-- [Release 1.0.1](https://github.com/AbdelmonemAwad/os-linkhealth/pull/34) — **os-linkhealth**, 21 Oct
-- [Release 0.1.0-alpha.5.3](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/673) — **os-xgs-npu**, 21 Oct
-- [A boot is not a flap: link changes within 180 seconds of their own boot are not counted](https://github.com/AbdelmonemAwad/os-linkhealth/pull/33) — **os-linkhealth**, 21 Oct
-- [xgs: a restored configuration's driver settings reach the driver at the first boot (#669)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/672) — **os-xgs-npu**, 21 Oct
-- [npuctl: trust the management link at boot when its ssh is refused; a reinstalled host replaces its old key (#668)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/671) — **os-xgs-npu**, 21 Oct
-- [Release 0.1.0-alpha.5.2](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/667) — **os-xgs-npu**, 21 Oct
+- [The discoveries of 2026-10-22: what the hardware can do that was not known, and the completion figures lowered to count it](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/681) — **os-xgs-npu**, 22 Oct
+- [The site is kept out of releases: not in an appliance's download, not in the changelog](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/678) — **os-xgs-npu**, 22 Oct
+- [Release 1.0.2](https://github.com/AbdelmonemAwad/os-frontpanel/pull/33) — **os-frontpanel** and 1 more, 22 Oct
+- [The keys card says "being read" and "not being read", strings of its own](https://github.com/AbdelmonemAwad/os-frontpanel/pull/32) — **os-frontpanel**, 22 Oct
+- [The plugins' shared words, each read where it is used: turned off, and the keys card's own two](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/16) — **opnsense-arabic**, 22 Oct
+- [Release 0.1.0-alpha.5.4](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/675) — **os-xgs-npu**, 21 Oct
 <!-- merged ends -->
