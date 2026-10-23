@@ -124,10 +124,10 @@ If the XGS work is useful to you, **[sponsoring it](https://github.com/sponsors/
 ## Recently merged
 
 <!-- merged starts -->
-- [The discoveries of 2026-10-22: what the hardware can do that was not known, and the completion figures lowered to count it](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/681) — **os-xgs-npu**, 22 Oct
-- [The site is kept out of releases: not in an appliance's download, not in the changelog](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/678) — **os-xgs-npu**, 22 Oct
-- [Release 1.0.2](https://github.com/AbdelmonemAwad/os-frontpanel/pull/33) — **os-frontpanel** and 1 more, 22 Oct
-- [The keys card says "being read" and "not being read", strings of its own](https://github.com/AbdelmonemAwad/os-frontpanel/pull/32) — **os-frontpanel**, 22 Oct
-- [The plugins' shared words, each read where it is used: turned off, and the keys card's own two](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/16) — **opnsense-arabic**, 22 Oct
-- [Release 0.1.0-alpha.5.4](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/675) — **os-xgs-npu**, 21 Oct
+- [Release 0.1.0-alpha.5.5](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/692) — **os-xgs-npu**, 23 Oct
+- [Nothing leaves an appliance unless its owner chooses: reports manual and the count off by default, asked once on XGS: Overview](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/691) — **os-xgs-npu**, 23 Oct
+- [The Arabic of "Help it get better", on the question XGS: Overview asks once](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/21) — **opnsense-arabic**, 23 Oct
+- [The Arabic of "Nothing leaves this appliance unless you choose", and of the IPS beside the offload](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/20) — **opnsense-arabic**, 23 Oct
+- [The XGS 3300's coprocessor reached over its PCIe management link instead of its console (discovery 28)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/690) — **os-xgs-npu**, 23 Oct
+- [The XGS 136's heartbeat: the answer is the beat taken off the host's queue](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/689) — **os-xgs-npu**, 23 Oct
 <!-- merged ends -->
