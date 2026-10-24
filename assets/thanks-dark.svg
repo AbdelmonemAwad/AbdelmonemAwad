@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 214" width="900" height="214" role="img" aria-label="With thanks to the OPNsense project and Deciso, for OPNsense itself, the open firewall this whole project is built on, and for the openness and advice they have given it along the way. os-xgs-npu is an independent project, not affiliated with or endorsed by OPNsense, Deciso or Sophos.">
+  <defs><style>
+    .t  { font-family: ui-sans-serif,-apple-system,Segoe UI,Inter,Helvetica,Arial,sans-serif; }
+    .m  { font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    .q  { font-family: Georgia,'Times New Roman',serif; }
+    .kk { font-size: 12px; fill: #6E7681; letter-spacing: 2px; }
+    .hd { font-size: 23px; font-weight: 700; fill: #E6EDF3; }
+    .bd { font-size: 15.5px; fill: #E6EDF3; }
+    .ft { font-size: 12.5px; fill: #8B949E; }
+  </style></defs>
+  <rect width="900" height="214" rx="14" fill="#0D1117"/>
+  <rect x="20" y="16" width="860" height="182" rx="12" fill="#161B22" stroke="#30363D"/>
+  <rect x="20" y="16" width="5" height="182" rx="2.5" fill="#E3B341"/>
+  <text x="840" y="170" class="q" font-size="150" fill="#E3B341" fill-opacity="0.13" text-anchor="end">&#8221;</text>
+  <text x="56" y="52" class="m kk">WITH THANKS</text>
+  <text x="56" y="86" class="t hd">To the OPNsense project and Deciso</text>
+  <text x="56" y="118" class="t bd">For OPNsense itself, the open firewall this whole project is built on,</text>
+  <text x="56" y="142" class="t bd">and for the openness and advice they have given it along the way.</text>
+  <line x1="56" y1="160" x2="844" y2="160" stroke="#30363D"/>
+  <text x="56" y="182" class="t ft">os-xgs-npu is an independent project, not affiliated with or endorsed by OPNsense, Deciso or Sophos.</text>
+</svg>
