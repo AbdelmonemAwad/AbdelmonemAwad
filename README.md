@@ -130,10 +130,10 @@ If the XGS work is useful to you, **[sponsoring it](https://github.com/sponsors/
 ## Recently merged
 
 <!-- merged starts -->
-- [Release 0.1.0-alpha.5.5](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/692) — **os-xgs-npu**, 23 Oct
-- [Nothing leaves an appliance unless its owner chooses: reports manual and the count off by default, asked once on XGS: Overview](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/691) — **os-xgs-npu**, 23 Oct
-- [The Arabic of "Help it get better", on the question XGS: Overview asks once](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/21) — **opnsense-arabic**, 23 Oct
-- [The Arabic of "Nothing leaves this appliance unless you choose", and of the IPS beside the offload](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/20) — **opnsense-arabic**, 23 Oct
-- [The XGS 3300's coprocessor reached over its PCIe management link instead of its console (discovery 28)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/690) — **os-xgs-npu**, 23 Oct
-- [The XGS 136's heartbeat: the answer is the beat taken off the host's queue](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/689) — **os-xgs-npu**, 23 Oct
+- [npuep: a connection given back is revived every time, as on the XGS 3300 (issue 717)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/726) — **os-xgs-npu**, 24 Oct
+- [Flows: a connection routed by a VLAN subinterface made in hardware (discovery 10)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/725) — **os-xgs-npu**, 24 Oct
+- [os-xgs-npu: VLAN connections - the mark on XGS: Flows and what it means](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/28) — **opnsense-arabic**, 24 Oct
+- [security: Pillow 13, cryptography 50, h11 0.16, python-multipart 0.0.31, on manylinux_2_28 wheels](https://github.com/AbdelmonemAwad/cadenza/pull/101) — **cadenza**, 24 Oct
+- [Release 1.0.3](https://github.com/AbdelmonemAwad/os-linkhealth/pull/41) — **os-linkhealth**, 24 Oct
+- [The string check reads the installed Arabic catalogue before the network](https://github.com/AbdelmonemAwad/os-linkhealth/pull/40) — **os-linkhealth**, 24 Oct
 <!-- merged ends -->
