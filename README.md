@@ -10,10 +10,11 @@ Most of it is Python, TypeScript and C. Almost all of it ships in Arabic as well
 
 ## os-xgs-npu — reclaiming a family of firewalls
 
-> [!NOTE]
-> **With thanks to the OPNsense project and to Deciso** for OPNsense itself, and for their openness and advice to this work.
-> os-xgs-npu stays independent: not affiliated with or endorsed by them, or by Sophos.
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/thanks-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/thanks-light.svg">
+  <img src="assets/thanks-light.svg" alt="With thanks to the OPNsense project and Deciso, for OPNsense itself, the open firewall this whole project is built on, and for the openness and advice they have given it along the way. os-xgs-npu is an independent project, not affiliated with or endorsed by OPNsense, Deciso or Sophos." width="100%">
+</picture>
 
 Install OPNsense on a Sophos XGS and it boots to a working firewall with **no network interfaces at all**. The appliance is two computers, and the second — a coprocessor behind PCIe, with drivers for Linux and the vendor's own OS only — owns every front port, so when support lapses the usual verdict is e-waste. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD kernel modules that hand those ports back, written against registers no vendor documents, across a family of six coprocessor generations.
 
