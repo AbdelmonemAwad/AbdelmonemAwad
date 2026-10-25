@@ -130,10 +130,10 @@ If the XGS work is useful to you, **[sponsoring it](https://github.com/sponsors/
 ## Recently merged
 
 <!-- merged starts -->
-- [npuep: a connection given back is revived every time, as on the XGS 3300 (issue 717)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/726) — **os-xgs-npu**, 24 Oct
-- [Flows: a connection routed by a VLAN subinterface made in hardware (discovery 10)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/725) — **os-xgs-npu**, 24 Oct
-- [os-xgs-npu: VLAN connections - the mark on XGS: Flows and what it means](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/28) — **opnsense-arabic**, 24 Oct
-- [security: Pillow 13, cryptography 50, h11 0.16, python-multipart 0.0.31, on manylinux_2_28 wheels](https://github.com/AbdelmonemAwad/cadenza/pull/101) — **cadenza**, 24 Oct
-- [Release 1.0.3](https://github.com/AbdelmonemAwad/os-linkhealth/pull/41) — **os-linkhealth**, 24 Oct
-- [The string check reads the installed Arabic catalogue before the network](https://github.com/AbdelmonemAwad/os-linkhealth/pull/40) — **os-linkhealth**, 24 Oct
+- [GUI: the coprocessor's console, fast-path counters, watchdog and memory errors, PCIe ordering, IPsec counts](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/785) — **os-xgs-npu**, 25 Oct
+- [os-xgs-npu: the coprocessor console page, fast-path counters, watchdog and memory errors, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/34) — **opnsense-arabic**, 25 Oct
+- [XGS: Overview's Coprocessor tab: summary cards, and the vendor's build by that name](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/784) — **os-xgs-npu**, 25 Oct
+- [os-xgs-npu: the Coprocessor tab's summary cards and the vendor's build, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/33) — **opnsense-arabic**, 25 Oct
+- [XGS: Overview: a Coprocessor tab - its software, chips, flash and eMMC, read-only](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/783) — **os-xgs-npu**, 25 Oct
+- [os-xgs-npu: XGS: Overview's Coprocessor tab, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/32) — **opnsense-arabic**, 25 Oct
 <!-- merged ends -->
