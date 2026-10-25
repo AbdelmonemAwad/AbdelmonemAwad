@@ -65,7 +65,7 @@ Install OPNsense on a Sophos XGS and it boots with **no network interfaces at al
 
 ## OPNsense plugins
 
-Ten plugins, BSD-2 licensed and packaged as FreeBSD ports. Each works on its own, and with os-xgs-npu installed their pages join the XGS section of the menu.
+Ten plugins, BSD-2 licensed and packaged as FreeBSD ports. Each works on its own. With os-xgs-npu installed, their pages join the XGS section of the menu, and the project's own update keeps them current and adds the ones that suit the appliance.
 
 <div align="center">
 
