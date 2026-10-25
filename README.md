@@ -24,13 +24,17 @@ Install OPNsense on a Sophos XGS and it boots with **no network interfaces at al
   <img src="https://npuforge.org/readme/status-light.svg" alt="os-xgs-npu status, drawn by the project itself: the stage it is at, the same features on both appliances side by side — run, partial or not built yet — what has been measured on each, and how far along each one is" width="100%">
 </picture>
 
+<div align="center">
+
 | Measured | |
-|---|---|
+|:---:|:---|
 | **[9,837 Mbit/s](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/measurements/xgs3300-many-2026-10-19.md)** | a thousand connections through an XGS 3300, its processors 7.8 % busy |
 | **[941 Mbit/s](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/measurements/xgs136-hardware-2026-10-18.md)** | through an XGS 136 in hardware at 0.4 %, against 19.6 % through the host |
 | **[9,019 Mbit/s](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/measurements/many-tunnels-3300-2026-10-20.md)** | sixteen IPsec tunnels at once between two XGS 3300s |
 | **[10 frames, not 610,533](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/measurements/verdict-2026-10-23.md)** | what a UDP flood cut in hardware still sent the host |
 | **[29 discoveries](https://github.com/AbdelmonemAwad/os-xgs-npu/blob/main/docs/findings/discoveries-2026-10-22.md)** | in the vendor's own sources, every one measured within three days |
+
+</div>
 
 - **Fast, and still a firewall.** Block lists, JA4 fingerprints, IPsec policies, the Traffic Shaper and the Captive Portal still decide over a connection in hardware, and with Inspect, then hardware, Suricata sees each connection's start before the coprocessor carries the rest.
 - **Two roads onto an appliance.** A ready-made image with every release, or one built to order in the browser, and a guide from nothing to the first sign-in. Updates come from its own page in OPNsense.
@@ -63,8 +67,10 @@ Install OPNsense on a Sophos XGS and it boots with **no network interfaces at al
 
 Ten plugins, BSD-2 licensed and packaged as FreeBSD ports. Each works on its own, and with os-xgs-npu installed their pages join the XGS section of the menu.
 
+<div align="center">
+
 | Plugin | What it does |
-|---|---|
+|:---:|:---|
 | **[os-linkhealth](https://github.com/AbdelmonemAwad/os-linkhealth)** | names the cable or transceiver that is going bad, before the link drops |
 | **[os-netreport](https://github.com/AbdelmonemAwad/os-netreport)** | scheduled network reports and new-device alerts by email, in the GUI's language |
 | **[os-frontpanel](https://github.com/AbdelmonemAwad/os-frontpanel)** | the appliance's LCD and buttons, through LCDproc |
@@ -75,6 +81,8 @@ Ten plugins, BSD-2 licensed and packaged as FreeBSD ports. Each works on its own
 | **[os-fallbackcrypto](https://github.com/AbdelmonemAwad/os-fallbackcrypto)** | chooses the kernel's crypto driver for the tunnels the host carries itself |
 | **[os-blocklists](https://github.com/AbdelmonemAwad/os-blocklists)** | address, DNS, country and JA4 block lists on one page |
 | **[os-portguard](https://github.com/AbdelmonemAwad/os-portguard)** | Layer 2 rules: a device blocked by its MAC address |
+
+</div>
 
 Planned: [traffic priority](https://github.com/AbdelmonemAwad/os-trafficpriority).
 
