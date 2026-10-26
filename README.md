@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [GUI: the coprocessor's console, fast-path counters, watchdog and memory errors, PCIe ordering, IPsec counts](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/785) — **os-xgs-npu**, 25 Oct
-- [os-xgs-npu: the coprocessor console page, fast-path counters, watchdog and memory errors, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/34) — **opnsense-arabic**, 25 Oct
-- [XGS: Overview's Coprocessor tab: summary cards, and the vendor's build by that name](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/784) — **os-xgs-npu**, 25 Oct
-- [os-xgs-npu: the Coprocessor tab's summary cards and the vendor's build, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/33) — **opnsense-arabic**, 25 Oct
-- [XGS: Overview: a Coprocessor tab - its software, chips, flash and eMMC, read-only](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/783) — **os-xgs-npu**, 25 Oct
-- [os-xgs-npu: XGS: Overview's Coprocessor tab, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/32) — **opnsense-arabic**, 25 Oct
+- [Site: the plugins come along with the project's update](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/815) — **os-xgs-npu**, 25 Oct
+- [Problem reports: the port check says whether two interfaces share an address as a LAGG's members](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/814) — **os-xgs-npu**, 25 Oct
+- [Problem reports: an untested model's port check tells a coprocessor that did not answer from one without its list of ports](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/813) — **os-xgs-npu**, 25 Oct
+- [Release 0.1.0-alpha.8.4](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/811) — **os-xgs-npu**, 25 Oct
+- [The model: the watchdog on by default since 2026-10-17, and why](https://github.com/AbdelmonemAwad/os-watchdog/pull/2) — **os-watchdog**, 25 Oct
+- [README, DESIGN and the model: what the speeds are for](https://github.com/AbdelmonemAwad/os-frontpanel/pull/38) — **os-frontpanel**, 25 Oct
 <!-- merged ends -->
