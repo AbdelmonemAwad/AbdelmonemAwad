@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [Site: the plugins come along with the project's update](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/815) — **os-xgs-npu**, 25 Oct
-- [Problem reports: the port check says whether two interfaces share an address as a LAGG's members](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/814) — **os-xgs-npu**, 25 Oct
-- [Problem reports: an untested model's port check tells a coprocessor that did not answer from one without its list of ports](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/813) — **os-xgs-npu**, 25 Oct
-- [Release 0.1.0-alpha.8.4](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/811) — **os-xgs-npu**, 25 Oct
-- [The model: the watchdog on by default since 2026-10-17, and why](https://github.com/AbdelmonemAwad/os-watchdog/pull/2) — **os-watchdog**, 25 Oct
-- [README, DESIGN and the model: what the speeds are for](https://github.com/AbdelmonemAwad/os-frontpanel/pull/38) — **os-frontpanel**, 25 Oct
+- [Release 0.1.0-alpha.8.9](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/833) — **os-xgs-npu**, 26 Oct
+- [Problem reports: a panic that wrote no dump is read from the message buffer](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/832) — **os-xgs-npu**, 26 Oct
+- [Release 0.1.0-alpha.8.8](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/831) — **os-xgs-npu**, 26 Oct
+- [octep: with IPsec associations on the coprocessor, its device is taken up again in place (#768)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/830) — **os-xgs-npu**, 26 Oct
+- [Release 0.1.0-alpha.8.7](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/828) — **os-xgs-npu**, 26 Oct
+- [#768: the coprocessor's console asked to reboot it - busybox's reboot, a host UART that lost its interrupt, the console left to the recovery](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/827) — **os-xgs-npu**, 26 Oct
 <!-- merged ends -->
