@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [Release 0.1.0-alpha.8.9](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/833) — **os-xgs-npu**, 26 Oct
-- [Problem reports: a panic that wrote no dump is read from the message buffer](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/832) — **os-xgs-npu**, 26 Oct
-- [Release 0.1.0-alpha.8.8](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/831) — **os-xgs-npu**, 26 Oct
-- [octep: with IPsec associations on the coprocessor, its device is taken up again in place (#768)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/830) — **os-xgs-npu**, 26 Oct
-- [Release 0.1.0-alpha.8.7](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/828) — **os-xgs-npu**, 26 Oct
-- [#768: the coprocessor's console asked to reboot it - busybox's reboot, a host UART that lost its interrupt, the console left to the recovery](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/827) — **os-xgs-npu**, 26 Oct
+- [The coprocessor's clock set from the host's, at the end of the boot and every ten minutes](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/860) — **os-xgs-npu**, 27 Oct
+- [The coprocessor's boot firmware build dates read, and the coprocessor's record in the support bundle](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/859) — **os-xgs-npu**, 27 Oct
+- [XGS 3300: the coprocessor's memory temperature in OPNsense's widget, where its module has a sensor](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/858) — **os-xgs-npu**, 27 Oct
+- [XGS 126 and 136: the factory-reset flag read at boot, and said in the system log when it is set](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/855) — **os-xgs-npu**, 27 Oct
+- [XGS 3300: the sensor bank's power supply, fan and reset flags read, and said in the system log](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/854) — **os-xgs-npu**, 27 Oct
+- [The coprocessor's watchdog feeder looked after from the host, and put right before it costs a reset (#768)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/848) — **os-xgs-npu**, 27 Oct
 <!-- merged ends -->
