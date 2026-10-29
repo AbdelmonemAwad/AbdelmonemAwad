@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [The coprocessor's clock set from the host's, at the end of the boot and every ten minutes](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/860) — **os-xgs-npu**, 27 Oct
-- [The coprocessor's boot firmware build dates read, and the coprocessor's record in the support bundle](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/859) — **os-xgs-npu**, 27 Oct
-- [XGS 3300: the coprocessor's memory temperature in OPNsense's widget, where its module has a sensor](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/858) — **os-xgs-npu**, 27 Oct
-- [XGS 126 and 136: the factory-reset flag read at boot, and said in the system log when it is set](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/855) — **os-xgs-npu**, 27 Oct
-- [XGS 3300: the sensor bank's power supply, fan and reset flags read, and said in the system log](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/854) — **os-xgs-npu**, 27 Oct
-- [The coprocessor's watchdog feeder looked after from the host, and put right before it costs a reset (#768)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/848) — **os-xgs-npu**, 27 Oct
+- [website: the repository's facts are brought up to date in an old session](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/882) — **os-xgs-npu**, 29 Oct
+- [XGS: Overview: whether U-Boot and the system copies come from one SDK](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/879) — **os-xgs-npu**, 29 Oct
+- [os-xgs-npu: U-Boot and system SDK on the Coprocessor tab, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/50) — **opnsense-arabic**, 29 Oct
+- [Release 1.0.4](https://github.com/AbdelmonemAwad/os-netreport/pull/36) — **os-netreport**, 29 Oct
+- [XGS: Overview: the fast path's build, in the Coprocessor tab and in reports](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/877) — **os-xgs-npu**, 29 Oct
+- [os-xgs-npu: fast path build on the Coprocessor tab, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/49) — **opnsense-arabic**, 29 Oct
 <!-- merged ends -->
