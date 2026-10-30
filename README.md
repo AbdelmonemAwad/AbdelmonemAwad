@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [website: the repository's facts are brought up to date in an old session](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/882) — **os-xgs-npu**, 29 Oct
-- [XGS: Overview: whether U-Boot and the system copies come from one SDK](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/879) — **os-xgs-npu**, 29 Oct
-- [os-xgs-npu: U-Boot and system SDK on the Coprocessor tab, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/50) — **opnsense-arabic**, 29 Oct
-- [Release 1.0.4](https://github.com/AbdelmonemAwad/os-netreport/pull/36) — **os-netreport**, 29 Oct
-- [XGS: Overview: the fast path's build, in the Coprocessor tab and in reports](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/877) — **os-xgs-npu**, 29 Oct
-- [os-xgs-npu: fast path build on the Coprocessor tab, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/49) — **opnsense-arabic**, 29 Oct
+- [OPNsense 26.7.8 on all three appliances: badges, compat.json, the machine pages](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/898) — **os-xgs-npu**, 30 Oct
+- [README: the project's header layout, README.md out of the archive, and what of 1.0.1 ran](https://github.com/AbdelmonemAwad/os-fallbackcrypto/pull/8) — **os-fallbackcrypto** and 4 more, 30 Oct
+- [.gitattributes: README.md and contrib/mvsw/README.md out of the archive](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/897) — **os-xgs-npu**, 30 Oct
+- [README: a banner, badges and a Contents line, and README.md out of the archive](https://github.com/AbdelmonemAwad/opnsense-rtl/pull/18) — **opnsense-rtl** and 6 more, 30 Oct
+- [Release 1.1.5: a release workflow, and the package with every release](https://github.com/AbdelmonemAwad/os-fanctl/pull/46) — **os-fanctl**, 30 Oct
+- [Release 1.0.4](https://github.com/AbdelmonemAwad/os-frontpanel/pull/41) — **os-frontpanel**, 30 Oct
 <!-- merged ends -->
