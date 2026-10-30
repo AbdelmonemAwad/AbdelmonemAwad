@@ -16,7 +16,7 @@ Hi, I'm Abdelmonem. I build self-hosted software for hardware that is supposed t
 
 Install OPNsense on a Sophos XGS and it boots with **no network interfaces at all**: every front port belongs to a coprocessor behind PCIe, with drivers for Linux and the vendor's own OS only. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD drivers and the OPNsense plugin that hand those ports back, then give the coprocessor the firewall's own connections and IPsec, so they no longer cross the host. Two of the six coprocessor families answer now.
 
-**[npuforge.org](https://npuforge.org)** · [the guide](https://npuforge.org/docs/guide/step-by-step/) · [ready-made images](https://build.npuforge.org) · [releases](https://github.com/AbdelmonemAwad/os-xgs-npu/releases) · [the story](https://npuforge.org/story/) · [in Arabic](https://npuforge.org/ar/)
+**[npuforge.org](https://npuforge.org)** · [the guide](https://npuforge.org/docs/guide/step-by-step/) · [ready-made images](https://build.npuforge.org) · [releases](https://github.com/AbdelmonemAwad/os-xgs-npu/releases) · [the story](https://npuforge.org/story/) · [videos on YouTube](https://www.youtube.com/@npuforge) · [in Arabic](https://npuforge.org/ar/)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://npuforge.org/readme/status-dark.svg">
