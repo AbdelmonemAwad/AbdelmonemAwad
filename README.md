@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [OPNsense 26.7.8 on all three appliances: badges, compat.json, the machine pages](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/898) — **os-xgs-npu**, 30 Oct
-- [README: the project's header layout, README.md out of the archive, and what of 1.0.1 ran](https://github.com/AbdelmonemAwad/os-fallbackcrypto/pull/8) — **os-fallbackcrypto** and 4 more, 30 Oct
-- [.gitattributes: README.md and contrib/mvsw/README.md out of the archive](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/897) — **os-xgs-npu**, 30 Oct
-- [README: a banner, badges and a Contents line, and README.md out of the archive](https://github.com/AbdelmonemAwad/opnsense-rtl/pull/18) — **opnsense-rtl** and 6 more, 30 Oct
-- [Release 1.1.5: a release workflow, and the package with every release](https://github.com/AbdelmonemAwad/os-fanctl/pull/46) — **os-fanctl**, 30 Oct
-- [Release 1.0.4](https://github.com/AbdelmonemAwad/os-frontpanel/pull/41) — **os-frontpanel**, 30 Oct
+- [Release 0.1.0-alpha.10.2](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/916) — **os-xgs-npu**, 31 Oct
+- [npuep: a second look at a slot that cannot be a frame](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/915) — **os-xgs-npu**, 31 Oct
+- [verify.sh installed on both families](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/914) — **os-xgs-npu**, 31 Oct
+- [Release 1.0.6: 20x2 for the XGS family, and the 3100's offset](https://github.com/AbdelmonemAwad/os-frontpanel/pull/44) — **os-frontpanel**, 31 Oct
+- [os-frontpanel: XGS family entry and 3100 offset](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/58) — **opnsense-arabic**, 31 Oct
+- [Coprocessor stops: what its console prints kept, its kernel's state at the stop, a recovery that waits for this boot (#819)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/909) — **os-xgs-npu**, 31 Oct
 <!-- merged ends -->
