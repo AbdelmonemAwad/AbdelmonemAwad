@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [Release 0.1.0-alpha.10.2](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/916) — **os-xgs-npu**, 31 Oct
-- [npuep: a second look at a slot that cannot be a frame](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/915) — **os-xgs-npu**, 31 Oct
-- [verify.sh installed on both families](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/914) — **os-xgs-npu**, 31 Oct
-- [Release 1.0.6: 20x2 for the XGS family, and the 3100's offset](https://github.com/AbdelmonemAwad/os-frontpanel/pull/44) — **os-frontpanel**, 31 Oct
-- [os-frontpanel: XGS family entry and 3100 offset](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/58) — **opnsense-arabic**, 31 Oct
-- [Coprocessor stops: what its console prints kept, its kernel's state at the stop, a recovery that waits for this boot (#819)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/909) — **os-xgs-npu**, 31 Oct
+- [Release 0.1.0-alpha.10.6](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/947) — **os-xgs-npu**, 01 Nov
+- [npuep: as many queues as there are CPUs, at most four - the XGS 107w's empty frames (#890)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/946) — **os-xgs-npu**, 01 Nov
+- [Release 0.1.0-alpha.10.5](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/944) — **os-xgs-npu**, 01 Nov
+- [npuep: a marker in each receive buffer - a frame that has not landed waits a pass (#890)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/943) — **os-xgs-npu**, 01 Nov
+- [Worker: a download for a build GitHub does not know is a 404, not a 502](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/941) — **os-xgs-npu**, 01 Nov
+- [Build page: builds without leaving the site, three a day for each visitor, with a cancel button](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/937) — **os-xgs-npu**, 01 Nov
 <!-- merged ends -->
