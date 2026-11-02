@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [Release 0.1.0-alpha.10.6](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/947) — **os-xgs-npu**, 01 Nov
-- [npuep: as many queues as there are CPUs, at most four - the XGS 107w's empty frames (#890)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/946) — **os-xgs-npu**, 01 Nov
-- [Release 0.1.0-alpha.10.5](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/944) — **os-xgs-npu**, 01 Nov
-- [npuep: a marker in each receive buffer - a frame that has not landed waits a pass (#890)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/943) — **os-xgs-npu**, 01 Nov
-- [Worker: a download for a build GitHub does not know is a 404, not a 502](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/941) — **os-xgs-npu**, 01 Nov
-- [Build page: builds without leaving the site, three a day for each visitor, with a cancel button](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/937) — **os-xgs-npu**, 01 Nov
+- [Firewall hook: the coprocessor log's redirect on every OPNsense; a refused rule no longer stops the boot](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/981) — **os-xgs-npu**, 02 Nov
+- [The automated note after thirty minutes, however old the wait](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/977) — **os-xgs-npu**, 02 Nov
+- [Answered or unanswered on issues, an automated note after thirty minutes](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/974) — **os-xgs-npu**, 02 Nov
+- [The coprocessor's switch tool is checked to be what its source builds](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/968) — **os-xgs-npu**, 01 Nov
+- [Release 0.1.0-alpha.11](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/967) — **os-xgs-npu**, 01 Nov
+- [recover.sh: refuse to reset a coprocessor the driver still reads (#964)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/966) — **os-xgs-npu**, 01 Nov
 <!-- merged ends -->
