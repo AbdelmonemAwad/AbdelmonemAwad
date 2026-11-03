@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [Firewall hook: the coprocessor log's redirect on every OPNsense; a refused rule no longer stops the boot](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/981) — **os-xgs-npu**, 02 Nov
-- [The automated note after thirty minutes, however old the wait](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/977) — **os-xgs-npu**, 02 Nov
-- [Answered or unanswered on issues, an automated note after thirty minutes](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/974) — **os-xgs-npu**, 02 Nov
-- [The coprocessor's switch tool is checked to be what its source builds](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/968) — **os-xgs-npu**, 01 Nov
-- [Release 0.1.0-alpha.11](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/967) — **os-xgs-npu**, 01 Nov
-- [recover.sh: refuse to reset a coprocessor the driver still reads (#964)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/966) — **os-xgs-npu**, 01 Nov
+- [octep: a deaf ring's MSI-X pending bit read while masked - none held](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/998) — **os-xgs-npu**, 03 Nov
+- [npuep: its interfaces out of every route lookup before the first is detached](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/996) — **os-xgs-npu**, 03 Nov
+- [npuep: its sysctls go first in detach, before the locks their handlers take](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/995) — **os-xgs-npu**, 03 Nov
+- [feeder.py watches a coprocessor long up from its first answer, not after two minutes](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/993) — **os-xgs-npu**, 03 Nov
+- [fastpath.py keeps what recover.sh said when it runs out of time](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/991) — **os-xgs-npu**, 02 Nov
+- [feeder.py sees a hanging coprocessor coming and slows its panics down; octep lets go first](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/989) — **os-xgs-npu**, 02 Nov
 <!-- merged ends -->
