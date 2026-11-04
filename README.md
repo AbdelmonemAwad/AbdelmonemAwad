@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [octep: a deaf ring's MSI-X pending bit read while masked - none held](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/998) — **os-xgs-npu**, 03 Nov
-- [npuep: its interfaces out of every route lookup before the first is detached](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/996) — **os-xgs-npu**, 03 Nov
-- [npuep: its sysctls go first in detach, before the locks their handlers take](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/995) — **os-xgs-npu**, 03 Nov
-- [feeder.py watches a coprocessor long up from its first answer, not after two minutes](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/993) — **os-xgs-npu**, 03 Nov
-- [fastpath.py keeps what recover.sh said when it runs out of time](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/991) — **os-xgs-npu**, 02 Nov
-- [feeder.py sees a hanging coprocessor coming and slows its panics down; octep lets go first](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/989) — **os-xgs-npu**, 02 Nov
+- [feeder.py: the looks in a thread of their own, the console asked first at 10 s, a stopped userland only said](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1021) — **os-xgs-npu**, 04 Nov
+- [reporter.py: a failed update reported once per attempt, with its reason](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1020) — **os-xgs-npu**, 04 Nov
+- [mgmt-link.sh: the coprocessor told its address through npu-run.sh under the console's lock, and again while it does not answer](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1017) — **os-xgs-npu**, 04 Nov
+- [octep: a gone coprocessor asked before its buffers go, its ports out of every route lookup before detach](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1016) — **os-xgs-npu**, 04 Nov
+- [npuep: a full fence between the doorbell handler's count and the detach's withdrawal of its softc](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1015) — **os-xgs-npu**, 04 Nov
+- [octep and docs: a pending bit down while masked does not say a deaf ring's message was never made](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1009) — **os-xgs-npu**, 04 Nov
 <!-- merged ends -->
