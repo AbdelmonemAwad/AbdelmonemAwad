@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [feeder.py: the looks in a thread of their own, the console asked first at 10 s, a stopped userland only said](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1021) — **os-xgs-npu**, 04 Nov
-- [reporter.py: a failed update reported once per attempt, with its reason](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1020) — **os-xgs-npu**, 04 Nov
-- [mgmt-link.sh: the coprocessor told its address through npu-run.sh under the console's lock, and again while it does not answer](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1017) — **os-xgs-npu**, 04 Nov
-- [octep: a gone coprocessor asked before its buffers go, its ports out of every route lookup before detach](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1016) — **os-xgs-npu**, 04 Nov
-- [npuep: a full fence between the doorbell handler's count and the detach's withdrawal of its softc](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1015) — **os-xgs-npu**, 04 Nov
-- [octep and docs: a pending bit down while masked does not say a deaf ring's message was never made](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1009) — **os-xgs-npu**, 04 Nov
+- [Compatibility page: an owner's board and version kept as the form asks for them](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1043) — **os-xgs-npu**, 05 Nov
+- [Forms: every form of the project's repositories, on the site and in the README](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1044) — **os-xgs-npu**, 05 Nov
+- [Strings waiting for Arabic, kept as one issue](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/63) — **opnsense-arabic**, 05 Nov
+- [Contribution templates, and Arabic that may follow a contributor's change](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1042) — **os-xgs-npu**, 05 Nov
+- [reporter.py: a module installed in this boot and never loaded is a first install, not a driver that failed (#818)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1039) — **os-xgs-npu**, 05 Nov
+- [octep, reset_reason.py: the comments #768's measurements proved wrong, corrected](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1032) — **os-xgs-npu**, 04 Nov
 <!-- merged ends -->
