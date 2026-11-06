@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [Compatibility page: an owner's board and version kept as the form asks for them](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1043) — **os-xgs-npu**, 05 Nov
-- [Forms: every form of the project's repositories, on the site and in the README](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1044) — **os-xgs-npu**, 05 Nov
-- [Strings waiting for Arabic, kept as one issue](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/63) — **opnsense-arabic**, 05 Nov
-- [Contribution templates, and Arabic that may follow a contributor's change](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1042) — **os-xgs-npu**, 05 Nov
-- [reporter.py: a module installed in this boot and never loaded is a first install, not a driver that failed (#818)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1039) — **os-xgs-npu**, 05 Nov
-- [octep, reset_reason.py: the comments #768's measurements proved wrong, corrected](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1032) — **os-xgs-npu**, 04 Nov
+- [pkg/post-install.sh: the stop hook's old name taken away by the package too, and CI holds both installers to it](https://github.com/AbdelmonemAwad/os-watchdog/pull/12) — **os-watchdog**, 06 Nov
+- [device_facts.py, devices-table.py: the XGS 2100's and 2300's F1 and F2 on the switch on the site's pages, and the table stopped where the facts and models.py disagree](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1097) — **os-xgs-npu**, 06 Nov
+- [reporter.py, portcheck.py, octep.c: the Kernel row the running kernel's, a short line of the coprocessor's ports said, and the temperature sensors described for every model](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1096) — **os-xgs-npu**, 06 Nov
+- [feeder.py, fastpath.py, console_log.py, recover.sh: crash records marked only once kept, an error in a handler not the end, the ARMADA's stop seen at once, a boot told by a token, and a lock probe no failed recovery](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1095) — **os-xgs-npu**, 06 Nov
+- [07-npuep, recover.sh, reload.sh: the ARMADA's offload gate after a reset of its coprocessor - waited for as long as the driver waits, its old word not shown as this one's - and reload.sh loading a module that is there](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1094) — **os-xgs-npu**, 06 Nov
+- [stop/21-kernelfollow, follow.sh: the fall-back armed first, on its own, and the cut-off said as it is](https://github.com/AbdelmonemAwad/os-kernelfollow/pull/10) — **os-kernelfollow**, 06 Nov
 <!-- merged ends -->
