@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [pkg/post-install.sh: the stop hook's old name taken away by the package too, and CI holds both installers to it](https://github.com/AbdelmonemAwad/os-watchdog/pull/12) — **os-watchdog**, 06 Nov
-- [device_facts.py, devices-table.py: the XGS 2100's and 2300's F1 and F2 on the switch on the site's pages, and the table stopped where the facts and models.py disagree](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1097) — **os-xgs-npu**, 06 Nov
-- [reporter.py, portcheck.py, octep.c: the Kernel row the running kernel's, a short line of the coprocessor's ports said, and the temperature sensors described for every model](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1096) — **os-xgs-npu**, 06 Nov
-- [feeder.py, fastpath.py, console_log.py, recover.sh: crash records marked only once kept, an error in a handler not the end, the ARMADA's stop seen at once, a boot told by a token, and a lock probe no failed recovery](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1095) — **os-xgs-npu**, 06 Nov
-- [07-npuep, recover.sh, reload.sh: the ARMADA's offload gate after a reset of its coprocessor - waited for as long as the driver waits, its old word not shown as this one's - and reload.sh loading a module that is there](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1094) — **os-xgs-npu**, 06 Nov
-- [stop/21-kernelfollow, follow.sh: the fall-back armed first, on its own, and the cut-off said as it is](https://github.com/AbdelmonemAwad/os-kernelfollow/pull/10) — **os-kernelfollow**, 06 Nov
+- [Release 0.1.0-alpha.15.1](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1137) — **os-xgs-npu**, 07 Nov
+- [Updates, thermal sensors, plugins: the release check's third review (K29 to K32)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1136) — **os-xgs-npu**, 07 Nov
+- [tools/test-self-update.py: the deep manifest as deep as a manifest may be](https://github.com/AbdelmonemAwad/opnsense-rtl/pull/22) — **opnsense-rtl** and 10 more, 07 Nov
+- [self-update.py: the latest release's signature read by the tag its manifest names](https://github.com/AbdelmonemAwad/opnsense-rtl/pull/21) — **opnsense-rtl** and 10 more, 07 Nov
+- [Problem reports, thermal sensors, ARMADA reload and recovery: the review's findings](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1135) — **os-xgs-npu**, 07 Nov
+- [Updates: the reboot held only as long as an update waits for a plugin, and the review's other update-path findings](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1134) — **os-xgs-npu**, 07 Nov
 <!-- merged ends -->
