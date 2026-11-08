@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
+- [Reporter: a port check that agrees is said once; how the driver reads the coprocessor's software](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1143) — **os-xgs-npu**, 07 Nov
+- [Relay: a port check that agrees is noted once from each appliance and never reopens its issue](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1142) — **os-xgs-npu**, 07 Nov
+- [Site: sitemaps list photographs and screenshots only, not the badges](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1141) — **os-xgs-npu**, 07 Nov
+- [Site: pictures in the sitemaps; true dates for home, news lists and story pages](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1140) — **os-xgs-npu**, 07 Nov
 - [Release 0.1.0-alpha.15.1](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1137) — **os-xgs-npu**, 07 Nov
 - [Updates, thermal sensors, plugins: the release check's third review (K29 to K32)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1136) — **os-xgs-npu**, 07 Nov
-- [tools/test-self-update.py: the deep manifest as deep as a manifest may be](https://github.com/AbdelmonemAwad/opnsense-rtl/pull/22) — **opnsense-rtl** and 10 more, 07 Nov
-- [self-update.py: the latest release's signature read by the tag its manifest names](https://github.com/AbdelmonemAwad/opnsense-rtl/pull/21) — **opnsense-rtl** and 10 more, 07 Nov
-- [Problem reports, thermal sensors, ARMADA reload and recovery: the review's findings](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1135) — **os-xgs-npu**, 07 Nov
-- [Updates: the reboot held only as long as an update waits for a plugin, and the review's other update-path findings](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1134) — **os-xgs-npu**, 07 Nov
 <!-- merged ends -->
