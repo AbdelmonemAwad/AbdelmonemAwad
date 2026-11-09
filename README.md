@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
+- [Release 0.1.0-alpha.15.2](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1145) — **os-xgs-npu**, 08 Nov
+- [verify.sh: a coprocessor taken as gone, or a fast path that stopped answering its heartbeat, fails](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1144) — **os-xgs-npu**, 08 Nov
+- [The panel's message in two lines, NPUforge over www.npuforge.com by default](https://github.com/AbdelmonemAwad/os-frontpanel/pull/53) — **os-frontpanel**, 08 Nov
+- [os-frontpanel: the message in two lines, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/68) — **opnsense-arabic**, 08 Nov
 - [Reporter: a port check that agrees is said once; how the driver reads the coprocessor's software](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1143) — **os-xgs-npu**, 07 Nov
 - [Relay: a port check that agrees is noted once from each appliance and never reopens its issue](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1142) — **os-xgs-npu**, 07 Nov
-- [Site: sitemaps list photographs and screenshots only, not the badges](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1141) — **os-xgs-npu**, 07 Nov
-- [Site: pictures in the sitemaps; true dates for home, news lists and story pages](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1140) — **os-xgs-npu**, 07 Nov
-- [Release 0.1.0-alpha.15.1](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1137) — **os-xgs-npu**, 07 Nov
-- [Updates, thermal sensors, plugins: the release check's third review (K29 to K32)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1136) — **os-xgs-npu**, 07 Nov
 <!-- merged ends -->
