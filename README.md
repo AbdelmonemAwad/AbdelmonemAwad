@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
+- [npuep: a native netmap adapter for each front port, four rings and jumbo frames through Suricata (off by default)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1154) — **os-xgs-npu**, 12 Nov
+- [XGS: Overview says when no connection runs in hardware](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1152) — **os-xgs-npu**, 11 Nov
+- [npuep: the receive queue as the flow id, for Suricata's netmap rings (off by default)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1151) — **os-xgs-npu**, 11 Nov
+- [os-xgs-npu: XGS: Overview's notice that no connection runs in hardware, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/70) — **opnsense-arabic**, 11 Nov
 - [Release 0.1.0-alpha.15.2](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1145) — **os-xgs-npu**, 08 Nov
 - [verify.sh: a coprocessor taken as gone, or a fast path that stopped answering its heartbeat, fails](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1144) — **os-xgs-npu**, 08 Nov
-- [The panel's message in two lines, NPUforge over www.npuforge.com by default](https://github.com/AbdelmonemAwad/os-frontpanel/pull/53) — **os-frontpanel**, 08 Nov
-- [os-frontpanel: the message in two lines, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/68) — **opnsense-arabic**, 08 Nov
-- [Reporter: a port check that agrees is said once; how the driver reads the coprocessor's software](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1143) — **os-xgs-npu**, 07 Nov
-- [Relay: a port check that agrees is noted once from each appliance and never reopens its issue](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1142) — **os-xgs-npu**, 07 Nov
 <!-- merged ends -->
