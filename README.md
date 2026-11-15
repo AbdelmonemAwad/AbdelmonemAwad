@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [npuep: a native netmap adapter for each front port, four rings and jumbo frames through Suricata (off by default)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1154) — **os-xgs-npu**, 12 Nov
-- [XGS: Overview says when no connection runs in hardware](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1152) — **os-xgs-npu**, 11 Nov
-- [npuep: the receive queue as the flow id, for Suricata's netmap rings (off by default)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1151) — **os-xgs-npu**, 11 Nov
-- [os-xgs-npu: XGS: Overview's notice that no connection runs in hardware, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/70) — **opnsense-arabic**, 11 Nov
-- [Release 0.1.0-alpha.15.2](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1145) — **os-xgs-npu**, 08 Nov
-- [verify.sh: a coprocessor taken as gone, or a fast path that stopped answering its heartbeat, fails](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1144) — **os-xgs-npu**, 08 Nov
+- [A CARP change of master, and the coprocessor's hardware following it when XGS: Settings asks](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1169) — **os-xgs-npu**, 15 Nov
+- [os-xgs-npu: the CARP master setting, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/74) — **opnsense-arabic**, 15 Nov
+- [The XGS 3300 says half duplex of a negotiated link that runs half](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1168) — **os-xgs-npu**, 15 Nov
+- [pfsync to a peer: a TCP connection's numbers written for its copy, and a gigabyte of room at the make](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1167) — **os-xgs-npu**, 15 Nov
+- [The XGS 136's switch sockets: speed and duplex can be chosen, half duplex read and said](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1165) — **os-xgs-npu**, 15 Nov
+- [Phase 2, second part: a lost link's connections back to the host, a lagg's destination on the XGS 136, its UDP states kept](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1164) — **os-xgs-npu**, 15 Nov
 <!-- merged ends -->
