@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [A CARP change of master, and the coprocessor's hardware following it when XGS: Settings asks](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1169) — **os-xgs-npu**, 15 Nov
-- [os-xgs-npu: the CARP master setting, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/74) — **opnsense-arabic**, 15 Nov
-- [The XGS 3300 says half duplex of a negotiated link that runs half](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1168) — **os-xgs-npu**, 15 Nov
-- [pfsync to a peer: a TCP connection's numbers written for its copy, and a gigabyte of room at the make](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1167) — **os-xgs-npu**, 15 Nov
-- [The XGS 136's switch sockets: speed and duplex can be chosen, half duplex read and said](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1165) — **os-xgs-npu**, 15 Nov
-- [Phase 2, second part: a lost link's connections back to the host, a lagg's destination on the XGS 136, its UDP states kept](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1164) — **os-xgs-npu**, 15 Nov
+- [README: the banner and badges the planned plugins carry](https://github.com/AbdelmonemAwad/os-trafficpriority/pull/2) — **os-trafficpriority**, 16 Nov
+- [Phase 3, package 3.10: TACACS+ as a server type of System: Access: Servers, through FreeBSD's own libtacplus](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1175) — **os-xgs-npu**, 15 Nov
+- [os-xgs-npu: the TACACS+ server type, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/77) — **opnsense-arabic**, 15 Nov
+- [Phase 3, packages 3.2 to 3.9: a rule's tag kept out of hardware, router advertisements from listed senders, IPsec rekey margin and IPComp, a certificate import page, service aliases, a daily PPPoE reconnect, gateway alerts, read-only privileges](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1174) — **os-xgs-npu**, 15 Nov
+- [os-xgs-npu: phase 3's batch, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/76) — **opnsense-arabic**, 15 Nov
+- [XGS: Settings, "Inspection threads per port": netmap rings for the Intrusion Detection's ports, and each frame's receive queue as its flow id](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1171) — **os-xgs-npu**, 15 Nov
 <!-- merged ends -->
