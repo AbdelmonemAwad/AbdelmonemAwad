@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
+- [os-netreport: the failed-login help, as it now reads, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/79) — **opnsense-arabic**, 16 Nov
+- [os-netreport: the alert settings, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/78) — **opnsense-arabic**, 16 Nov
+- [Report texts: the four the security section asks for, in all 21 catalogues](https://github.com/AbdelmonemAwad/os-netreport/pull/48) — **os-netreport**, 16 Nov
+- [OPNsense 26.7.9 on the XGS 136 and the second XGS 3300: badges, compat.json, the machine pages](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1180) — **os-xgs-npu**, 16 Nov
 - [README: the banner and badges the planned plugins carry](https://github.com/AbdelmonemAwad/os-trafficpriority/pull/2) — **os-trafficpriority**, 16 Nov
 - [Phase 3, package 3.10: TACACS+ as a server type of System: Access: Servers, through FreeBSD's own libtacplus](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1175) — **os-xgs-npu**, 15 Nov
-- [os-xgs-npu: the TACACS+ server type, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/77) — **opnsense-arabic**, 15 Nov
-- [Phase 3, packages 3.2 to 3.9: a rule's tag kept out of hardware, router advertisements from listed senders, IPsec rekey margin and IPComp, a certificate import page, service aliases, a daily PPPoE reconnect, gateway alerts, read-only privileges](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1174) — **os-xgs-npu**, 15 Nov
-- [os-xgs-npu: phase 3's batch, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/76) — **opnsense-arabic**, 15 Nov
-- [XGS: Settings, "Inspection threads per port": netmap rings for the Intrusion Detection's ports, and each frame's receive queue as its flow id](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1171) — **os-xgs-npu**, 15 Nov
 <!-- merged ends -->
