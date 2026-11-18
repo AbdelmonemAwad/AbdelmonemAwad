@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [os-netreport: the failed-login help, as it now reads, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/79) — **opnsense-arabic**, 16 Nov
-- [os-netreport: the alert settings, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/78) — **opnsense-arabic**, 16 Nov
-- [Report texts: the four the security section asks for, in all 21 catalogues](https://github.com/AbdelmonemAwad/os-netreport/pull/48) — **os-netreport**, 16 Nov
-- [OPNsense 26.7.9 on the XGS 136 and the second XGS 3300: badges, compat.json, the machine pages](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1180) — **os-xgs-npu**, 16 Nov
-- [README: the banner and badges the planned plugins carry](https://github.com/AbdelmonemAwad/os-trafficpriority/pull/2) — **os-trafficpriority**, 16 Nov
-- [Phase 3, package 3.10: TACACS+ as a server type of System: Access: Servers, through FreeBSD's own libtacplus](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1175) — **os-xgs-npu**, 15 Nov
+- [octep, npuep: a connection taken out of hardware gives pf its last counts, with the tail from the reclaim's answer (#1189)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1191) — **os-xgs-npu**, 18 Nov
+- [Phase 1: each address mapped to the user its domain controller saw, and pf tables of the chosen groups and users](https://github.com/AbdelmonemAwad/os-useridentity/pull/1) — **os-useridentity**, 18 Nov
+- [Phase 1: each connection's application named by nDPI, and pf tables of the servers it names](https://github.com/AbdelmonemAwad/os-appcontrol/pull/1) — **os-appcontrol**, 18 Nov
+- [os-trafficpriority joins XGS: Updates, Problem Reports and About](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1187) — **os-xgs-npu**, 18 Nov
+- [Release 1.0.0](https://github.com/AbdelmonemAwad/os-trafficpriority/pull/4) — **os-trafficpriority**, 18 Nov
+- [Phase 1: classes of connections marked with a DSCP by pf, the mark kept in hardware on the XGS 3300](https://github.com/AbdelmonemAwad/os-trafficpriority/pull/3) — **os-trafficpriority**, 18 Nov
 <!-- merged ends -->
