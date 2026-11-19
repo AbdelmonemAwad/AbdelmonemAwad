@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
+- [Four faults the lab appliances' problem reports showed: the flows page's runs at once, the relay's reason, a port's lost link, a panic reported twice](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1199) — **os-xgs-npu**, 18 Nov
 - [octep, npuep: a connection taken out of hardware gives pf its last counts, with the tail from the reclaim's answer (#1189)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1191) — **os-xgs-npu**, 18 Nov
 - [Phase 1: each address mapped to the user its domain controller saw, and pf tables of the chosen groups and users](https://github.com/AbdelmonemAwad/os-useridentity/pull/1) — **os-useridentity**, 18 Nov
 - [Phase 1: each connection's application named by nDPI, and pf tables of the servers it names](https://github.com/AbdelmonemAwad/os-appcontrol/pull/1) — **os-appcontrol**, 18 Nov
 - [os-trafficpriority joins XGS: Updates, Problem Reports and About](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1187) — **os-xgs-npu**, 18 Nov
 - [Release 1.0.0](https://github.com/AbdelmonemAwad/os-trafficpriority/pull/4) — **os-trafficpriority**, 18 Nov
-- [Phase 1: classes of connections marked with a DSCP by pf, the mark kept in hardware on the XGS 3300](https://github.com/AbdelmonemAwad/os-trafficpriority/pull/3) — **os-trafficpriority**, 18 Nov
 <!-- merged ends -->
