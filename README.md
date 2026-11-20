@@ -44,6 +44,10 @@ Install OPNsense on a Sophos XGS and it boots with **no network interfaces at al
 > The repository went public on 25 September 2026; the work behind it took close to two years.
 > **[The whole story is on the site.](https://npuforge.org/story/)**
 
+https://github.com/user-attachments/assets/34088171-7f00-4428-b6f5-7cd9e24134f1
+
+<p align="center"><sub>The same film in full quality, with captions, <a href="https://www.youtube.com/watch?v=dABSIGbQ5IE">on YouTube</a>.</sub></p>
+
 <details>
 <summary>How each family is driven</summary>
 
