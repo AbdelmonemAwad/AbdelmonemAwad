@@ -133,10 +133,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [Four faults the lab appliances' problem reports showed: the flows page's runs at once, the relay's reason, a port's lost link, a panic reported twice](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1199) — **os-xgs-npu**, 18 Nov
-- [octep, npuep: a connection taken out of hardware gives pf its last counts, with the tail from the reclaim's answer (#1189)](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1191) — **os-xgs-npu**, 18 Nov
-- [Phase 1: each address mapped to the user its domain controller saw, and pf tables of the chosen groups and users](https://github.com/AbdelmonemAwad/os-useridentity/pull/1) — **os-useridentity**, 18 Nov
-- [Phase 1: each connection's application named by nDPI, and pf tables of the servers it names](https://github.com/AbdelmonemAwad/os-appcontrol/pull/1) — **os-appcontrol**, 18 Nov
-- [os-trafficpriority joins XGS: Updates, Problem Reports and About](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1187) — **os-xgs-npu**, 18 Nov
-- [Release 1.0.0](https://github.com/AbdelmonemAwad/os-trafficpriority/pull/4) — **os-trafficpriority**, 18 Nov
+- [Phase 2: blocked applications, cut at their window, in hardware first](https://github.com/AbdelmonemAwad/os-appcontrol/pull/2) — **os-appcontrol**, 20 Nov
+- [os-appcontrol phase 2: blocking an application and its cut, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/89) — **opnsense-arabic**, 20 Nov
+- [Phase 1: quotas per host by volume and time, the block and the cut at the read that blocks](https://github.com/AbdelmonemAwad/os-quota/pull/1) — **os-quota**, 20 Nov
+- [os-quota phase 1: quotas per host by volume and time, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/88) — **opnsense-arabic**, 20 Nov
+- [lists_cut.py: a list taken out of the watch and put back cuts what it names again](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1202) — **os-xgs-npu**, 20 Nov
+- [Phase 2: RADIUS accounting and the captive portal as sources, a clash between sources shown](https://github.com/AbdelmonemAwad/os-useridentity/pull/2) — **os-useridentity**, 20 Nov
 <!-- merged ends -->
