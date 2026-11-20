@@ -16,7 +16,7 @@ Hi, I'm Abdelmonem. I build self-hosted software for hardware that is supposed t
 
 Install OPNsense on a Sophos XGS and it boots with **no network interfaces at all**: every front port belongs to a coprocessor behind PCIe, with drivers for Linux and the vendor's own OS only. **[os-xgs-npu](https://github.com/AbdelmonemAwad/os-xgs-npu)** is the FreeBSD drivers and the OPNsense plugin that hand those ports back, then give the coprocessor the firewall's own connections and IPsec, so they no longer cross the host. Two of the six coprocessor families answer now.
 
-**[npuforge.org](https://npuforge.org)** · [the guide](https://npuforge.org/docs/guide/step-by-step/) · [ready-made images](https://build.npuforge.org) · [releases](https://github.com/AbdelmonemAwad/os-xgs-npu/releases) · [the story](https://npuforge.org/story/) · [videos on YouTube](https://www.youtube.com/@npuforge) · [in Arabic](https://npuforge.org/ar/)
+**[npuforge.org](https://npuforge.org)** · [the guide](https://npuforge.org/docs/guide/step-by-step/) · [ready-made images](https://npuforge.org/build/) · [releases](https://github.com/AbdelmonemAwad/os-xgs-npu/releases) · [the story](https://npuforge.org/story/) · [videos on YouTube](https://www.youtube.com/@npuforge) · [in Arabic](https://npuforge.org/ar/)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://npuforge.org/readme/status-dark.svg">
@@ -38,8 +38,8 @@ Install OPNsense on a Sophos XGS and it boots with **no network interfaces at al
 
 - **Fast, and still a firewall.** Block lists, JA4 fingerprints, IPsec policies, the Traffic Shaper and the Captive Portal still decide over a connection in hardware, and with Inspect, then hardware, Suricata sees each connection's start before the coprocessor carries the rest.
 - **Two roads onto an appliance.** A ready-made image with every release, or one built to order in the browser, and a guide from nothing to the first sign-in. Updates come from its own page in OPNsense.
-- **Owners run it too.** It is an alpha: the XGS 136 and the XGS 3300 run here, an XGS 126 runs for two owners, and every other model installs and checks its own ports, untested until someone reports back. [Tell me how yours goes.](https://github.com/AbdelmonemAwad/os-xgs-npu/issues/new?template=appliance.yml)
-- **It keeps its own score.** Every figure has a page saying how it was measured, and the completion figures went down when the discoveries were found. Both appliances stand at 96 %.
+- **Owners run it too.** It is an alpha: the XGS 136 and the XGS 3300 run here, the XGS 107, 126, 2100 and 3100 run for their owners, and every other model installs and checks its own ports, untested until someone reports back. [Tell me how yours goes.](https://github.com/AbdelmonemAwad/os-xgs-npu/issues/new?template=appliance.yml)
+- **It keeps its own score.** Every figure has a page saying how it was measured, and the completion figures went down when the discoveries were found. Both appliances stand at 97 %.
 
 > The repository went public on 25 September 2026; the work behind it took close to two years.
 > **[The whole story is on the site.](https://npuforge.org/story/)**
@@ -65,26 +65,31 @@ Install OPNsense on a Sophos XGS and it boots with **no network interfaces at al
 
 ## OPNsense plugins
 
-Ten plugins, BSD-2 licensed and packaged as FreeBSD ports. Each works on its own. With os-xgs-npu installed, their pages join the XGS section of the menu, and the project's own update keeps them current and adds the ones that suit the appliance.
+Fifteen plugins, BSD-2 licensed and packaged as FreeBSD ports. Each works on its own. With os-xgs-npu installed, their pages join the XGS section of the menu, and the project's own update keeps them current and adds the ones that suit the appliance.
 
 <div align="center">
 
 | Plugin | What it does |
 |:---:|:---|
 | **[os-linkhealth](https://github.com/AbdelmonemAwad/os-linkhealth)** | names the cable or transceiver that is going bad, before the link drops |
-| **[os-netreport](https://github.com/AbdelmonemAwad/os-netreport)** | scheduled network reports and new-device alerts by email, in the GUI's language |
+| **[os-netreport](https://github.com/AbdelmonemAwad/os-netreport)** | scheduled network reports by email or as a file, and alerts by email, webhook or ntfy, in the GUI's language |
 | **[os-frontpanel](https://github.com/AbdelmonemAwad/os-frontpanel)** | the appliance's LCD and buttons, through LCDproc |
 | **[os-fanctl](https://github.com/AbdelmonemAwad/os-fanctl)** | fan control and every readable temperature sensor |
 | **[os-theme-xgs](https://github.com/AbdelmonemAwad/os-theme-xgs)** | XGS Silicon: a light, a dark and an automatic theme, Arabic included |
 | **[os-kernelfollow](https://github.com/AbdelmonemAwad/os-kernelfollow)** | rebuilds an out-of-tree driver for the new kernel before an update's reboot |
 | **[os-watchdog](https://github.com/AbdelmonemAwad/os-watchdog)** | arms the host's hardware watchdog, and reads why it last reset |
 | **[os-fallbackcrypto](https://github.com/AbdelmonemAwad/os-fallbackcrypto)** | chooses the kernel's crypto driver for the tunnels the host carries itself |
-| **[os-blocklists](https://github.com/AbdelmonemAwad/os-blocklists)** | address, DNS, country and JA4 block lists on one page |
-| **[os-portguard](https://github.com/AbdelmonemAwad/os-portguard)** | Layer 2 rules: a device blocked by its MAC address |
+| **[os-blocklists](https://github.com/AbdelmonemAwad/os-blocklists)** | address, DNS, country, JA4 and web-category block lists on one page, with command-and-control connections cut in hardware |
+| **[os-portguard](https://github.com/AbdelmonemAwad/os-portguard)** | Layer 2 rules: a device blocked by its MAC address, and an optional isolation of one that reaches a command-and-control list |
+| **[os-trafficpriority](https://github.com/AbdelmonemAwad/os-trafficpriority)** | priority classes for chosen traffic, kept in the coprocessor's and the switch's own queues |
+| **[os-appcontrol](https://github.com/AbdelmonemAwad/os-appcontrol)** | names the application behind each connection with nDPI, and blocks it, cut in hardware first |
+| **[os-useridentity](https://github.com/AbdelmonemAwad/os-useridentity)** | who is behind an address, from Active Directory, RADIUS and the captive portal, as pf tables per user and group |
+| **[os-quota](https://github.com/AbdelmonemAwad/os-quota)** | volume and time quotas per host, enforced by a block at the limit |
+| **[os-modsecurity](https://github.com/AbdelmonemAwad/os-modsecurity)** | a web application firewall for published sites: ModSecurity and the OWASP Core Rule Set |
 
 </div>
 
-Planned: [traffic priority](https://github.com/AbdelmonemAwad/os-trafficpriority).
+Planned, opened on 16 November: [TLS inspection](https://github.com/AbdelmonemAwad/os-tlsinspect), [a configuration audit](https://github.com/AbdelmonemAwad/os-configaudit), [who is online](https://github.com/AbdelmonemAwad/os-whoisonline), [file types](https://github.com/AbdelmonemAwad/os-filetypes), [a policy per hotspot zone](https://github.com/AbdelmonemAwad/os-hotspotpolicy), [OpenWISP](https://github.com/AbdelmonemAwad/os-openwisp), [PIM-SM multicast routing](https://github.com/AbdelmonemAwad/os-pimd), [sandbox submission](https://github.com/AbdelmonemAwad/os-sandbox), [sFlow](https://github.com/AbdelmonemAwad/os-sflow) and [clientless access](https://github.com/AbdelmonemAwad/os-clientless).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
