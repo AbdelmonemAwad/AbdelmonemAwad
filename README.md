@@ -142,10 +142,10 @@ Questions about the XGS drivers are best asked in [the project's Discussions](ht
 ## Recently merged
 
 <!-- merged starts -->
-- [Phase 2: blocked applications, cut at their window, in hardware first](https://github.com/AbdelmonemAwad/os-appcontrol/pull/2) — **os-appcontrol**, 20 Nov
-- [os-appcontrol phase 2: blocking an application and its cut, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/89) — **opnsense-arabic**, 20 Nov
-- [Phase 1: quotas per host by volume and time, the block and the cut at the read that blocks](https://github.com/AbdelmonemAwad/os-quota/pull/1) — **os-quota**, 20 Nov
-- [os-quota phase 1: quotas per host by volume and time, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/88) — **opnsense-arabic**, 20 Nov
-- [lists_cut.py: a list taken out of the watch and put back cuts what it names again](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1202) — **os-xgs-npu**, 20 Nov
-- [Phase 2: RADIUS accounting and the captive portal as sources, a clash between sources shown](https://github.com/AbdelmonemAwad/os-useridentity/pull/2) — **os-useridentity**, 20 Nov
+- [Site: a badge its host does not serve is taken from its last good copy](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1209) — **os-xgs-npu**, 21 Nov
+- [install.sh installs Apache and ModSecurity where they are not there](https://github.com/AbdelmonemAwad/os-modsecurity/pull/2) — **os-modsecurity**, 20 Nov
+- [Release 0.2.0-alpha.1](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1207) — **os-xgs-npu**, 20 Nov
+- [The plan's new plugins join XGS: Updates, Problem Reports and About](https://github.com/AbdelmonemAwad/os-xgs-npu/pull/1206) — **os-xgs-npu**, 20 Nov
+- [Phase 1: sites behind a web application firewall - ModSecurity and the OWASP Core Rule Set](https://github.com/AbdelmonemAwad/os-modsecurity/pull/1) — **os-modsecurity**, 20 Nov
+- [os-modsecurity phase 1: sites published through ModSecurity and the Core Rule Set, in Arabic](https://github.com/AbdelmonemAwad/opnsense-arabic/pull/92) — **opnsense-arabic**, 20 Nov
 <!-- merged ends -->
